@@ -1,0 +1,22 @@
+const webpack = require('webpack');
+const path = require('path');
+const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    mode: 'development',
+    devtool: 'cheap-module-source-map',
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env.name': JSON.stringify('Metal Brain')
+        }),
+        new RefreshWebpackPlugin(),
+    ],
+    devServer: {
+        compress: true,
+        open: true,
+        hot: true,
+        port: 8080,
+        historyApiFallback: true,
+    },
+}
