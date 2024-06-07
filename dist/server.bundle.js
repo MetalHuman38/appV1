@@ -1,0 +1,1 @@
+(()=>{"use strict";var r={252:r=>{r.exports=require("express")}},e={};function o(t){var s=e[t];if(void 0!==s)return s.exports;var n=e[t]={exports:{}};return r[t](n,n.exports,o),n.exports}(()=>{const r=o(252)();r.get("/",((r,e)=>{e.send("Hello World!!")})),r.listen(8081,(()=>{console.log("Server running on port 8081")}))})()})();

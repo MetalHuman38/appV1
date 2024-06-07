@@ -10,3 +10,5 @@ export const ClickCounter = () => {
     </div>
   );
 };
+
+export default ClickCounter;

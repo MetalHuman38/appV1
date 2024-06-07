@@ -1,20 +1,19 @@
 {
-    "compilerOptions": {
-        "target": "ES2020",
-        "module": "ESNext",
-        "moduleResolution": "node",
-        "lib": ["ES2020", "DOM", "DOM.Iterable", "ESNext"],
-        "jsx": "react-jsx",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true,
-    },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules"]
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "lib": ["es6", "DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "exclude": ["node_modules"]
 }

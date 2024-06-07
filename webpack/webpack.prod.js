@@ -1,5 +1,5 @@
-const { plugin } = require('postcss');
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     mode: 'production',
@@ -7,7 +7,8 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'process.env.name': JSON.stringify('Metal Production Mode')
-        })
+        }),
+        new BundleAnalyzerPlugin()
     ],
     devServer: {
         open: true,
