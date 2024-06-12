@@ -1,9 +1,19 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "jsx": "preserve",
     "outDir": "./dist",
-    "module": "commonjs",
-    "target": "es2017"
+    "module": "es2022",
+    "target": "es2020",
+    "noEmit": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "lib": ["es2017"],
+    "rootDir": "./src/server",
+    "paths": {
+      "@/*": ["src/server/*"]
+    },
+    "typeRoots": ["node_modules/@types", "src/server/@types"]
   },
   "include": ["src/server/**/*"]
 }

@@ -1,13 +1,17 @@
-import { Request, Response } from 'express';
-const express = require('express');
-const app = express();
+import express from 'express';
+import { env } from './config';
 
-const port = 8081;
+async function StartServer() {
+  const app = express();
+  (await import('./loaders/index.js')).default({ app });
+  app
+    .listen(env.PORT, () =>
+      console.log(`Server started on port Test ${env.PORT}`),
+    )
+    .on('error', error => {
+      console.error(error);
+      process.exit(1);
+    });
+}
 
-app.get('/', (_req: Request, res: Response) => {
-  res.send('Hello World!!');
-});
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+StartServer();
