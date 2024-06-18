@@ -1,11 +1,12 @@
 // Export corOptions object with origin and optionsSuccessStatus properties
-import { env } from './index';
+require('dotenv').config();
+import { corsENV } from './corsEVN';
 
 const corOptions = {
-  origin: env.CORS_ORIGIN,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS',
-  credentials: true,
-  optionsSuccessStatus: env.RESPONSE_CODE,
+  origin: corsENV.CORS_ORIGIN,
+  methods: corsENV.CORS_METHODS,
+  credentials: corsENV.CORS_CREDENTIALS,
+  optionsSuccessStatus: corsENV.CORS_OPTIONS_SUCCESS_STATUS,
 };
 
 export { corOptions };

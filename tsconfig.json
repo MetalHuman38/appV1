@@ -7,7 +7,6 @@
     "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
-    "composite": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
@@ -24,13 +23,14 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "baseUrl": "./src",
+    // Shadcn
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["./src/*"]
     },
-    "typeRoots": ["node_modules/@types", "./src/types"],
     "types": ["node", "react", "react-dom"],
     "pretty": true
   },
+  "include": ["./src/**/*", "./server/**/*"],
   "exclude": ["node_modules"]
 }

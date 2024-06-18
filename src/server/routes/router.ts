@@ -1,13 +1,29 @@
 import express from 'express';
-import cors from 'cors';
 import { env } from '../config/index';
-import { corOptions } from '../config/corOptions';
-import { getAllData } from '../models/testdb';
-import { getAllColumns } from '../models/testdb';
+import authRoutes from './authRoutes';
+import currentUserRoute from './currentUserRoute';
+import userRoutes from './userRoutes';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 
 const router = express.Router();
 
-router.use(cors(corOptions));
+router.use((_req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept',
+  );
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
+// app.use(express.urlencoded({ extended: false }));
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(cookieParser());
+router.use(express.json());
+router.use(bodyParser.json());
 
 router.get('/', (_req, res) => {
   res.send({
@@ -17,30 +33,10 @@ router.get('/', (_req, res) => {
   });
 });
 
-router.get('/api/tables', async (_req, res) => {
-  try {
-    const columns = await getAllColumns('userRegistration');
-    res.send({
-      tables: columns,
-    });
-  } catch (error) {
-    // Handle the error here
-    console.error(error);
-    res.status(500).send('Internal Server Error');
-  }
-});
+router.use(authRoutes);
 
-router.get('/api/data', async (_req, res) => {
-  try {
-    const data = await getAllData();
-    res.send({
-      data: data,
-    });
-  } catch (error) {
-    // Handle the error here
-    console.error(error);
-    res.status(500).send('Internal Server Error');
-  }
-});
+router.use(userRoutes);
+
+router.use(currentUserRoute);
 
 export { router };

@@ -1,28 +1,31 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  darkMode: ['class'], 
+  darkMode: ['class'],
   content: [
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
-    './src/**/*.{html,js,jsx,ts,tsx}',
+    './src/**/*.{ts,tsx}',
   ],
   theme: {
     container: {
       center: true,
       padding: '2rem',
-     screens: {
-      '2xl': '1400px',
-    },
+      screens: {
+        '2xl': '1400px',
+      },
     },
     extend: {
       colors: {
-        'primary-500': '#EBEBD3',
+        'primary-500': '#877EFF',
         'primary-600': '#5D5FEF',
         'primary-700': '#1E1E24',
         'primary-400': '#1F2232',
         'secondary-500': '#FFB620',
         'off-white': '#D0DFFF',
-        'red': '#FF5A5A',
+        red: '#FF5A5A',
         'dark-1': '#000000',
         'dark-2': '#09090A',
         'dark-3': '#101012',
@@ -37,11 +40,11 @@ module.exports = {
         'light-8': '#FC2F00',
       },
       screens: {
-        'xs': '480px',
+        xs: '480px',
       },
       width: {
-        '420': '420px',
-        '465': '465px',
+        420: '420px',
+        465: '465px',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
@@ -62,6 +65,5 @@ module.exports = {
       },
     },
   },
-  plugins: [import('tailwindcss-animate')],
-}
-
+  plugins: [require('tailwindcss-animate')],
+};

@@ -1,10 +1,9 @@
-import { Sequelize } from '@sequelize/core';
-import { MariaDbDialect } from '@sequelize/mariadb';
+import { Sequelize, Dialect } from 'sequelize';
 import { databaseENV } from '../../config/databaseENV';
 import fs from 'node:fs';
 
 interface DBConfig {
-  dialect: typeof MariaDbDialect;
+  Dialect: Dialect;
   host: string;
   username: string;
   password: string;
@@ -34,7 +33,7 @@ interface DBConfig {
 }
 
 const dbConfig: DBConfig = {
-  dialect: MariaDbDialect,
+  Dialect: 'mariadb',
   host: databaseENV.DB_HOST || 'localhost',
   username: databaseENV.DB_USER || 'metalbrain',
   password: databaseENV.DB_PASS || 'password',
@@ -67,25 +66,18 @@ const dbConfig: DBConfig = {
 
 export function createSequelizeInstance(): Sequelize {
   // Create a new Sequelize instance
-  const sequelize = new Sequelize({
-    dialect: dbConfig.dialect,
-    host: dbConfig.host,
-    user: dbConfig.username,
-    password: dbConfig.password,
-    database: dbConfig.database,
-    socketPath: dbConfig.socketPath,
-    socketTimeout: dbConfig.socketTimeout,
-    compress: dbConfig.compress,
-    debug: dbConfig.debug,
-    permitLocalInfile: dbConfig.permitLocalInfile,
-    trace: dbConfig.trace,
-    showWarnings: dbConfig.debug,
-    checkDuplicate: dbConfig.checkDuplicate,
-    connectAttributes: dbConfig.connectAttributes,
-    port: dbConfig.port,
-    ssl: dbConfig.ssl,
-    connectTimeout: dbConfig.connectionTimeout,
-  });
+  const sequelize = new Sequelize(
+    dbConfig.database,
+    dbConfig.username,
+    dbConfig.password,
+    {
+      host: dbConfig.host,
+      dialect: dbConfig.Dialect,
+      port: dbConfig.port,
+      ssl: dbConfig.ssl,
+      dialectOptions: dbConfig.dialectOptions,
+    },
+  );
   return sequelize;
 }
 

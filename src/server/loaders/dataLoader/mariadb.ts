@@ -1,5 +1,5 @@
-import { createSequelizeInstance } from './sequilizeCon.js';
-import { Sequelize } from '@sequelize/core';
+import { createSequelizeInstance } from './sequilizeCon';
+import { Sequelize } from 'sequelize';
 
 export async function waitForDB(): Promise<Sequelize> {
   const sequelize = createSequelizeInstance();
@@ -13,10 +13,11 @@ export async function waitForDB(): Promise<Sequelize> {
       // Test the connection
       await sequelize.authenticate();
       console.log('Database connection established, Starting Server.....');
+
       // Sync the database
-      await sequelize.sync({ force: false });
+      await sequelize.sync({ force: true });
       console.log('Drop and re-sync db.');
-      return sequelize;
+      return sequelize; // Return the Sequelize instance
     } catch (error) {
       console.error('Database connection failed:', error);
       attempts++;
@@ -24,12 +25,8 @@ export async function waitForDB(): Promise<Sequelize> {
     }
   }
 
-  if (attempts === maxAttempts) {
-    console.error('Max attempts reached, database connection failed');
-    throw new Error('Database connection failed');
-  } else {
-    return sequelize;
-  }
+  console.error('Max attempts reached, database connection failed');
+  throw new Error('Database connection failed');
 }
 
 export default { waitForDB };

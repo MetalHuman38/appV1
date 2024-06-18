@@ -1,93 +1,52 @@
-import {
-  DataTypes,
-  Model,
-  InferAttributes,
-  InferCreationAttributes,
-  CreationOptional,
-} from '@sequelize/core';
-import {
-  Attribute,
-  PrimaryKey,
-  AutoIncrement,
-  NotNull,
-  Default,
-  Unique,
-} from '@sequelize/core/decorators-legacy';
-import { Table } from '@sequelize/core/decorators-legacy';
+import { DataTypes, Model, Optional } from 'sequelize';
 import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon';
-import { userRegistration } from './userRegister.model';
+
+interface UserAttributes {
+  id: number;
+  firstName: string | null;
+  lastName: string | null;
+  username: string;
+  email: string;
+  hashedpassword: string;
+  bio: string | null;
+  status: string | null;
+  join: Date | undefined;
+  avatarUrl: string | null;
+  imageURL: string | null;
+  profilePic: string | null;
+  label: string | null;
+  last_activity: Date | undefined;
+  updated_at: Date | undefined;
+  UserRegistrationID: number | null;
+}
+
+interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
 // Define Instance of Sequelize
 const sequelize = createSequelizeInstance();
 
-@Table({
-  underscored: true,
-})
-export class User extends Model<
-  InferAttributes<User>,
-  InferCreationAttributes<User>
-> {
-  @PrimaryKey
-  @AutoIncrement
-  @Attribute(DataTypes.INTEGER)
-  declare id: CreationOptional<number>;
-
-  @NotNull
-  @Attribute(DataTypes.STRING)
-  declare firstName: CreationOptional<string>;
-
-  @NotNull
-  @Attribute(DataTypes.STRING)
-  declare lastName: CreationOptional<string>;
-
-  @NotNull
-  @Attribute(DataTypes.STRING)
-  declare username: CreationOptional<string>;
-
-  @NotNull
-  @Unique
-  @Attribute(DataTypes.STRING)
-  declare email: CreationOptional<string>;
-
-  @NotNull
-  @Attribute(DataTypes.STRING)
-  declare hashedpassword: string | null;
-
-  @Default('unverified')
-  @Attribute(DataTypes.STRING)
+class User extends Model<UserAttributes, UserCreationAttributes> {
+  declare id: number;
+  declare firstName: string | null;
+  declare lastName: string | null;
+  declare username: string;
+  declare email: string;
+  declare hashedpassword: string;
   declare status: string | null;
-
-  @Default('This is a new user.')
-  @Attribute(DataTypes.STRING)
-  declare bio: CreationOptional<string>;
-
-  @Default(DataTypes.NOW)
-  @Attribute(DataTypes.DATE)
+  declare bio: string | null;
   declare join: Date | undefined;
-
-  @Attribute(DataTypes.STRING)
   declare avatarUrl: string | null;
-
-  @Attribute(DataTypes.STRING)
   declare imageURL: string | null;
-
-  @Attribute(DataTypes.STRING)
   declare profilePic: string | null;
-
-  @Default('New User')
-  @Attribute(DataTypes.STRING)
-  declare label: CreationOptional<string>;
-
-  @Default(DataTypes.NOW)
-  @Attribute(DataTypes.DATE)
+  declare label: string | null;
   declare last_activity: Date | undefined;
-
-  @Default(DataTypes.NOW)
-  @Attribute(DataTypes.DATE)
   declare updated_at: Date | undefined;
+  declare UserRegistrationID: number | null;
 
-  @Attribute(DataTypes.INTEGER)
-  declare userRegistrationID: number | null;
+  // declare static methods to get user by ID
+  static async getUserByID(id: number): Promise<User | null> {
+    return await this.findOne({ where: { id: id } });
+  }
 }
 
 // Sync the model with the database
@@ -168,11 +127,11 @@ User.init(
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
     },
-    userRegistrationID: {
-      type: DataTypes.INTEGER,
+    UserRegistrationID: {
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
-        model: userRegistration,
+        model: 'UserRegistration',
         key: 'id',
       },
     },
@@ -180,16 +139,10 @@ User.init(
   {
     sequelize,
     modelName: 'User',
-    timestamps: true,
+    timestamps: false,
     updatedAt: 'updated_at',
-    createdAt: 'created_at',
   },
 );
-
-// Add User model to the sequelize instance
-sequelize.addModels([User]);
-
-await User.sync({ force: true });
 
 // Sync User model with the database
 await sequelize
@@ -200,3 +153,5 @@ await sequelize
   .catch(err => {
     console.error('Error syncing new user:', err);
   });
+
+export default User;

@@ -5,7 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', './src/client/main.tsx'),
+  entry: path.resolve(__dirname, '..', './src/main.tsx'),
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
@@ -59,10 +59,10 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: path.resolve(__dirname, '..', './src/client/index.html'),
+      template: path.resolve(__dirname, '..', './src/index.html'),
     }),
     new CopyPlugin({
-      patterns: [{ from: 'public', to: 'assets' }],
+      patterns: [{ from: 'public', to: '' }],
     }),
   ],
 };

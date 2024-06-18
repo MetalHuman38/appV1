@@ -1,5 +1,8 @@
+import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
-import { jwtENV } from '@/server/config/jwtENV';
+import { jwtENV } from '../../config/jwtENV';
+
+dotenv.config();
 
 export const jwtGenerator = (payload: any): string => {
   try {
@@ -12,7 +15,7 @@ export const jwtGenerator = (payload: any): string => {
     throw new Error('Error generating JWT');
   }
 };
-                                                                                                                                                                                         
+
 export const jwtVerifier = (token: string): any => {
   try {
     return jwt.verify(token, jwtENV.JWT_SECRET as string);

@@ -11,7 +11,7 @@
     "lib": ["es2017"],
     "rootDir": "./src/server",
     "paths": {
-      "@/*": ["src/server/*"]
+      "@/*": ["src/server/**/*"]
     },
     "typeRoots": ["node_modules/@types", "src/server/@types"]
   },

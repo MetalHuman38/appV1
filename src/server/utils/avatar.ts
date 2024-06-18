@@ -21,7 +21,3 @@ export function generateAvatarUrl(name: string): string {
   const baseUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(initials)}&size=${size}&background=${backgroundColor}&color=${textColor}`;
   return baseUrl;
 }
-// Example usage
-const userName = 'John Doe';
-const avatarUrl = generateAvatarUrl(userName);
-console.log(avatarUrl); // Output: "https://www.gravatar.com/avatar/<hash>?s=200&d=identicon"
