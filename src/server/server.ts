@@ -51,7 +51,7 @@ async function StartServer() {
         }
         return compression.filter(req, res);
       },
-      level: env.COMPRESSION_LEVEL || 6,
+      level: env.COMPRESSION_LEVEL || 9,
       threshold: env.COMPRESSION_THRESHOLD || 1024,
     }),
   );

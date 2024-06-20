@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import express, { NextFunction } from 'express';
 import cors from 'cors';
 import { Request, Response } from 'express';
-import User from '../models/user.model';
+import Users from '../models/user.model';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import { verifyUser } from '../loaders/auth/userAuth';
@@ -51,7 +51,7 @@ router.get(
         }
 
         try {
-          const user = await User.findByPk(decodedToken.id);
+          const user = await Users.findByPk(decodedToken.id);
           if (!user) {
             res.status(400).json({ message: 'User ID is required' });
             return;

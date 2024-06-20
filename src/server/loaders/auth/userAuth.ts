@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import { jwtENV } from '../../config/jwtENV';
 import { Request, Response, NextFunction } from 'express';
-import User from '../../models/user.model';
+import Users from '../../models/user.model';
 import { jwtVerifier } from './jwtGenerator';
 
 dotenv.config();
@@ -20,7 +20,7 @@ export const getCurrentUser = async (req: Request, res: Response) => {
       res.status(400).json({ message: 'User ID is required' });
       return;
     }
-    const user = await User.findByPk(userId);
+    const user = await Users.findByPk(userId);
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
@@ -55,7 +55,7 @@ export const verifyUser = async (
         }
 
         try {
-          const user = await User.findByPk(decodedToken.id);
+          const user = await Users.findByPk(decodedToken.id);
           console.log('decodedToken:', decodedToken);
           if (user) {
             res.locals.user = user;

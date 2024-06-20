@@ -25,7 +25,7 @@ interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 // Define Instance of Sequelize
 const sequelize = createSequelizeInstance();
 
-class User extends Model<UserAttributes, UserCreationAttributes> {
+class Users extends Model<UserAttributes, UserCreationAttributes> {
   declare id: number;
   declare firstName: string | null;
   declare lastName: string | null;
@@ -44,13 +44,13 @@ class User extends Model<UserAttributes, UserCreationAttributes> {
   declare UserRegistrationID: number | null;
 
   // declare static methods to get user by ID
-  static async getUserByID(id: number): Promise<User | null> {
+  static async getUserByID(id: number): Promise<Users | null> {
     return await this.findOne({ where: { id: id } });
   }
 }
 
 // Sync the model with the database
-User.init(
+Users.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -138,7 +138,7 @@ User.init(
   },
   {
     sequelize,
-    modelName: 'User',
+    modelName: 'Users',
     timestamps: false,
     updatedAt: 'updated_at',
   },
@@ -154,4 +154,4 @@ await sequelize
     console.error('Error syncing new user:', err);
   });
 
-export default User;
+export default Users;

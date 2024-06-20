@@ -2,7 +2,7 @@ import { DataTypes, Model, Optional } from 'sequelize';
 import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon';
 import bcrypt from 'bcrypt';
 import { generateAvatarUrl } from '../utils/avatar';
-import User from './user.model';
+import Users from './user.model';
 
 interface UserAttributes {
   id: number;
@@ -120,7 +120,7 @@ UserRegistration.afterCreate(async (user: UserRegistration) => {
       const avatar = generateAvatarUrl(user.username);
 
       // Create or update the user record in the Users table
-      await User.upsert({
+      await Users.upsert({
         firstName: first_Name,
         lastName: lastName,
         username: user.username,

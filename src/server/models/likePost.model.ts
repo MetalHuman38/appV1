@@ -127,14 +127,4 @@ Likes.sync({ force: true })
     console.error('Error syncing like:', err);
   });
 
-// Sync the User model with the database
-await sequelize
-  .sync()
-  .then(() => {
-    console.log('New Like synced successfully');
-  })
-  .catch(err => {
-    console.error('Error syncing new like:', err);
-  });
-
 export default Likes;

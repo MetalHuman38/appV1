@@ -1,6 +1,6 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon';
-import User from './user.model.js';
+import Users from './user.model.js';
 
 interface PostAttributes {
   id: number;
@@ -18,7 +18,7 @@ interface PostCreationAttributes extends Optional<PostAttributes, 'id'> {}
 // Define Instance of Sequelize
 const sequelize = createSequelizeInstance();
 
-class Post extends Model<PostAttributes, PostCreationAttributes> {
+class Posts extends Model<PostAttributes, PostCreationAttributes> {
   declare id: number;
   declare caption: string;
   declare imageURL: string | null;
@@ -29,18 +29,29 @@ class Post extends Model<PostAttributes, PostCreationAttributes> {
   declare creator_Id: number;
 
   // create a static method to create a new post
-  static async createPost(attributes: PostCreationAttributes): Promise<Post> {
+  static async createPost(attributes: PostCreationAttributes): Promise<Posts> {
     return await this.create(attributes);
   }
 
+  static async updatePost(
+    id: number,
+    attributes: PostAttributes,
+  ): Promise<[number, Posts[]]> {
+    const [affectedCount, updatedPosts] = await this.update(attributes, {
+      where: { id },
+      returning: true,
+    });
+    return [affectedCount, updatedPosts as Posts[]];
+  }
+
   // declare static methods to get post by ID
-  static async getPostByID(id: number): Promise<Post | null> {
+  static async getPostByID(id: number): Promise<Posts | null> {
     return await this.findOne({ where: { id: id } });
   }
 }
 
 // Sync the model with the database
-Post.init(
+Posts.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -72,52 +83,71 @@ Post.init(
       allowNull: true,
     },
     creator_Id: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'User',
+        model: 'Users',
         key: 'id',
       },
     },
   },
   {
     sequelize,
-    tableName: 'Post',
-    timestamps: true,
-    freezeTableName: true,
+    modelName: 'Posts',
+    timestamps: false,
   },
 );
 
-// Define the relationship between the User and Post models
-User.hasMany(Post, {
-  foreignKey: 'creator_Id',
-  onDelete: 'CASCADE',
-  onUpdate: 'CASCADE',
-});
-
-Post.belongsTo(User, {
-  foreignKey: 'creator_Id',
-  onDelete: 'CASCADE',
-  onUpdate: 'CASCADE',
-});
-
-Post.sync({ force: true })
-  .then(() => {
-    console.log('Posts synced successfully');
-  })
-  .catch(err => {
-    console.error('Error syncing Posts:', err);
-  });
-
-async () => {
-  await sequelize
-    .sync({ force: true })
-    .then(() => {
-      console.log('New Posts synced successfully');
-    })
-    .catch(err => {
-      console.error('Error syncing new Posts:', err);
-    });
+// Create new post
+Posts.createPost = async function (
+  attributes: PostCreationAttributes,
+): Promise<Posts> {
+  try {
+    const newPost = await this.create(attributes);
+    return newPost;
+  } catch (error) {
+    console.error('Error creating new post:', error);
+    throw error;
+  }
 };
 
-export default Post;
+// Update post by ID
+Posts.updatePost = async function (
+  id: number,
+  attributes: PostAttributes,
+): Promise<[number, Posts[]]> {
+  try {
+    const [affectedCount, updatedPosts] = await this.update(attributes, {
+      where: { id },
+      returning: true,
+    });
+    return [affectedCount, updatedPosts as Posts[]];
+  } catch (error) {
+    console.error('Error updating post:', error);
+    throw error;
+  }
+};
+
+// Define the relationship between the User and Post models
+Users.hasMany(Posts, {
+  foreignKey: 'creator_Id',
+  onDelete: 'CASCADE',
+  onUpdate: 'CASCADE',
+});
+
+Posts.belongsTo(Users, {
+  foreignKey: 'creator_Id',
+  onDelete: 'CASCADE',
+  onUpdate: 'CASCADE',
+});
+
+await sequelize
+  .sync({ alter: false })
+  .then(() => {
+    console.log('Post synced successfully');
+  })
+  .catch(err => {
+    console.error('Error syncing Post:', err);
+  });
+
+export default Posts;

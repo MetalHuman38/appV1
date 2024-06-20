@@ -1,7 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon';
-import User from './user.model.js';
-import Post from './post.model.js';
+import Users from './user.model.js';
+import Posts from './post.model.js';
 
 interface SavesAttributes {
   id: number;
@@ -58,7 +58,7 @@ Saves.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: User,
+        model: Users,
         key: 'id',
       },
     },
@@ -84,13 +84,13 @@ Saves.init(
 );
 
 // Create relationship between Saves and Users
-Saves.belongsTo(User, {
+Saves.belongsTo(Users, {
   foreignKey: 'user_id',
   targetKey: 'id',
 });
 
 // Create relationship between Saves and Posts
-Saves.belongsTo(Post, {
+Saves.belongsTo(Posts, {
   foreignKey: 'post_id',
   targetKey: 'id',
 });
@@ -101,16 +101,6 @@ Saves.sync({ force: true })
   })
   .catch(err => {
     console.error('Error syncing Save post:', err);
-  });
-
-// Sync the User model with the database
-sequelize
-  .sync()
-  .then(() => {
-    console.log('New save synced successfully');
-  })
-  .catch(err => {
-    console.error('Error syncing new user:', err);
   });
 
 export default Saves;

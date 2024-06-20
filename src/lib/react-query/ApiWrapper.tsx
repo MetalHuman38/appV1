@@ -137,6 +137,10 @@ export const logOutUserMutation = async (): Promise<any> => {
 // Wrapper function around createPostMutation that accepts post data
 export const createPostMutation = async (post: INewPost): Promise<any> => {
   try {
+    const jwt = sessionStorage.getItem('jwt');
+    if (jwt) {
+      axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
+    }
     const response = await axiosInstance.post('/api/createPost', post, {
       headers: {
         'Content-Type': 'application/json',
@@ -153,7 +157,7 @@ export const createPostMutation = async (post: INewPost): Promise<any> => {
 // Wrapper function around to upload image and attach user and post id
 export const uploadImageMutation = async (formData: FormData): Promise<any> => {
   try {
-    const response = await axiosInstance.post('/api/upload', formData, {
+    const response = await axiosInstance.post('/api/uploadImage', formData, {
       headers: {
         'Custom-Header': 'image',
         'Content-Type': 'multipart/form-data',
@@ -173,6 +177,7 @@ export const getPreviewImageUrlMutation = async (): Promise<any> => {
   try {
     const response = await axiosInstance.get('/api/sendImageUrl', {
       headers: {
+        'Custom-Header': 'image',
         'Content-Type': 'application/json',
       },
       withCredentials: true,
@@ -381,7 +386,7 @@ export const getPostByIdMutation = async (postId: number): Promise<any> => {
 };
 
 export const updatePostMutation = async (
-  postId: number,
+  postId: string,
   post: IUpdatePost,
 ): Promise<any> => {
   try {

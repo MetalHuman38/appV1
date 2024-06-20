@@ -1,6 +1,6 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon';
-import User from './user.model';
+import Users from './user.model';
 
 const sequelize = createSequelizeInstance();
 
@@ -77,12 +77,12 @@ ProfilePicture.init(
 );
 
 // Define the association between User and ProfilePicture
-User.hasOne(ProfilePicture, {
+Users.hasOne(ProfilePicture, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
   onUpdate: 'CASCADE',
 });
-ProfilePicture.belongsTo(User, {
+ProfilePicture.belongsTo(Users, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
   onUpdate: 'CASCADE',

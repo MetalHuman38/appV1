@@ -5,7 +5,7 @@ export type INavLink = {
 };
 
 export type IUpdateUser = {
-  userId: string;
+  id: string;
   name: string;
   bio: string;
   imageId: string;
@@ -14,7 +14,7 @@ export type IUpdateUser = {
 };
 
 export type INewPost = {
-  userId: string;
+  id: string | number;
   caption: string;
   file: File[];
   location?: string;
@@ -22,13 +22,15 @@ export type INewPost = {
 };
 
 export type IUpdatePost = {
-  postId: string;
+  id: string;
   caption: string;
-  imageId: string;
-  imageUrl: URL;
-  file: File[];
+  imageURL: string;
   location?: string;
   tags?: string;
+  likes_Count: number;
+  creator_Id: string;
+  createdAt: Date;
+  updatedAt: Date;
 };
 
 export type IUser = {

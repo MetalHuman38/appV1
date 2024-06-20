@@ -26,4 +26,15 @@ FROM mysql.user;
 DROP DATABASE IF EXISTS FindSomeOne;
 CREATE DATABASE FindSomeOne ...;
 
+DROP TABLE IF EXISTS ImageStorages;
+
 USE FindSomeOne;
+
+SET foreign_key_checks = 0;
+-- Drop tables
+drop table ...
+-- Drop views
+drop view ...
+SET foreign_key_checks = 1;
+
+npx webpack init

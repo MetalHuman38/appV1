@@ -65,4 +65,11 @@ module.exports = {
       patterns: [{ from: 'public', to: '' }],
     }),
   ],
+  watchOptions: {
+    // ignored: /node_modules|public\/assets\/images/,
+    ignored: [
+      path.resolve(__dirname, 'node_modules'),
+      path.resolve(__dirname, 'assets/images'), // image folder path
+    ],
+  },
 };

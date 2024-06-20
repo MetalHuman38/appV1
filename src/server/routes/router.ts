@@ -5,6 +5,8 @@ import currentUserRoute from './currentUserRoute';
 import userRoutes from './userRoutes';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
+import postRoutes from './postRoutes';
+import imageRoutes from './imageRoutes';
 
 const router = express.Router();
 
@@ -36,6 +38,10 @@ router.get('/', (_req, res) => {
 router.use(authRoutes);
 
 router.use(userRoutes);
+
+router.use(postRoutes);
+
+router.use(imageRoutes);
 
 router.use(currentUserRoute);
 

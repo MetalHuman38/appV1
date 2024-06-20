@@ -1,13 +1,17 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import {
   checkAuthUserMutation,
+  createPostMutation,
   getCurrentUserMutation,
+  getPreviewImageUrlMutation,
   loginUserMutation,
   logOutUserMutation,
   refreshTokenMutation,
   registerUserMutation,
+  updatePostMutation,
+  uploadImageMutation,
 } from './ApiWrapper';
-import { INewUser } from '@/types';
+import { INewPost, INewUser, IUpdatePost } from '@/types';
 import { Query_Keys } from './QueryKeys';
 import { useUserContext } from '../context/userContext';
 import { useNavigate } from 'react-router-dom';
@@ -70,3 +74,45 @@ export const useLogOut = () => {
     },
   });
 };
+
+// Wrapper function around createPostMutation that accepts post data
+export const useCreatePost = () => {
+  return useMutation({
+    mutationFn: (post: INewPost) => createPostMutation(post),
+  });
+};
+
+export const useUpdatePost = () => {
+  const QueryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ postId, post }: { postId: string; post: IUpdatePost }) =>
+      updatePostMutation(postId, post),
+    onSuccess: data => {
+      QueryClient.invalidateQueries({
+        queryKey: [Query_Keys.GET_POST_BY_ID, data?.id],
+      });
+    },
+  });
+};
+
+// Wrapper function around Upload Image Mutation
+export const useUploadImage = () => {
+  return useMutation({
+    mutationFn: ({ formData }: { formData: FormData }) =>
+      uploadImageMutation(formData),
+  });
+};
+
+
+// Wrapper function around getPreviewImage Mutation
+export const useGetPreviewImage = () => {
+  const QueryClient = useQueryClient();
+  return useMutation({
+      mutationFn: () => getPreviewImageUrlMutation(),
+      onSuccess: (data) => {
+          QueryClient.invalidateQueries({
+              queryKey: [Query_Keys.GET_IMAGE_PREVIEW, data?.imageUrl],
+          });
+      }
+  });
+}

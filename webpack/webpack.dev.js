@@ -12,6 +12,14 @@ module.exports = {
     new RefreshWebpackPlugin(),
   ],
   devServer: {
+    static: {
+      directory: path.join(__dirname, '../build'),
+      watch: {
+        ignored: /node_modules/,
+        usePolling: false,
+      },
+    },
+    webSocketServer: 'ws',
     compress: true,
     open: true,
     hot: true,

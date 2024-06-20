@@ -79,7 +79,7 @@ assert.ok(RARE_LIMIT_CODE === 429, 'Rate limit code should be 429');
 assert.ok(TRUST_PROXY, 'Trust proxy should be true initially');
 assert.ok(NUMBER_OF_PROXIES === 1, 'Number of proxies should be 1');
 assert.ok(IDLE_TIMEOUT === 480000, 'Idle timeout should be 8m');
-assert.ok(COMPRESSION_LEVEL === 6, 'Compression level should be 6');
+assert.ok(COMPRESSION_LEVEL === 9, 'Compression level should be 9');
 assert.ok(
   COMPRESSION_THRESHOLD === 1024,
   'Compression threshold should be 1024',
