@@ -2,7 +2,20 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import { createPost } from '../controllers/PostController';
+import {
+  createPost,
+  deleteLikedPost,
+  deletePost,
+  deleteSavedPost,
+  getAllPosts,
+  getPostById,
+  likePost,
+  savePost,
+  updatePost,
+  getInfinitePosts,
+  searchPosts,
+} from '../controllers/PostController';
+import { verifyUser } from '../loaders/auth/userAuth';
 
 const router = express.Router();
 
@@ -26,5 +39,35 @@ router.use(bodyParser.json());
 
 // Create a new post
 router.post('/api/createPost', createPost);
+
+// Update a post
+router.put('/api/updatePost', updatePost);
+
+// delete a post
+router.delete('/api/deletePost', deletePost);
+
+// Get Recent Posts
+router.get('/api/getAllPosts', getAllPosts);
+
+// Get post by ID
+router.get('/api/getPostById', getPostById);
+
+// Like a Post
+router.post('/api/likePost', likePost);
+
+// Save a Post
+router.post('/api/savePost', verifyUser, savePost);
+
+// Delete a Post
+router.delete('/api/deleteSavedPost', deleteSavedPost);
+
+// Delete a like
+router.delete('/api/deleteLikePost', deleteLikedPost);
+
+// Get Infinite Posts
+router.get('/api/getInfinitePosts', getInfinitePosts);
+
+// Search Posts
+router.get('/api/searchPosts', searchPosts);
 
 export default router;

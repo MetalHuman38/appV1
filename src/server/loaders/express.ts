@@ -8,6 +8,7 @@ import { env } from '../config/index';
 import { router } from '../routes/router';
 import { limiter } from './auth/ipConfig';
 import { globalErrorHandler } from '../utils/errorHandler';
+import path from 'path';
 
 export default async function ({ app }: { app: Express }) {
   app.get('/status', (_req, res) => res.sendStatus(200).end());
@@ -34,6 +35,8 @@ export default async function ({ app }: { app: Express }) {
   app.use(express.urlencoded({ extended: true }));
   app.use(cookieParser());
   app.use(bodyParser.json());
+  // Serve static files from 'dist' directory
+  app.use(express.static(path.join(__dirname, 'dist')));
 
   const Trust_Proxy = env.TRUST_PROXY || 'false';
   const numberOfProxies = env.NUMBER_OF_PROXIES || 1;

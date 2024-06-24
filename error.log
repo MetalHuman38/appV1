@@ -69,3 +69,348 @@ Error
     at async ImageStorages.findOne (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1240:12)
     at async ImageStorages.findImageByReferenceKey (/home/babsdevsys/appV-1/dist/545.bundle.js:1:14115)
     at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:3944
+2024-06-20T20:22:38.060Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:22:58.366Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:23:30.608Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:24:24.559Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:27:03.963Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:27:03.970Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:27:03.973Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:27:23.095Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:27:23.101Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:30:42.998Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:30:43.004Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:31:56.136Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:33:28.217Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:33:28.223Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:33:35.670Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:33:35.676Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:34:01.614Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:34:01.624Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-20T20:34:01.625Z - Cannot set headers after they are sent to the client
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:703:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
+    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
+    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
+    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
+    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
+    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+2024-06-21T01:19:35.841Z - (conn:4259, no: 1054, SQLState: 42S22) Unknown column 'NaN' in 'where clause'
+sql: SELECT `id`, `caption`, `imageURL`, `location`, `tags`, `likes_Count`, `created_At`, `creator_Id` FROM `Posts` AS `Posts` WHERE `Posts`.`id` = NaN; - parameters:[]
+Error
+    at Query.run (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async MySQLQueryInterface.select (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)
+    at async Posts.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1140:21)
+    at async Posts.findOne (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1240:12)
+    at async Posts.findByPk (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1221:12)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:8354
+2024-06-21T01:23:52.134Z - (conn:4342, no: 1054, SQLState: 42S22) Unknown column 'NaN' in 'where clause'
+sql: SELECT `id`, `caption`, `imageURL`, `location`, `tags`, `likes_Count`, `created_At`, `creator_Id` FROM `Posts` AS `Posts` WHERE `Posts`.`id` = NaN; - parameters:[]
+Error
+    at Query.run (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async MySQLQueryInterface.select (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)
+    at async Posts.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1140:21)
+    at async Posts.findOne (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1240:12)
+    at async Posts.findByPk (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1221:12)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:8355
+2024-06-21T01:37:26.459Z - Likes is associated to Posts using an alias. You've included an alias (likes), but it does not match the alias(es) defined in your association (Likes).
+SequelizeEagerLoadingError: Likes is associated to Posts using an alias. You've included an alias (likes), but it does not match the alias(es) defined in your association (Likes).
+    at Posts._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:574:15)
+    at Posts._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
+    at Array.map (<anonymous>)
+    at Posts._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
+    at Posts.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Posts.findOne (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1240:12)
+    at async Posts.findByPk (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1221:12)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:8521
+2024-06-21T01:39:45.860Z - Likes is associated to Posts using an alias. You've included an alias (post_id), but it does not match the alias(es) defined in your association (Likes).
+SequelizeEagerLoadingError: Likes is associated to Posts using an alias. You've included an alias (post_id), but it does not match the alias(es) defined in your association (Likes).
+    at Posts._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:574:15)
+    at Posts._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
+    at Array.map (<anonymous>)
+    at Posts._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
+    at Posts.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Posts.findOne (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1240:12)
+    at async Posts.findByPk (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1221:12)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:8521
+2024-06-21T17:15:28.929Z - (conn:24, no: 1054, SQLState: 42S22) Unknown column 'NaN' in 'where clause'
+sql: SELECT `id`, `caption`, `imageURL`, `location`, `tags`, `likes_Count`, `created_At`, `creator_Id` FROM `Posts` AS `Posts` WHERE `Posts`.`id` = NaN; - parameters:[]
+Error
+    at Query.run (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async MySQLQueryInterface.select (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)
+    at async Posts.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1140:21)
+    at async Posts.findOne (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1240:12)
+    at async Posts.findByPk (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1221:12)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:8355
+2024-06-21T17:17:01.368Z - (conn:78, no: 1054, SQLState: 42S22) Unknown column 'NaN' in 'where clause'
+sql: SELECT `id`, `caption`, `imageURL`, `location`, `tags`, `likes_Count`, `created_At`, `creator_Id` FROM `Posts` AS `Posts` WHERE `Posts`.`id` = NaN; - parameters:[]
+Error
+    at Query.run (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async MySQLQueryInterface.select (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)
+    at async Posts.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1140:21)
+    at async Posts.findOne (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1240:12)
+    at async Posts.findByPk (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1221:12)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:8355
+2024-06-21T18:05:42.390Z - (conn:843, no: 1451, SQLState: 23000) Cannot delete or update a parent row: a foreign key constraint fails (`FindSomeOne`.`Saves`, CONSTRAINT `Saves_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `Posts` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE)
+sql: DELETE FROM `Posts` WHERE `id` = 3 - parameters:[]
+Error
+    at Query.run (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async MySQLQueryInterface.delete (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/abstract/query-interface.js:393:12)
+    at async l.destroy (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:2627:16)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11508
+2024-06-21T18:12:34.561Z - (conn:913, no: 1054, SQLState: 42S22) Unknown column 'NaN' in 'where clause'
+sql: SELECT `id`, `caption`, `imageURL`, `location`, `tags`, `likes_Count`, `created_At`, `creator_Id` FROM `Posts` AS `Posts` WHERE `Posts`.`id` = NaN; - parameters:[]
+Error
+    at Query.run (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async MySQLQueryInterface.select (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)
+    at async Posts.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1140:21)
+    at async Posts.findOne (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1240:12)
+    at async Posts.findByPk (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1221:12)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:8355
+2024-06-21T18:14:12.173Z - (conn:920, no: 1054, SQLState: 42S22) Unknown column 'NaN' in 'where clause'
+sql: SELECT `id`, `caption`, `imageURL`, `location`, `tags`, `likes_Count`, `created_At`, `creator_Id` FROM `Posts` AS `Posts` WHERE `Posts`.`id` = NaN; - parameters:[]
+Error
+    at Query.run (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async MySQLQueryInterface.select (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)
+    at async Posts.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1140:21)
+    at async Posts.findOne (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1240:12)
+    at async Posts.findByPk (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1221:12)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:8355
+2024-06-21T22:09:47.646Z - ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+2024-06-21T22:09:47.651Z - ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+2024-06-21T22:09:54.128Z - ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+2024-06-21T22:09:54.165Z - ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+2024-06-21T22:09:55.180Z - ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+2024-06-21T22:09:57.193Z - ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+2024-06-21T22:10:01.210Z - ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist/index.html'
+2024-06-21T22:10:39.711Z - ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist'
+Error: ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist'
+2024-06-21T22:10:39.715Z - ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist'
+Error: ENOENT: no such file or directory, stat '/home/babsdevsys/appV-1/dist/dist'

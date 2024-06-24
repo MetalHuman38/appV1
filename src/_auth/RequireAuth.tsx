@@ -1,12 +1,17 @@
 import { useLocation, Navigate, Outlet } from 'react-router-dom';
 import { useUserContext } from '@/lib/context/userContext';
+import Loader from '@/components/shared/Loader';
 
 const RequireAuth = () => {
   const { isAuthenticated, isLoading } = useUserContext();
   const location = useLocation();
 
   if (isLoading) {
-    return <div>Loading...</div>; // You can replace this with a spinner or some other loading component
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
   }
 
   if (!isAuthenticated) {

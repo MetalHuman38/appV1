@@ -68,27 +68,12 @@ export const checkAuthUserMutation = async (): Promise<any> => {
 // Wrapper function around logged in user
 export const getCurrentUserMutation = async (): Promise<any> => {
   try {
-    const jwt = sessionStorage.getItem('jwt');
-    if (jwt) {
-      axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
-    }
-    const response = await axiosInstance.get('/api/getCurrentUser', {
+    const response = await axiosInstance.get('/api/getUser', {
       headers: {
         'Content-Type': 'application/json',
       },
       withCredentials: true,
     });
-    if (response.status === 200) {
-      if (response.data.token) {
-        sessionStorage.setItem('jwt', JSON.stringify(response.data.token));
-        sessionStorage.setItem(
-          'refreshToken',
-          JSON.stringify(response.data.refreshToken),
-        );
-        axiosInstance.defaults.headers.common['Authorization'] =
-          `Bearer ${response.data.token}`;
-      }
-    }
     return response.data;
   } catch (error) {
     console.error('Error getting current user:', error);
@@ -230,8 +215,8 @@ export const getAllPostsMutation = async (): Promise<any> => {
 
 // Wrapper function around likePostMutation
 export const likePostMutation = async (
-  postId: number,
-  likesCount: number,
+  post_id: number,
+  likes_Count: number,
 ): Promise<any> => {
   try {
     const jwt = sessionStorage.getItem('jwt');
@@ -241,8 +226,8 @@ export const likePostMutation = async (
     const response = await axiosInstance.post(
       '/api/likePost',
       {
-        postId,
-        likesCount,
+        post_id,
+        likes_Count,
       },
       {
         headers: {
@@ -268,8 +253,8 @@ export const likePostMutation = async (
 
 // Wrapper function around savePostMutation
 export const savePostMutation = async (
-  postId: number,
-  userId: number,
+  post_id: number,
+  user_id: number,
 ): Promise<any> => {
   try {
     const jwt = sessionStorage.getItem('jwt');
@@ -279,8 +264,8 @@ export const savePostMutation = async (
     const response = await axiosInstance.post(
       '/api/savePost',
       {
-        postId,
-        userId,
+        post_id,
+        user_id,
       },
       {
         headers: {
@@ -306,13 +291,23 @@ export const savePostMutation = async (
 
 // Wrapper function around deletePostMutation
 export const deletePostMutation = async (
-  userId: number,
-  postId: number,
+  post_id: number,
+  user_id: number,
 ): Promise<any> => {
   try {
     const response = await axiosInstance.delete('/api/deletePost', {
-      data: { userId, postId },
+      data: {
+        post_id,
+        user_id,
+      },
     });
+    if (response.status === 200) {
+      if (response.data.token) {
+        sessionStorage.setItem('jwt', JSON.stringify(response.data.token));
+        axiosInstance.defaults.headers.common['Authorization'] =
+          `Bearer ${response.data.token}`;
+      }
+    }
     return response.data;
   } catch (error) {
     console.error('Error deleting post:', error);
@@ -320,18 +315,18 @@ export const deletePostMutation = async (
   }
 };
 
-// Wrapper function around deleteLikePostMutation
-export const deleteLikedPostMutation = async (
-  postId: number,
-  userId: number,
+// Wrapper function around deleteSavedPostMutation
+export const deleteSavedPostMutation = async (
+  post_id: number,
+  user_id: number,
 ): Promise<any> => {
   try {
     const jwt = sessionStorage.getItem('jwt');
     if (jwt) {
       axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
     }
-    const response = await axiosInstance.delete('/api/deleteLikePost', {
-      params: { postId, userId },
+    const response = await axiosInstance.delete('/api/deleteSavedPost', {
+      params: { post_id, user_id },
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${jwt}`,
@@ -345,6 +340,26 @@ export const deleteLikedPostMutation = async (
           `Bearer ${response.data.token}`;
       }
     }
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting saved post:', error);
+    throw error;
+  }
+};
+
+// Wrapper function around deleteLikePostMutation
+export const deleteLikedPostMutation = async (
+  post_id: number,
+  user_id: number,
+): Promise<any> => {
+  try {
+    const response = await axiosInstance.delete('/api/deleteLikePost', {
+      data: { post_id, user_id },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
     return response.data;
   } catch (error) {
     console.log('Error deleting like:', error);
@@ -353,30 +368,18 @@ export const deleteLikedPostMutation = async (
 };
 
 // Wrapper function around updatePostMutation
-export const getPostByIdMutation = async (postId: number): Promise<any> => {
+export const getPostByIdMutation = async (post_id: string): Promise<any> => {
   try {
-    const jwt = sessionStorage.getItem('jwt');
-    if (jwt) {
-      axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
-    }
     const response = await axiosInstance.get('/api/getPostById', {
-      params: { postId },
+      params: { post_id },
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${jwt}`,
       },
       withCredentials: true,
     });
     const { post } = response.data;
     if (post) {
       return post;
-    }
-    if (response.status === 200) {
-      if (response.data.token) {
-        sessionStorage.setItem('jwt', JSON.stringify(response.data.token));
-        axiosInstance.defaults.headers.common['Authorization'] =
-          `Bearer ${response.data.token}`;
-      }
     }
     return response.data;
   } catch (error) {
@@ -386,29 +389,17 @@ export const getPostByIdMutation = async (postId: number): Promise<any> => {
 };
 
 export const updatePostMutation = async (
-  postId: string,
+  post_id: number,
   post: IUpdatePost,
 ): Promise<any> => {
   try {
-    const jwt = sessionStorage.getItem('jwt');
-    if (jwt) {
-      axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
-    }
     const response = await axiosInstance.put('/api/updatePost', post, {
-      params: { postId },
+      params: { post_id },
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${jwt}`,
       },
       withCredentials: true,
     });
-    if (response.status === 200) {
-      if (response.data.token) {
-        sessionStorage.setItem('jwt', JSON.stringify(response.data.token));
-        axiosInstance.defaults.headers.common['Authorization'] =
-          `Bearer ${response.data.token}`;
-      }
-    }
     return response.data;
   } catch (error) {
     console.error('Error updating post:', error);
@@ -417,7 +408,7 @@ export const updatePostMutation = async (
 };
 
 // Wrapper function around deletePostMutation
-export const deletePostByIdMutation = async (postId: number): Promise<any> => {
+export const deletePostByIdMutation = async (post_id: number): Promise<any> => {
   try {
     const jwt = sessionStorage.getItem('jwt');
     if (jwt) {
@@ -425,7 +416,7 @@ export const deletePostByIdMutation = async (postId: number): Promise<any> => {
     }
 
     const response = await axiosInstance.delete('/api/deletePostById', {
-      params: { postId },
+      params: { post_id },
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${jwt}`,
@@ -442,6 +433,50 @@ export const deletePostByIdMutation = async (postId: number): Promise<any> => {
     return response.data;
   } catch (error) {
     console.error('Error deleting post:', error);
+    throw error;
+  }
+};
+
+// Wrapper function around infinite Posts
+export const getInfinitePostsMutation = async (
+  page: number,
+  limit: number,
+): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/api/getInfinitePosts', {
+      params: { page, limit },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    const { posts, page: currentPage, totalPages } = response.data;
+    return {
+      posts: posts.rows,
+      nextPage: currentPage + 1,
+      totalPages,
+    };
+  } catch (error) {
+    console.error('Error getting infinite posts:', error);
+    throw error;
+  }
+};
+
+// Wrapper function around searchPostsMutation
+export const searchPostsMutation = async (
+  searchValue: string,
+): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/api/searchPosts', {
+      params: { searchValue },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error searching posts:', error);
     throw error;
   }
 };

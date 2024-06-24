@@ -68,7 +68,7 @@ async function StartServer() {
     clearTimeout(idleTimer);
     idleTimer = setTimeout(() => {
       server.close(() => {
-        console.log('Cleared Time out! Restarting...');
+        console.log('Cleared Time out! Restarting....');
         process.exit(0);
       });
     }, idleTimeout);

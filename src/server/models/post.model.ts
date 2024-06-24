@@ -44,6 +44,27 @@ class Posts extends Model<PostAttributes, PostCreationAttributes> {
     return [affectedCount, updatedPosts as Posts[]];
   }
 
+  // declare static methods to delete a Post by ID
+  static async deletePost(id: number): Promise<void> {
+    const post = await this.findOne({ where: { id } });
+    if (post) {
+      await post.destroy();
+    }
+  }
+
+  // declare static methods to get all posts
+  static async getAllPosts(): Promise<Posts[]> {
+    return await this.findAll();
+  }
+
+  // declare static methods to get infinite posts
+  static async getInfinitePosts(
+    offset: number,
+    limit: number,
+  ): Promise<Posts[]> {
+    return await this.findAll({ offset, limit });
+  }
+
   // declare static methods to get post by ID
   static async getPostByID(id: number): Promise<Posts | null> {
     return await this.findOne({ where: { id: id } });
@@ -128,6 +149,31 @@ Posts.updatePost = async function (
   }
 };
 
+// infinite posts
+Posts.getInfinitePosts = async function (
+  offset: number,
+  limit: number,
+): Promise<Posts[]> {
+  try {
+    const posts = await this.findAll({ offset, limit });
+    return posts;
+  } catch (error) {
+    console.error('Error getting infinite posts:', error);
+    throw error;
+  }
+};
+
+// Get search results - posts
+Posts.getPostByID = async function (id: number): Promise<Posts | null> {
+  try {
+    const post = await this.findOne({ where: { id } });
+    return post;
+  } catch (error) {
+    console.error('Error getting post by ID:', error);
+    throw error;
+  }
+};
+
 // Define the relationship between the User and Post models
 Users.hasMany(Posts, {
   foreignKey: 'creator_Id',
@@ -142,7 +188,7 @@ Posts.belongsTo(Users, {
 });
 
 await sequelize
-  .sync({ alter: false })
+  .sync({ force: false })
   .then(() => {
     console.log('Post synced successfully');
   })

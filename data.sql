@@ -38,3 +38,45 @@ drop view ...
 SET foreign_key_checks = 1;
 
 npx webpack init
+
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE Posts;
+SET FOREIGN_KEY_CHECKS = 1;
+
+DELETE FROM Posts;
+
+DELETE FROM Saves;
+
+QueryInterface.createTable('Posts', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false,
+  },
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  content: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+  },
+  imageUrl: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  creator: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  createdAt: {
+    type: Sequelize.DATE,
+    allowNull: false,
+  },
+  updatedAt: {
+    type: Sequelize.DATE,
+    allowNull: false,
+  },
+});
+

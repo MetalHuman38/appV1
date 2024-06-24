@@ -5,12 +5,18 @@ import ImageStorages from '../models/image.model.js';
 const sequelize = createSequelizeInstance();
 
 export async function truncateTables() {
+  const transaction = await sequelize.transaction();
+
   try {
-    await sequelize.transaction(async transaction => {
-      await ImageStorages.truncate({ transaction });
-    });
+    // Perform the truncate operation within the transaction
+    await ImageStorages.truncate({ transaction });
+
+    // If everything is successful, commit the transaction
+    await transaction.commit();
     console.log('Tables have been truncated...');
   } catch (error) {
+    // If there's an error, roll back the transaction
+    await transaction.rollback();
     console.error('Error truncating tables:', error);
   }
 }

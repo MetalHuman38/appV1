@@ -56,6 +56,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '..', './build'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -66,10 +67,7 @@ module.exports = {
     }),
   ],
   watchOptions: {
-    // ignored: /node_modules|public\/assets\/images/,
-    ignored: [
-      path.resolve(__dirname, 'node_modules'),
-      path.resolve(__dirname, 'assets/images'), // image folder path
-    ],
+    ignored: /node_modules|public\/assets\/images/,
+    ignored: [path.resolve(__dirname, 'node_modules')],
   },
 };

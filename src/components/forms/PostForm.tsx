@@ -57,7 +57,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
       if (post && action === 'update') {
         setisPostLoading(true);
         const updatedPost = await updatePost({
-          postId: post.id,
+          post_id: post.id,
           post: {
             id: post.id,
             caption: values.caption,
@@ -68,7 +68,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
               : values.tags,
             likes_Count: post.likes_Count,
             creator_Id: post.creator_Id,
-            createdAt: post.createdAt,
+            created_At: post.created_At,
             updatedAt: post.updatedAt,
           },
         });
@@ -79,7 +79,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
         });
         if (!updatedPost) {
           toast({
-            title: 'Failed to update post',
+            title: 'Failed to update post! Please try again.',
           });
         }
         return navigate(`/posts/${post.id}`);
@@ -122,8 +122,6 @@ const PostForm = ({ post, action }: PostFormProps) => {
     return <p>Updating post...</p>;
   }
 
-  console.log('imageUrl', post?.imageURL);
-
   return (
     <Form {...form}>
       <form
@@ -159,7 +157,8 @@ const PostForm = ({ post, action }: PostFormProps) => {
               <FormControl>
                 <ImageUpload
                   fieldChange={field.onChange}
-                  mediaUrl={post?.imageURL || ''}
+                  // mediaUrl={ `/${post?.imageURL || ''}`}
+                  mediaUrl={post ? `/${post.imageURL}` : ''}
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />

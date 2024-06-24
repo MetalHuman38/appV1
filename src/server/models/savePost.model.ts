@@ -58,14 +58,14 @@ Saves.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: Users,
+        model: 'Users',
         key: 'id',
       },
     },
     post_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'Post',
+        model: 'Posts',
         key: 'id',
       },
     },
@@ -83,6 +83,14 @@ Saves.init(
   },
 );
 
+// Create a function to delete saved Post using the static method
+Saves.deleteSavedPost = async function (post_id: number): Promise<void> {
+  const save = await this.findOne({ where: { post_id } });
+  if (save) {
+    await save.destroy();
+  }
+};
+
 // Create relationship between Saves and Users
 Saves.belongsTo(Users, {
   foreignKey: 'user_id',
@@ -95,7 +103,7 @@ Saves.belongsTo(Posts, {
   targetKey: 'id',
 });
 
-Saves.sync({ force: true })
+Saves.sync({ force: false })
   .then(() => {
     console.log('Save Post synced successfully');
   })

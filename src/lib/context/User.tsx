@@ -23,7 +23,7 @@ export const useUserData = () => {
     const controller = new AbortController();
     const fetchUserData = async () => {
       try {
-        const response = await axiosInstance.get('/api/getCurrentUser', {
+        const response = await axiosInstance.get('/api/getUser', {
           headers: {
             'Content-Type': 'application/json',
           },
@@ -40,9 +40,11 @@ export const useUserData = () => {
           console.error('Unauthorized', error.response.data.message);
           try {
             const newAccessToken = await useRefreshToken();
-            const response = await axiosInstance.get('/api/getCurrentUser', {
+            const response = await axiosInstance.get('/api/getUser', {
+              headers: {
+                'Content-Type': 'application/json',
+              },
               withCredentials: true,
-              headers: { 'Content-Type': 'application/json' },
               signal: controller.signal,
             });
             if (response.status === 200 && response.data.token) {

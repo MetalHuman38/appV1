@@ -1,9 +1,12 @@
-import express from 'express';
+import express, { NextFunction } from 'express';
 import cors from 'cors';
 import { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import { getCurrentUser } from '../loaders/auth/userAuth';
+import jwt from 'jsonwebtoken';
+import Users from '../models/user.model';
+import { jwtENV } from '../config/jwtENV';
+import { requireAuth } from '../loaders/auth/userAuth';
 
 const router = express.Router();
 
@@ -26,19 +29,40 @@ router.use(bodyParser.json());
 
 router.get(
   '/api/getCurrentUser',
-  getCurrentUser,
-  async (_req: Request, res: Response) => {
-    if (!res.locals.user) {
-      return res.status(401).json({ message: 'Unauthorized' });
+  requireAuth,
+  async (req: Request, res: Response, next: NextFunction) => {
+    const token = req.cookies.jwt;
+    if (!token) {
+      res.status(401).json({ message: 'Unauthorized' });
+      return;
     }
-    try {
-      const user = res.locals.user;
-      res.status(200).json({ user });
-    } catch (error) {
-      console.error('Error getting current user:', error);
-      res.status(500).json({ message: 'Error getting current user' });
-    }
-    return res;
+
+    jwt.verify(
+      token,
+      jwtENV.JWT_SECRET as string,
+      async (err: any, decodedToken: any) => {
+        if (err) {
+          console.log('JWT verification error', err.message);
+          res.status(401).json({ message: 'Unauthorized Invalid Token' });
+          return;
+        }
+        try {
+          const user_id = decodedToken.id;
+          if (!user_id) {
+            res.status(400).json({ message: 'User ID is required' });
+            return;
+          }
+          const user = await Users.findByPk(user_id);
+          if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+          }
+        } catch (error) {
+          console.error('Error getting current user:', error);
+          res.status(500).json({ message: 'Internal server error' });
+        }
+        return next();
+      },
+    );
   },
 );
 

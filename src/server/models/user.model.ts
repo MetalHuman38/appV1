@@ -146,7 +146,7 @@ Users.init(
 
 // Sync User model with the database
 await sequelize
-  .sync()
+  .sync({ force: false })
   .then(() => {
     console.log('New User synced successfully');
   })

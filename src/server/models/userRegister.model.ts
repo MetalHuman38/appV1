@@ -175,7 +175,7 @@ UserRegistration.logoutUser = async function (email: string) {
 };
 
 await sequelize
-  .sync()
+  .sync({ force: false })
   .then(() => {
     console.log('New User Registered synced successfully');
   })

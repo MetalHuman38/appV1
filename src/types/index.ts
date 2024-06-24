@@ -22,14 +22,14 @@ export type INewPost = {
 };
 
 export type IUpdatePost = {
-  id: string;
+  id: number;
   caption: string;
   imageURL: string;
   location?: string;
-  tags?: string;
+  tags: string;
   likes_Count: number;
   creator_Id: string;
-  createdAt: Date;
+  created_At: Date;
   updatedAt: Date;
 };
 

@@ -20,6 +20,7 @@ const ImageUpload = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
   const [previewImage, setPreviewImage] = useState(mediaUrl);
   const [message, setMessage] = useState('');
   const [imageUploaded, setImageUploaded] = useState(false);
+  const [messageColor, setMessageColor] = useState('');
 
   const uploadImageMutation = useUploadImage();
 
@@ -62,10 +63,13 @@ const ImageUpload = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
       const response = await uploadImageMutation.mutateAsync({ formData });
       const uploadedImage = response.data;
       console.log('response:', uploadedImage);
+      messageColor === 'green-500' && 'red-500';
       setMessage('Image uploaded successfully!');
+      setMessageColor('green');
     } catch (error) {
       console.error('Error uploading image:', error);
       setMessage('Error uploading image. Please try again.');
+      setMessageColor('red-500');
     }
   };
 

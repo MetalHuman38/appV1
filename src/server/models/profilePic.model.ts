@@ -88,4 +88,12 @@ ProfilePicture.belongsTo(Users, {
   onUpdate: 'CASCADE',
 });
 
+ProfilePicture.sync({ force: true })
+  .then(() => {
+    console.log('Profile Pic synced successfully');
+  })
+  .catch(err => {
+    console.error('Error syncing creating profile pic table:', err);
+  });
+
 export default ProfilePicture;

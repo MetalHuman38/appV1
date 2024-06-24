@@ -7,7 +7,7 @@ interface LikeAttributes {
   id: number;
   user_id: number;
   post_id: number;
-  createdAt: Date;
+  created_At: Date;
 }
 
 interface LikeCreationAttributes extends Optional<LikeAttributes, 'id'> {}
@@ -22,7 +22,7 @@ class Likes
   declare id: number;
   declare user_id: number;
   declare post_id: number;
-  declare createdAt: Date;
+  declare created_At: Date;
 
   // create a static method to create a new like
   static async createLike(attributes: LikeCreationAttributes): Promise<Likes> {
@@ -72,7 +72,7 @@ Likes.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'User',
+        model: 'Users',
         key: 'id',
       },
     },
@@ -80,11 +80,11 @@ Likes.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Post',
+        model: 'Posts',
         key: 'id',
       },
     },
-    createdAt: {
+    created_At: {
       type: DataTypes.DATE,
       allowNull: true,
     },
@@ -92,7 +92,6 @@ Likes.init(
   {
     sequelize,
     modelName: 'Likes',
-    createdAt: 'createdAt',
     timestamps: false,
     freezeTableName: true,
   },
@@ -119,7 +118,7 @@ Likes.belongsTo(Post, {
 });
 
 // Sync the Like model with the database
-Likes.sync({ force: true })
+Likes.sync({ force: false})
   .then(() => {
     console.log('Like synced successfully');
   })

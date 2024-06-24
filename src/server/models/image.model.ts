@@ -39,7 +39,7 @@ class ImageStorages
     try {
       const image = await this.findOne({
         where: { [key]: value },
-        order: [['created_At', 'ASC']],
+        order: [['created_At', 'DESC']],
       });
       return image;
     } catch (error) {
@@ -171,7 +171,7 @@ ImageStorages.belongsTo(Posts, {
 
 // sync the ImageStorage model with the database
 await sequelize
-  .sync({ alter: false })
+  .sync({ force: false })
   .then(() => {
     console.log('New Image synced successfully');
   })

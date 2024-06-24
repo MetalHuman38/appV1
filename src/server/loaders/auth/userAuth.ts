@@ -3,33 +3,45 @@ import jwt from 'jsonwebtoken';
 import { jwtENV } from '../../config/jwtENV';
 import { Request, Response, NextFunction } from 'express';
 import Users from '../../models/user.model';
-import { jwtVerifier } from './jwtGenerator';
 
 dotenv.config();
 
-export const getCurrentUser = async (req: Request, res: Response) => {
-  const token = req.cookies.token;
-  if (!token) {
-    return res.status(401).json({ message: 'Unauthorized' });
-  }
-
+export const requireAuth = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
   try {
-    const decodedToken = jwtVerifier(token);
-    const userId = decodedToken.id;
-    if (!userId) {
-      res.status(400).json({ message: 'User ID is required' });
-      return;
+    const token = req.cookies.jwt;
+    if (token) {
+      jwt.verify(
+        token,
+        jwtENV.JWT_SECRET as string,
+        async (err: any, decodedToken: any) => {
+          if (err) {
+            console.log(err.message);
+            res.locals.user = null;
+          } else {
+            try {
+              const user = await Users.findByPk(decodedToken.id);
+              res.locals.user = user;
+            } catch (error) {
+              console.error('Error retrieving user:', error);
+              res.locals.user = null;
+            }
+          }
+          next();
+        },
+      );
+    } else {
+      res.locals.user = null;
+      next();
     }
-    const user = await Users.findByPk(userId);
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-    res.status(200).json(user);
   } catch (error) {
-    console.error('Error getting current user:', error);
-    res.status(500).json({ message: 'Error getting current user' });
+    console.error('Error checking user:', error);
+    res.locals.user = null;
+    next();
   }
-  return token;
 };
 
 export const verifyUser = async (
@@ -77,4 +89,4 @@ export const verifyUser = async (
   }
 };
 
-export default { verifyUser };
+export default { verifyUser, requireAuth };
