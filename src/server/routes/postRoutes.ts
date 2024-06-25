@@ -68,6 +68,6 @@ router.delete('/api/deleteLikePost', deleteLikedPost);
 router.get('/api/getInfinitePosts', getInfinitePosts);
 
 // Search Posts
-router.get('/api/searchPosts', searchPosts);
+router.post('/api/searchPosts', searchPosts);
 
 export default router;

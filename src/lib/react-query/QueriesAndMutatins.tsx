@@ -286,25 +286,6 @@ export const useDeletePostById = () => {
   });
 };
 
-// Wrapper function around infinitePostsMutation
-// export const useInfinitePosts = ({ pageParam }: { pageParam: number }) => {
-//   const lastId = useQueryClient().getQueryData([
-//     Query_Keys.GET_INFITE_POSTS,
-//     pageParam - 1,
-//   ]);
-//   // use lastId to get the last post id
-//   if (lastId) {
-//     console.log(lastId);
-//   }
-//   return useInfiniteQuery({
-//     queryKey: [Query_Keys.GET_INFITE_POSTS, pageParam],
-//     queryFn: () => getInfinitePostsMutation(pageParam, 10), // Pass the second argument here
-//     getNextPageParam: lastPage => lastPage.nextPage,
-//     initialPageParam: 1,
-//     getPreviousPageParam: firstPage => firstPage.previousPage,
-//   });
-// };
-
 export const useInfinitePosts = ({ pageParam }: { pageParam: number }) => {
   const lastId = useQueryClient().getQueryData([
     Query_Keys.GET_INFITE_POSTS,

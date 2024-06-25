@@ -467,13 +467,18 @@ export const searchPostsMutation = async (
   searchValue: string,
 ): Promise<any> => {
   try {
-    const response = await axiosInstance.get('/api/searchPosts', {
-      params: { searchValue },
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await axiosInstance.post(
+      '/api/searchPosts',
+      {
+        searchValue,
       },
-      withCredentials: true,
-    });
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
+      },
+    );
     return response.data;
   } catch (error) {
     console.error('Error searching posts:', error);

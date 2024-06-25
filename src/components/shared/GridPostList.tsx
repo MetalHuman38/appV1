@@ -5,12 +5,14 @@ import { Loader } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PostStats from './PostStats';
 
+// GridPostListProps interface
 type GridPostListProps = {
   posts: IUpdatePost[];
   showUser?: boolean;
   showStats?: boolean;
 };
 
+// GridPostList component
 const GridPostList = ({
   posts,
   showUser = true,
@@ -25,6 +27,10 @@ const GridPostList = ({
   }
 
   if (isLoading) {
+    return <Loader />;
+  }
+
+  if (posts?.length === 0) {
     return <Loader />;
   }
 

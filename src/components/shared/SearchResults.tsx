@@ -1,42 +1,22 @@
-import { useUserContext } from '@/lib/context/userContext';
-import { IUpdatePost } from '@/types';
 import Loader from './Loader';
-import GridListPost from './GridPostList';
-
-type DocumentPost = {
-  documents: IUpdatePost[];
-};
+import { IUpdatePost } from '@/types';
+import GridPostList from './GridPostList';
 
 type SearchResultProps = {
   isSearching: boolean;
-  searchedPost: DocumentPost | null;
+  searchedPost: { searchValue: string; posts: IUpdatePost[] };
 };
 
 const SearchResults = ({ isSearching, searchedPost }: SearchResultProps) => {
-  const { user } = useUserContext();
-
   if (isSearching) {
-    return (
-      <div className="flex-center w-full h-full">
-        <Loader />
-      </div>
-    );
-  }
-
-  if (!searchedPost) {
-    return <p>No search results found</p>;
-  }
-
-  if (searchedPost && searchedPost && searchedPost.documents?.length > 0) {
-    return <GridListPost posts={searchedPost.documents} />;
-  }
-
-  if (!user) {
     return <Loader />;
   }
 
+  if (searchedPost && searchedPost?.posts?.length > 0)
+    return <GridPostList posts={searchedPost.posts} />;
+
   return (
-    <p className="text-light-4 mt-10 text-center w-full">No results Found</p>
+    <p className="text-light-4 mt-10 text-center w-full">No Result Found</p>
   );
 };
 

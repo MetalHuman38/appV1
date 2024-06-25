@@ -109,9 +109,9 @@ const Explore = () => {
       </div>
       <div className="flex flex-wrap gap-9 w-full max-w-5xl">
         {showSearchResults ? (
-          <SearchResults 
-          isSearching={isSearching}
-          searchedPost={searchedPost}
+          <SearchResults
+            isSearching={isSearching}
+            searchedPost={searchedPost}
           />
         ) : showPosts ? (
           <p className="text-light-4 mt-10 text-center w-full">End Of Post</p>
@@ -119,11 +119,6 @@ const Explore = () => {
           <GridPostList posts={posts} />
         )}
       </div>
-      {isFetchingNextPage && (
-        <p className="flex-center w-full mt-5">
-          <Loader />
-        </p>
-      )}
     </div>
   );
 };
