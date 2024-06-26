@@ -18,7 +18,7 @@ const GridPostList = ({
   showUser = true,
   showStats = true,
 }: GridPostListProps) => {
-  if (posts.length === 0) {
+  if (posts?.length === 0) {
     return <p>No search results found</p>;
   }
   const { user, isLoading } = useUserContext();
@@ -36,7 +36,7 @@ const GridPostList = ({
 
   return (
     <ul className="grid-container">
-      {posts.map(post => (
+      {posts?.map(post => (
         <li key={post?.id} className="relative min-w-80 h-80">
           <Link to={`/posts/${post.id}`} className="grid-post_link">
             <img

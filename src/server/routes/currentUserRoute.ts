@@ -67,22 +67,4 @@ router.get(
   },
 );
 
-// router.get(
-//   '/api/getUser',
-//   verifyUser,
-//   async (_req: Request, res: Response, next: NextFunction) => {
-//     if (!res.locals.user) {
-//       return res.status(401).json({ message: 'Unauthorized' });
-//     }
-//     try {
-//       const user = res.locals.user as User;
-//       res.status(200).json({ user });
-//     } catch (error) {
-//       console.error('Error getting current user:', error);
-//       res.status(500).json({ message: 'Error getting current user' });
-//     }
-//     return next();
-//   },
-// );
-
 export default router;

@@ -1,5 +1,5 @@
 import axiosInstance from '../axios/axiosConfig';
-import { INewPost, INewUser, IUpdatePost } from '@/types';
+import { INewPost, INewUser, IUpdatePost, IUpdateUser } from '@/types';
 
 // Wrapper function around registerUserMutation that accepts user data and returns a promise
 export const registerUserMutation = async (
@@ -209,6 +209,23 @@ export const getAllPostsMutation = async (): Promise<any> => {
     return response.data;
   } catch (error) {
     console.error('Error getting posts:', error);
+    throw error;
+  }
+};
+
+// Wrapper function around getSavedPostsMutation
+export const getSavedPostsMutation = async (user_id: number): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/api/getSavedPosts', {
+      params: { user_id },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error getting saved posts:', error);
     throw error;
   }
 };
@@ -482,6 +499,88 @@ export const searchPostsMutation = async (
     return response.data;
   } catch (error) {
     console.error('Error searching posts:', error);
+    throw error;
+  }
+};
+
+// Wrapper function around getUserPostsMutation
+export const getUserPostsMutation = async (user_id: number): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/api/getUserPosts', {
+      params: { user_id },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error getting user posts:', error);
+    throw error;
+  }
+};
+
+// Wrapper function around getPopularPostsMutation
+export const getPopularPostsMutation = async (): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/api/getPopularPosts');
+    return response.data;
+  } catch (error) {
+    console.error('Error getting popular posts:', error);
+    throw error;
+  }
+};
+
+// Wrapper function around getAllUsersMutation
+export const getAllUsersMutation = async (limit: number): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/api/getAllUsers', {
+      params: { limit },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error getting all users:', error);
+    throw error;
+  }
+};
+
+// Wrapper function around getUserByIDMutation
+export const getUserByIDMutation = async (id: number): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/api/getUserByID', {
+      params: { id },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error getting user by ID:', error);
+    throw error;
+  }
+};
+
+// Wrapper function around updateUserMutation
+export const updateUserMutation = async (
+  id: number,
+  user: IUpdateUser,
+): Promise<any> => {
+  try {
+    const response = await axiosInstance.put('/api/updateUser', user, {
+      params: { id },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error updating user:', error);
     throw error;
   }
 };

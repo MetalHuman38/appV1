@@ -562,7 +562,7 @@ export const getSavedPosts = async (
 
     jwt.verify(
       token,
-      process.env.JWT_SECRET as string,
+      jwtENV.JWT_SECRET as string,
       async (err: any, decodedToken: any) => {
         if (err) {
           console.log('JWT verification error', err.message);
@@ -582,12 +582,10 @@ export const getSavedPosts = async (
           return;
         }
 
-        const savedPosts = await Saves.findAll({
-          where: { user_id },
-          include: [{ model: Posts }],
+        const savedPosts = await Saves.getSavedPosts(user_id);
+        res.status(200).json({
+          savedPosts,
         });
-
-        res.status(200).json({ savedPosts });
       },
     );
   } catch (error) {
@@ -699,6 +697,35 @@ export const getInfinitePosts = async (
 };
 
 // Search posts
+// export const searchPosts = async (
+//   req: Request,
+//   res: Response,
+// ): Promise<void> => {
+//   try {
+//     const { searchValue } = req.body;
+//     if (!searchValue) {
+//       res.status(400).json({ message: 'Search value is required' });
+//       return;
+//     }
+
+//     const posts = await Posts.findAll({
+//       where: {
+//         caption: {
+//           [Op.like]: `%${searchValue}%`,
+//         },
+//       },
+//     });
+//     res.status(200).json({
+//       posts,
+//     });
+//   } catch (error) {
+//     console.error('Error searching posts:', error);
+//     res.status(500).json({ message: 'Internal server error' });
+//   }
+// };
+
+// Get user's posts
+
 export const searchPosts = async (
   req: Request,
   res: Response,
@@ -712,9 +739,23 @@ export const searchPosts = async (
 
     const posts = await Posts.findAll({
       where: {
-        caption: {
-          [Op.like]: `%${searchValue}%`,
-        },
+        [Op.or]: [
+          {
+            caption: {
+              [Op.like]: `%${searchValue}%`,
+            },
+          },
+          {
+            tags: {
+              [Op.like]: `%${searchValue}%`,
+            },
+          },
+          {
+            location: {
+              [Op.like]: `%${searchValue}%`,
+            },
+          },
+        ],
       },
     });
     res.status(200).json({
@@ -722,6 +763,58 @@ export const searchPosts = async (
     });
   } catch (error) {
     console.error('Error searching posts:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+export const getUserPosts = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const token = req.cookies.jwt || req.headers.authorization?.split(' ')[1];
+    if (!token) {
+      res.status(401).json({ message: 'Unauthorized' });
+      return;
+    }
+    jwt.verify(
+      token,
+      jwtENV.JWT_SECRET as string,
+      async (err: any, decodedToken: any) => {
+        if (err) {
+          console.log('JWT verification error', err.message);
+          res.status(401).json({ message: 'Unauthorized Invalid Token' });
+          return;
+        }
+        const user_id = decodedToken.id;
+        if (!user_id) {
+          res.status(400).json({ message: 'User ID is required' });
+          return;
+        }
+        const posts = await Posts.findAll({
+          where: { creator_Id: user_id },
+        });
+        res.status(200).json({ posts });
+      },
+    );
+  } catch (error) {
+    console.error('Error getting user posts:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+// Get Popular Posts
+export const getPopularPosts = async (
+  _req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const popularPosts = await Posts.findAll({
+      order: [['likes_Count', 'DESC']],
+    });
+    res.status(200).json({ popularPosts });
+  } catch (error) {
+    console.error('Error getting popular posts:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 };

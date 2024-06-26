@@ -1,0 +1,76 @@
+2024-06-26T08:13:16.989Z - Posts is associated to d using an alias. You've included an alias (Posts), but it does not match the alias(es) defined in your association (Post).
+SequelizeEagerLoadingError: Posts is associated to d using an alias. You've included an alias (Posts), but it does not match the alias(es) defined in your association (Post).
+    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:574:15)
+    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
+    at Array.map (<anonymous>)
+    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
+    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31825)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11399
+2024-06-26T08:14:19.626Z - Posts is associated to d using an alias. You've included an alias (Posts), but it does not match the alias(es) defined in your association (Post).
+SequelizeEagerLoadingError: Posts is associated to d using an alias. You've included an alias (Posts), but it does not match the alias(es) defined in your association (Post).
+    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:574:15)
+    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
+    at Array.map (<anonymous>)
+    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
+    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31825)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11399
+2024-06-26T09:06:37.263Z - Validation error
+Error
+    at Query.run (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async MySQLQueryInterface.insert (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)
+    at async d.save (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:2490:35)
+    at async d.create (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1362:12)
+    at async d.createSave (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31572)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:9678
+2024-06-26T12:15:37.514Z - d is not associated to d!
+SequelizeEagerLoadingError: d is not associated to d!
+    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:565:13)
+    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
+    at Array.map (<anonymous>)
+    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
+    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31878)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11391
+2024-06-26T12:16:44.478Z - d is not associated to d!
+SequelizeEagerLoadingError: d is not associated to d!
+    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:565:13)
+    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
+    at Array.map (<anonymous>)
+    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
+    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31878)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11391
+2024-06-26T12:17:08.053Z - d is not associated to d!
+SequelizeEagerLoadingError: d is not associated to d!
+    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:565:13)
+    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
+    at Array.map (<anonymous>)
+    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
+    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31878)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11391
+2024-06-26T12:21:19.525Z - d is not associated to d!
+SequelizeEagerLoadingError: d is not associated to d!
+    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:565:13)
+    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
+    at Array.map (<anonymous>)
+    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
+    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31878)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11391

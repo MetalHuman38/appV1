@@ -69,6 +69,16 @@ class Posts extends Model<PostAttributes, PostCreationAttributes> {
   static async getPostByID(id: number): Promise<Posts | null> {
     return await this.findOne({ where: { id: id } });
   }
+
+  // declare static methods to get user's posts
+  static async getUserPosts(user_id: number): Promise<Posts[]> {
+    return await this.findAll({ where: { creator_Id: user_id } });
+  }
+
+  // declare static methods to get Saved post by post ID
+  static async getSavedPost(post_id: number): Promise<Posts | null> {
+    return await this.findOne({ where: { id: post_id } });
+  }
 }
 
 // Sync the model with the database
@@ -170,6 +180,17 @@ Posts.getPostByID = async function (id: number): Promise<Posts | null> {
     return post;
   } catch (error) {
     console.error('Error getting post by ID:', error);
+    throw error;
+  }
+};
+
+// Get user's posts
+Posts.getUserPosts = async function (user_id: number): Promise<Posts[]> {
+  try {
+    const posts = await this.findAll({ where: { creator_Id: user_id } });
+    return posts;
+  } catch (error) {
+    console.error('Error getting user posts:', error);
     throw error;
   }
 };

@@ -7,6 +7,11 @@ import jwt from 'jsonwebtoken';
 import Users from '../models/user.model';
 import { jwtENV } from '../config/jwtENV';
 import { requireAuth } from '../loaders/auth/userAuth';
+import {
+  getAllUsers,
+  getUserByID,
+  updateUser,
+} from '../controllers/userController';
 
 const router = express.Router();
 
@@ -27,6 +32,7 @@ router.use(cookieParser());
 router.use(express.json());
 router.use(bodyParser.json());
 
+// User Authentication Middleware
 router.get(
   '/api/getCurrentUser',
   requireAuth,
@@ -65,5 +71,14 @@ router.get(
     );
   },
 );
+
+// Get all users
+router.get('/api/getAllUsers', getAllUsers);
+ 
+// Get user by ID
+router.get('/api/getUserByID', getUserByID);
+
+// Update user by ID
+router.get('/api/updateUser', updateUser);
 
 export default router;

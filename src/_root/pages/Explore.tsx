@@ -9,10 +9,11 @@ import GridPostList from '@/components/shared/GridPostList';
 import Loader from '@/components/shared/Loader';
 import SearchResults from '@/components/shared/SearchResults';
 import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const Explore = () => {
   const { data: posts, isLoading } = useGetAllPosts();
-
+  const { ref } = useInView();
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfinitePosts({ pageParam: 1 });
 
@@ -30,7 +31,7 @@ const Explore = () => {
       ) {
         if (hasNextPage && !isFetchingNextPage) {
           fetchNextPage();
-        }
+        }                                                                                                                                                
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -119,6 +120,11 @@ const Explore = () => {
           <GridPostList posts={posts} />
         )}
       </div>
+      {hasNextPage && !searchValue && (
+        <div ref={ref} className="mt-10">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };

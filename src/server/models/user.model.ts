@@ -47,6 +47,50 @@ class Users extends Model<UserAttributes, UserCreationAttributes> {
   static async getUserByID(id: number): Promise<Users | null> {
     return await this.findOne({ where: { id: id } });
   }
+
+  // declare static methods to get all users
+  // static async getAllUsers(): Promise<Users[]> {
+  //   return await this.findAll({
+  //     attributes: [
+  //       'id',
+  //       'firstName',
+  //       'lastName',
+  //       'username',
+  //       'status',
+  //       'bio',
+  //       'join',
+  //       'avatarUrl',
+  //       'imageURL',
+  //       'profilePic',
+  //       'label',
+  //       'last_activity',
+  //       'updated_at',
+  //       'UserRegistrationID',
+  //     ],
+  //   });
+  // }
+
+  static async getAllUsers(
+    limit: number,
+    attributes: string[],
+  ): Promise<Users[]> {
+    return await this.findAll({
+      limit,
+      attributes,
+    });
+  }
+
+  // declare static methods to update a user by ID
+  static async updateUser(
+    id: number,
+    attributes: UserAttributes,
+  ): Promise<[number, Users[]]> {
+    const [affectedCount, updatedUsers] = await this.update(attributes, {
+      where: { id },
+      returning: true,
+    });
+    return [affectedCount, updatedUsers as Users[]];
+  }
 }
 
 // Sync the model with the database

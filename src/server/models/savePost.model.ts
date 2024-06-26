@@ -44,6 +44,19 @@ class Saves
       await save.destroy();
     }
   }
+
+  // create custom method to get all saved posts
+  static async getSavedPosts(user_id: number): Promise<Saves[]> {
+    return await this.findAll({
+      where: { user_id },
+      include: [         
+        {
+          model: Posts,
+          as: 'Post',
+        },
+      ],
+    });
+  }
 }
 
 // Define the Saves model

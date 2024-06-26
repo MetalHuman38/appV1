@@ -9,6 +9,8 @@ export enum Query_Keys {
   // Auth Queries
   CHECK_AUTH_USER = '',
   GET_CURRENT_USER = 'GET_CURRENT_USER',
+  GET_ALL_USERS = 'GET_ALL_USERS',
+  GET_USER_BY_ID = 'GET_USER_BY_ID',
 
   // Post Mutations
   CREATE_POST = 'CREATE_POST',
@@ -21,6 +23,8 @@ export enum Query_Keys {
   GET_USER_POSTS = 'GET_USER_POSTS',
   GET_INFITE_POSTS = 'GET_INFITE_POSTS',
   DELETE_POST = 'DELETE_POST',
+  GET_POPULAR_POSTS = 'GET_POPULAR_POSTS',
+  GET_SAVED_POSTS = 'GET_SAVED_POSTS',
 
   // Put post Mutations
   UPDATE_POST = 'UPDATE_POST',

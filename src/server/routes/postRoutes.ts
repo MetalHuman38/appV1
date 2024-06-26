@@ -14,6 +14,9 @@ import {
   updatePost,
   getInfinitePosts,
   searchPosts,
+  getUserPosts,
+  getPopularPosts,
+  getSavedPosts,
 } from '../controllers/PostController';
 import { verifyUser } from '../loaders/auth/userAuth';
 
@@ -58,6 +61,9 @@ router.post('/api/likePost', likePost);
 // Save a Post
 router.post('/api/savePost', verifyUser, savePost);
 
+// get saved posts
+router.get('/api/getSavedPosts', verifyUser, getSavedPosts);
+
 // Delete a Post
 router.delete('/api/deleteSavedPost', deleteSavedPost);
 
@@ -69,5 +75,11 @@ router.get('/api/getInfinitePosts', getInfinitePosts);
 
 // Search Posts
 router.post('/api/searchPosts', searchPosts);
+
+// Get user's saved posts
+router.get('/api/getUserPosts', getUserPosts);
+
+// Get popular posts
+router.get('/api/getPopularPosts', getPopularPosts);
 
 export default router;

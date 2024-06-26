@@ -11,10 +11,14 @@ import {
   deletePostByIdMutation,
   deletePostMutation,
   getAllPostsMutation,
+  getAllUsersMutation,
   getCurrentUserMutation,
   getInfinitePostsMutation,
   getPostByIdMutation,
   getPreviewImageUrlMutation,
+  getSavedPostsMutation,
+  getUserByIDMutation,
+  getUserPostsMutation,
   likePostMutation,
   loginUserMutation,
   logOutUserMutation,
@@ -23,10 +27,11 @@ import {
   savePostMutation,
   searchPostsMutation,
   updatePostMutation,
+  updateUserMutation,
   uploadImageMutation,
   uploadProfilePicMutation,
 } from './ApiWrapper';
-import { INewPost, INewUser, IUpdatePost } from '@/types';
+import { INewPost, INewUser, IUpdatePost, IUpdateUser } from '@/types';
 import { Query_Keys } from './QueryKeys';
 import { useUserContext } from '../context/userContext';
 import { useNavigate } from 'react-router-dom';
@@ -142,6 +147,14 @@ export const useGetAllPosts = () => {
   return useQuery({
     queryKey: [Query_Keys.GET_ALL_POSTS],
     queryFn: getAllPostsMutation,
+  });
+};
+
+// Wrapper function around getSavedPostsMutation
+export const useGetSavedPosts = ({ user_id }: { user_id: number }) => {
+  return useQuery({
+    queryKey: [Query_Keys.GET_SAVED_POSTS],
+    queryFn: () => getSavedPostsMutation(user_id),
   });
 };
 
@@ -317,5 +330,57 @@ export const useSearchPosts = (searchTerm: string) => {
     queryKey: [Query_Keys.SEARCH_POSTS, searchTerm],
     queryFn: () => searchPostsMutation(searchTerm),
     enabled: !!searchTerm,
+  });
+};
+
+// Wrapper function around getUserPostsMutation
+export const useGetUserPosts = (user_id: number) => {
+  return useQuery({
+    queryKey: [Query_Keys.GET_USER_POSTS, user_id],
+    queryFn: () => getUserPostsMutation(user_id),
+    enabled: !!user_id,
+  });
+};
+
+// Wrapper function around getAllPopularPostsMutation
+export const useGetPopularPosts = () => {
+  return useQuery({
+    queryKey: [Query_Keys.GET_POPULAR_POSTS],
+    queryFn: () => getAllPostsMutation(),
+  });
+};
+
+// Wrapper function around getAllUsers Mutation
+export const useGetAllUsers = ({ limit }: { limit: number }) => {
+  return useQuery({
+    queryKey: [Query_Keys.GET_ALL_USERS],
+    queryFn: () => getAllUsersMutation(limit),
+    enabled: !!limit,
+  });
+};
+
+// Wrapper function around getUserByIDMutation
+export const useGetUserByID = (user_id: number) => {
+  return useQuery({
+    queryKey: [Query_Keys.GET_USER_BY_ID, user_id],
+    queryFn: () => getUserByIDMutation(user_id),
+    enabled: !!user_id,
+  });
+};
+
+// Wrapper function around updateUserMutation
+export const useUpdateUser = () => {
+  const QueryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ user_id, user }: { user_id: number; user: IUpdateUser }) =>
+      updateUserMutation(user_id, user),
+    onSuccess: data => {
+      QueryClient.invalidateQueries({
+        queryKey: [Query_Keys.GET_USER_BY_ID, data?.id],
+      });
+      QueryClient.invalidateQueries({
+        queryKey: [Query_Keys.GET_CURRENT_USER],
+      });
+    },
   });
 };

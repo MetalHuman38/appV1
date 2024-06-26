@@ -6,11 +6,11 @@ export type INavLink = {
 
 export type IUpdateUser = {
   id: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   bio: string;
-  imageId: string;
-  imageUrl: URL | string;
-  file: File[];
+  imageURL: string;
+  profilePic: string;
 };
 
 export type INewPost = {
@@ -56,4 +56,11 @@ export type INewUser = {
   email: string;
   username: string;
   password: string;
+};
+
+export type ISavedPost = {
+  id: number;
+  post_id: number;
+  user_id: number;
+  savedAt: Date;
 };
