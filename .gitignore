@@ -3,5 +3,5 @@ dist
 node_modules
 .env*
 .env
-error.log
-data.sql
+.error.log
+.data.sql
