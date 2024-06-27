@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import { jwtENV } from '../config/jwtENV';
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { jwtGenerator, jwtRefresh } from '../loaders/auth/jwtGenerator';
 import UserRegistration from '../models/userRegister.model';
 import { handleError } from '../utils/errorHandler';
@@ -188,38 +188,9 @@ export const refreshToken = async (
   );
 };
 
-// require authentication
-export const requireAuth = (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-): void => {
-  const token = req.cookies.jwt;
-  if (!token) {
-    res.status(401).json({ message: 'Unauthorized' });
-    return;
-  }
-
-  jwt.verify(token, jwtENV.JWT_SECRET, async (err: any, decodedToken: any) => {
-    if (err) {
-      console.log(err.message);
-      return res.status(401).json({ message: 'Unauthorized' });
-    }
-    const userId = decodedToken.id;
-    const user = await UserRegistration.findByPk(userId);
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-    res.locals.user = user;
-    return next();
-  });
-  next();
-};
-
 export default {
   userRegister,
   userLogin,
   userLogout,
   refreshToken,
-  requireAuth,
 };

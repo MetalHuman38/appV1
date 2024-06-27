@@ -34,6 +34,4 @@ router.get('/api/logout', authController.userLogout);
 
 router.post('/api/refresh-token', authController.refreshToken);
 
-router.get('/api/currentUser', authController.requireAuth);
-
 export default router;

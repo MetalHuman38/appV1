@@ -35,14 +35,14 @@ router.get('/', (_req, res) => {
   });
 });
 
-router.use(authRoutes);
+router.use(currentUserRoute);
 
-router.use(userRoutes);
+router.use(authRoutes);
 
 router.use(postRoutes);
 
 router.use(imageRoutes);
 
-router.use(currentUserRoute);
+router.use(userRoutes);
 
 export { router };

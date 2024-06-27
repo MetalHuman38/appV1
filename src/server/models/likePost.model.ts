@@ -118,7 +118,7 @@ Likes.belongsTo(Post, {
 });
 
 // Sync the Like model with the database
-Likes.sync({ force: false})
+Likes.sync({ force: false })
   .then(() => {
     console.log('Like synced successfully');
   })

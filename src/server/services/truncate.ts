@@ -8,7 +8,8 @@ export async function truncateTables() {
   const transaction = await sequelize.transaction();
 
   try {
-    // Perform the truncate operation within the transaction
+    // await Users.destroy({ where: {}, truncate: true });
+    // await UserRegistration.destroy({ where: {}, truncate: true });
     await ImageStorages.truncate({ transaction });
 
     // If everything is successful, commit the transaction

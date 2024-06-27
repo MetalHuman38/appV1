@@ -68,9 +68,14 @@ export const checkAuthUserMutation = async (): Promise<any> => {
 // Wrapper function around logged in user
 export const getCurrentUserMutation = async (): Promise<any> => {
   try {
-    const response = await axiosInstance.get('/api/getUser', {
+    const jwt = sessionStorage.getItem('jwt');
+    if (jwt) {
+      axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
+    }
+    const response = await axiosInstance.get('/api/getCurrentUser', {
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwt}`,
       },
       withCredentials: true,
     });

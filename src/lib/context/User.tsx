@@ -1,36 +1,42 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useUserContext } from '@/lib/context/userContext';
 import axiosInstance from '../axios/axiosConfig';
 import useRefreshToken from '../hooks/useRefreshToken';
 import { useNavigate } from 'react-router-dom';
-import { useGetCurrentUser } from '../react-query/QueriesAndMutatins';
+import { useCurrentUser } from '../react-query/QueriesAndMutatins';
+import { IUser } from '@/types';
 
-export const useUserData = () => {
-  const { user, setUser, isLoading, isAuthenticated, setIsLoading } =
-    useUserContext();
-  const { data, refetch } = useGetCurrentUser();
+export const User = () => {
+  const { user, setIsLoading, isAuthenticated } = useUserContext();
+  const [users, setUser] = useState<IUser[] | null>(null);
+  const { data, isLoading, refetch } = useCurrentUser();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (data) {
       setUser(data);
+      console.log('User data:', users);
     }
   }, [data]);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     let isMounted = true;
     const controller = new AbortController();
     const fetchUserData = async () => {
       try {
-        const response = await axiosInstance.get('/api/getUser', {
+        const jwt = sessionStorage.getItem('jwt');
+        if (jwt) {
+          axiosInstance.defaults.headers.common['Authorization'] =
+            `Bearer ${jwt}`;
+        }
+        const response = await axiosInstance.get('/api/getCurrentUser', {
           headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${jwt}`,
           },
-          signal: controller.signal,
           withCredentials: true,
+          signal: controller.signal,
         });
-
         if (isMounted) {
           await refetch();
           setUser(response.data);
@@ -40,7 +46,7 @@ export const useUserData = () => {
           console.error('Unauthorized', error.response.data.message);
           try {
             const newAccessToken = await useRefreshToken();
-            const response = await axiosInstance.get('/api/getUser', {
+            const response = await axiosInstance.get('/api/getCurrentUser', {
               headers: {
                 'Content-Type': 'application/json',
               },
@@ -71,10 +77,6 @@ export const useUserData = () => {
         controller.abort();
       };
     };
-
-    if (!isAuthenticated) {
-      fetchUserData();
-    }
   }, [isAuthenticated, setUser, navigate, setIsLoading]);
 
   return { user, isLoading, isAuthenticated };

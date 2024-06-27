@@ -80,3 +80,4 @@ QueryInterface.createTable('Posts', {
   },
 });
 
+DELETE FROM Users WHERE id = 2;

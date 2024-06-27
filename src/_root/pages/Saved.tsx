@@ -1,20 +1,18 @@
 import GridPostList from '@/components/shared/GridPostList';
-import {
-  useGetCurrentUser,
-  useGetSavedPosts,
-} from '@/lib/react-query/QueriesAndMutatins';
+import { useGetSavedPosts } from '@/lib/react-query/QueriesAndMutatins';
 import Loader from '@/components/shared/Loader';
 import { IUpdatePost } from '@/types';
+import { useUserContext } from '@/lib/context/userContext';
 
 const Saved = () => {
-  const { data: currentUser } = useGetCurrentUser();
+  const { user } = useUserContext();
 
   const {
     data: savedPosts,
     isLoading: isLoadingPosts,
     isError,
   } = useGetSavedPosts({
-    user_id: currentUser?.id,
+    user_id: user?.UserRegistrationID as number,
   });
 
   if (isError) {
@@ -44,7 +42,7 @@ const Saved = () => {
         />
         <h2 className="h3-bold md:h2-bold text-left w-full">Saved Posts</h2>
       </div>
-      {!currentUser ? (
+      {!user ? (
         <Loader />
       ) : (
         <ul className="w-full flex justify-center max-w-5xl gap-9">

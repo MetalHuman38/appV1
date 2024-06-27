@@ -58,10 +58,11 @@ export const useCheckAuthUser = () => {
   });
 };
 
-export const useGetCurrentUser = () => {
+// Wrapper function around logged in user
+export const useCurrentUser = () => {
   return useQuery({
     queryKey: [Query_Keys.GET_CURRENT_USER],
-    queryFn: getCurrentUserMutation,
+    queryFn: () => getCurrentUserMutation(),
   });
 };
 

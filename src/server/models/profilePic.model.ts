@@ -88,7 +88,7 @@ ProfilePicture.belongsTo(Users, {
   onUpdate: 'CASCADE',
 });
 
-ProfilePicture.sync({ force: true })
+ProfilePicture.sync({ force: false })
   .then(() => {
     console.log('Profile Pic synced successfully');
   })

@@ -1,11 +1,42 @@
 // Desc: Home page
 import Loader from '@/components/shared/Loader';
 import PostCard from '@/components/shared/PostCard';
-import { useGetAllPosts } from '@/lib/react-query/QueriesAndMutatins';
+import UserCard from '@/components/shared/UserCard';
+import {
+  useGetAllPosts,
+  useGetAllUsers,
+} from '@/lib/react-query/QueriesAndMutatins';
 import { IUpdatePost } from '@/types';
 
 const Home = () => {
-  const { data: post, isPending: isPostLoading } = useGetAllPosts();
+  const {
+    data: post,
+    isPending: isPostLoading,
+    isError: isErrorPosts,
+  } = useGetAllPosts();
+
+  const {
+    data: userData,
+    isLoading,
+    isError: isErrorCreators,
+  } = useGetAllUsers({ limit: 10 });
+
+  if (isErrorPosts || isErrorCreators) {
+    return (
+      <div className="flex flex-1">
+        <div className="home-container">
+          <p className="body-medium text-light-1">
+            Something went wrong while fetching posts or creators. Please try
+          </p>
+        </div>
+        <div className="home-creators">
+          <p className="body-medium text-light-1">
+            Something went wrong while fetching posts or creators. Please try
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-1">
@@ -17,7 +48,25 @@ const Home = () => {
           ) : (
             <ul className="flex flex-col flex-1 gap-9 w-full">
               {post.map((post: IUpdatePost) => (
-                <PostCard post={post} key={post.id} />
+                <li key={post.id} className="flex justify-center w-full">
+                  <PostCard post={post} key={post.id} />
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+      <div>
+        <div className="home-creators">
+          <h2 className="h3-bold md:h2-bold text-light-1">Top Creators</h2>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <ul className="user-grid">
+              {userData?.users.map((creator: any) => (
+                <li key={creator.id} className="flex-1 min-w-w[200px] w-full">
+                  <UserCard user={creator} />
+                </li>
               ))}
             </ul>
           )}

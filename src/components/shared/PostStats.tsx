@@ -1,7 +1,7 @@
 import {
+  useCurrentUser,
   useDeleteLikePost,
   useDeletePost,
-  useGetCurrentUser,
   useLikePost,
   useSavePost,
 } from '../../lib/react-query/QueriesAndMutatins';
@@ -21,7 +21,7 @@ const PostStats = ({ post }: PostStatsProps) => {
   const { mutate: savePost, isPending: isSavingPost } = useSavePost();
   const { mutate: deletePost, isPending: isDeletingSaved } = useDeletePost();
   const { mutate: deleteLikePost } = useDeleteLikePost();
-  const { data: user } = useGetCurrentUser();
+  const { data: user } = useCurrentUser();
 
   useEffect(() => {
     if (user) {
@@ -32,7 +32,7 @@ const PostStats = ({ post }: PostStatsProps) => {
       setIsSaved(
         !!post.id &&
           user.id === post.creator_Id &&
-          user.Saves.includes(post.id),
+          user.Saves?.includes(post.id),
       );
     }
   }, [post.id]);

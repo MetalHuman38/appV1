@@ -11,13 +11,20 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SignUpValidation } from '@/lib/validation';
 import Loader from '@/components/shared/Loader';
 import { useState } from 'react';
+import { useRegisterUser } from '@/lib/react-query/QueriesAndMutatins';
+import { toast } from '@/components/ui/use-toast';
+import { useUserContext } from '@/lib/context/userContext';
 
 const SignUpForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const { checkAuthUser, setIsAuthenticated } = useUserContext();
+  const navigate = useNavigate();
+  // Use the useRegisterUser hook to get the mutation function
+  const registerUserMutation = useRegisterUser();
   // 1. Define your form.
   const form = useForm<z.infer<typeof SignUpValidation>>({
     resolver: zodResolver(SignUpValidation),
@@ -30,10 +37,50 @@ const SignUpForm = () => {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof SignUpValidation>) {
-    setIsLoading(true);
+  async function onSubmit(values: z.infer<typeof SignUpValidation>) {
+    try {
+      setIsLoading(true);
+      // Call the registerUserMutation function with the form values
+      const newUser = await registerUserMutation.mutateAsync({
+        name: values.name,
+        username: values.username,
+        email: values.email,
+        password: values.password,
+      });
 
-    console.log(values);
+      if (!newUser) {
+        return toast({
+          title: 'Sign Up failed. Please try again.',
+        });
+      } else {
+        toast({
+          title: 'Sign Up successful. Checking authentication......',
+        });
+        const isAuthenticated = await checkAuthUser();
+        if (isAuthenticated) {
+          setIsAuthenticated(true);
+          toast({
+            title: 'User authenticated successfully.',
+          });
+          navigate('/');
+        } else {
+          toast({
+            title: 'User authentication failed. Please log in.',
+          });
+          navigate('/sign-in');
+        }
+      }
+      form.reset();
+      console.log(newUser);
+      return newUser;
+    } catch (error) {
+      toast({
+        title: 'An unexpected error occurred. Please try again.',
+      });
+    } finally {
+      setIsLoading(false);
+    }
+    return null;
   }
 
   return (
@@ -125,7 +172,7 @@ const SignUpForm = () => {
           <Button type="submit" className="shad-button_primary">
             {isLoading ? (
               <div className="flex-center gap-2">
-                <Loader /> Loading...
+                <Loader />
               </div>
             ) : (
               'Sign Up'

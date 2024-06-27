@@ -53,7 +53,7 @@ router.get(
         try {
           const user = await Users.findByPk(decodedToken.id);
           if (!user) {
-            res.status(400).json({ message: 'User ID is required' });
+            res.status(400).json({ message: 'User ID is required S routes' });
             return;
           }
           res.status(200).json({ user });

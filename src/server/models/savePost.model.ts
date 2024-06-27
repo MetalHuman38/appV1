@@ -49,7 +49,7 @@ class Saves
   static async getSavedPosts(user_id: number): Promise<Saves[]> {
     return await this.findAll({
       where: { user_id },
-      include: [         
+      include: [
         {
           model: Posts,
           as: 'Post',
