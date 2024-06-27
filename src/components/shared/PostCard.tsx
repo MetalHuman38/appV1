@@ -26,7 +26,7 @@ const PostCard = ({ post }: PostCardProps) => {
         <div className="flex items-center gap-3">
           <Link to={`/profile/${post?.creator_Id}`}>
             <img
-              src={user?.avatarUrl || '/assets/icons/profile-placeholder.svg'}
+              src={user?.imageURL || user?.avatarUrl}
               alt="creator"
               loading="lazy"
               className="rounded-full w-12 lg:h-12"
@@ -65,7 +65,7 @@ const PostCard = ({ post }: PostCardProps) => {
           <p>{post.caption}</p>
           <ul className="flex gap-1 mt-2">
             {post.tags.split(',').map((tag, index) => (
-              <li key={index} className="text-light-3">
+              <li key={`${tag}${index}`} className="text-light-3 small-regular">
                 #{tag}
               </li>
             ))}

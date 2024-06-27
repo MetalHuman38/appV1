@@ -48,9 +48,9 @@ const LeftSideBar = () => {
         {!user ? (
           <p>Loading user data...</p>
         ) : (
-          <Link to={`/profile/${user.id}`}>
+          <Link to={`/profile/${user.id}`} className="flex gap-3 items-center">
             <img
-              src={user.imageURL || '/assets/images/owner.jpg'}
+              src={user.imageURL || user.avatarUrl}
               alt="profile"
               className="h-14 w-14 rounded-full"
               loading="lazy"

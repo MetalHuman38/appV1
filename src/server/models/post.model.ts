@@ -79,6 +79,7 @@ class Posts extends Model<PostAttributes, PostCreationAttributes> {
   static async getSavedPost(post_id: number): Promise<Posts | null> {
     return await this.findOne({ where: { id: post_id } });
   }
+  
 }
 
 // Sync the model with the database

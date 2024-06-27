@@ -202,7 +202,23 @@ export const getAllPosts = async (
   res: Response,
 ): Promise<void> => {
   try {
-    const posts = await Posts.findAll();
+    const posts = await Posts.findAll({
+      include: [
+        {
+          model: Users,
+          as: 'User',
+          attributes: [
+            'id',
+            'username',
+            'email',
+            'profilePic',
+            'bio',
+            'firstName',
+            'lastName',
+          ],
+        },
+      ],
+    });
     res.status(200).json({ posts: posts });
   } catch (error) {
     console.error('Error getting posts:', error);
