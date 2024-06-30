@@ -1,10 +1,9 @@
 import { useGetPostById } from '@/lib/react-query/QueriesAndMutatins';
-import Loader from '@/components/shared/Loader';
+import { Loader, PostStats } from '@/components/shared';
 import { Link, useParams } from 'react-router-dom';
 import { timeAgo } from '@/lib/utils';
 import { useUserContext } from '@/lib/context/userContext';
 import { Button } from '@/components/ui/button';
-import PostStats from '@/components/shared/PostStats';
 
 const PostDetails = () => {
   const { id } = useParams();

@@ -1,1152 +1,230 @@
-2024-06-26T08:13:16.989Z - Posts is associated to d using an alias. You've included an alias (Posts), but it does not match the alias(es) defined in your association (Post).
-SequelizeEagerLoadingError: Posts is associated to d using an alias. You've included an alias (Posts), but it does not match the alias(es) defined in your association (Post).
-    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:574:15)
-    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
+2024-06-28T17:15:50.121Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:18:38.897Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:22:23.439Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:24:19.419Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:24:22.589Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:24:34.437Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:24:40.106Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:24:41.679Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:24:49.343Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:24:53.391Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:24:53.997Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:25:01.354Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:25:02.107Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34092
+2024-06-28T17:31:35.921Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34104
+2024-06-28T17:33:05.743Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34104
+2024-06-28T17:34:42.072Z - Cannot access 'l' before initialization
+ReferenceError: Cannot access 'l' before initialization
+    at Object.A (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32230)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:30570
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 452 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:28578)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:32259
+    at u.a (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3845)
+    at 6153 (/home/babsdevsys/appV-1/dist/545.bundle.js:1:32195)
+    at u (/home/babsdevsys/appV-1/dist/server.bundle.js:1:3342)
+    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:34105
+2024-06-28T17:42:01.414Z - Posts is associated to Users using an alias. You've included an alias (Post), but it does not match the alias(es) defined in your association (Posts).
+SequelizeEagerLoadingError: Posts is associated to Users using an alias. You've included an alias (Post), but it does not match the alias(es) defined in your association (Posts).
+    at Users._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:574:15)
+    at Users._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
     at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
     at Array.map (<anonymous>)
-    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
-    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
+    at Users._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
+    at Users.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31825)
-    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11399
-2024-06-26T08:14:19.626Z - Posts is associated to d using an alias. You've included an alias (Posts), but it does not match the alias(es) defined in your association (Post).
-SequelizeEagerLoadingError: Posts is associated to d using an alias. You've included an alias (Posts), but it does not match the alias(es) defined in your association (Post).
-    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:574:15)
-    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:19095
+2024-06-28T17:43:15.141Z - Posts is associated to Users using an alias. You've included an alias (posts), but it does not match the alias(es) defined in your association (Posts).
+SequelizeEagerLoadingError: Posts is associated to Users using an alias. You've included an alias (posts), but it does not match the alias(es) defined in your association (Posts).
+    at Users._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:574:15)
+    at Users._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
     at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
     at Array.map (<anonymous>)
-    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
-    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
+    at Users._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
+    at Users.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31825)
-    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11399
-2024-06-26T09:06:37.263Z - Validation error
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:19095
+2024-06-28T17:47:49.442Z - (conn:314, no: 1054, SQLState: 42S22) Unknown column 'Posts.createdAt' in 'field list'
+sql: SELECT `Users`.`id`, `Users`.`firstName`, `Users`.`lastName`, `Users`.`username`, `Users`.`email`, `Users`.`hashedpassword`, `Users`.`status`, `Users`.`bio`, `Users`.`join`, `Users`.`avatarUrl`, `Users`.`imageURL`, `Users`.`profilePic`, `Users`.`label`, `U... - parameters:[]
 Error
     at Query.run (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)
     at /home/babsdevsys/appV-1/node_modules/sequelize/lib/sequelize.js:315:28
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async MySQLQueryInterface.insert (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/abstract/query-interface.js:308:21)
-    at async d.save (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:2490:35)
-    at async d.create (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1362:12)
-    at async d.createSave (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31572)
-    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:9678
-2024-06-26T12:15:37.514Z - d is not associated to d!
-SequelizeEagerLoadingError: d is not associated to d!
-    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:565:13)
-    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
-    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
-    at Array.map (<anonymous>)
-    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
-    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
+    at async MySQLQueryInterface.select (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)
+    at async Users.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1140:21)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:19095
+2024-06-28T17:48:23.635Z - (conn:326, no: 1054, SQLState: 42S22) Unknown column 'Posts.createdAt' in 'field list'
+sql: SELECT `Users`.`id`, `Users`.`firstName`, `Users`.`lastName`, `Users`.`username`, `Users`.`email`, `Users`.`hashedpassword`, `Users`.`status`, `Users`.`bio`, `Users`.`join`, `Users`.`avatarUrl`, `Users`.`imageURL`, `Users`.`profilePic`, `Users`.`label`, `U... - parameters:[]
+Error
+    at Query.run (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/mariadb/query.js:53:25)
+    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/sequelize.js:315:28
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31878)
-    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11391
-2024-06-26T12:16:44.478Z - d is not associated to d!
-SequelizeEagerLoadingError: d is not associated to d!
-    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:565:13)
-    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
-    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
-    at Array.map (<anonymous>)
-    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
-    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31878)
-    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11391
-2024-06-26T12:17:08.053Z - d is not associated to d!
-SequelizeEagerLoadingError: d is not associated to d!
-    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:565:13)
-    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
-    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
-    at Array.map (<anonymous>)
-    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
-    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31878)
-    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11391
-2024-06-26T12:21:19.525Z - d is not associated to d!
-SequelizeEagerLoadingError: d is not associated to d!
-    at d._getIncludedAssociation (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:565:13)
-    at d._validateIncludedElement (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:502:53)
-    at /home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:421:37
-    at Array.map (<anonymous>)
-    at d._validateIncludedElements (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:417:39)
-    at d.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1124:12)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async d.getSavedPosts (/home/babsdevsys/appV-1/dist/545.bundle.js:1:31878)
-    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:11391
-2024-06-27T07:06:08.616Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T07:06:09.634Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T07:06:11.648Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T07:06:15.663Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T07:08:24.350Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T07:08:27.647Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T08:28:09.359Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at ServerResponse.header (/home/babsdevsys/appV-1/node_modules/express/lib/response.js:795:10)
-    at ServerResponse.send (/home/babsdevsys/appV-1/node_modules/express/lib/response.js:175:12)
-    at ServerResponse.json (/home/babsdevsys/appV-1/node_modules/express/lib/response.js:279:15)
-    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:18377
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2024-06-27T08:31:26.108Z - Error getting current user
-Error: Error getting current user
-    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:18369
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2024-06-27T08:33:09.287Z - Error getting current user
-Error: Error getting current user
-    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:18369
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2024-06-27T08:34:48.062Z - Error getting current user
-Error: Error getting current user
-    at /home/babsdevsys/appV-1/dist/545.bundle.js:1:18336
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-2024-06-27T08:40:03.773Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T08:40:05.952Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T08:40:05.957Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T08:51:55.174Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T08:51:57.503Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T08:51:57.509Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T08:52:51.301Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T09:36:30.125Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T09:37:53.651Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T09:38:08.300Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T09:38:08.306Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:00:25.540Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:04:02.712Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:04:02.720Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:05:26.301Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:07:35.775Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:09:45.176Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:09:45.186Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:09:51.275Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:14:06.139Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:14:06.145Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:14:54.106Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:14:54.111Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:25:24.479Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:25:24.491Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:25:41.874Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:25:41.881Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:26:07.485Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:26:09.520Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:26:09.526Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:26:44.672Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:26:46.541Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:26:46.546Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:32:34.725Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:32:34.741Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:32:34.748Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:32:34.757Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:38:02.283Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:38:02.289Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:38:08.224Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:38:08.229Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:41:21.378Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:41:21.384Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:49:07.389Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T10:49:07.393Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:07:08.473Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:07:08.484Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:07:08.485Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:08:22.427Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:08:36.719Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:08:36.726Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:09:49.540Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:09:49.546Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:16:01.342Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:16:17.940Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:20:09.508Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:20:09.518Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:20:09.519Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:21:40.621Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:21:40.630Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:21:40.631Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:23:38.891Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:23:38.899Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:23:38.901Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:24:47.468Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:24:47.475Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:24:47.476Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:26:27.030Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:26:27.038Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:26:27.040Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:30:25.394Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:30:25.415Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:30:25.421Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:31:25.177Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:31:25.184Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:32:35.638Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:32:35.645Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:44:00.138Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:44:00.144Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:44:00.147Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:53:26.132Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
-2024-06-27T11:53:26.138Z - Cannot set headers after they are sent to the client
-Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (node:_http_outgoing:703:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:153:15)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at applyHeaders (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:149:11)
-    at cors (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:187:7)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:224:17
-    at originCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:214:15)
-    at /home/babsdevsys/appV-1/node_modules/cors/lib/index.js:219:13
-    at optionsCallback (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:199:9)
-    at corsMiddleware (/home/babsdevsys/appV-1/node_modules/cors/lib/index.js:204:7)
+    at async MySQLQueryInterface.select (/home/babsdevsys/appV-1/node_modules/sequelize/lib/dialects/abstract/query-interface.js:407:12)
+    at async Users.findAll (/home/babsdevsys/appV-1/node_modules/sequelize/lib/model.js:1140:21)
+    at async /home/babsdevsys/appV-1/dist/545.bundle.js:1:19095

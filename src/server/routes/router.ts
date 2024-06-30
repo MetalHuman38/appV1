@@ -35,8 +35,6 @@ router.get('/', (_req, res) => {
   });
 });
 
-router.use(currentUserRoute);
-
 router.use(authRoutes);
 
 router.use(postRoutes);
@@ -44,5 +42,7 @@ router.use(postRoutes);
 router.use(imageRoutes);
 
 router.use(userRoutes);
+
+router.use(currentUserRoute);
 
 export { router };

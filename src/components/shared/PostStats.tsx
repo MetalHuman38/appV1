@@ -42,10 +42,10 @@ const PostStats = ({ post }: PostStatsProps) => {
     try {
       if (likesCount > 0) {
         setLikesCount(likesCount - 1);
-        deleteLikePost({ post_id: post.id, user_id: user.id });
+        deleteLikePost({ post_id: post.id, user_id: user?.id });
       } else {
         setLikesCount(likesCount + 1);
-        likePost({ post_id: post.id, likes_Count: user.id });
+        likePost({ post_id: post.id, likes_Count: user?.id });
       }
     } catch (error) {
       console.error('Error liking post:', error);

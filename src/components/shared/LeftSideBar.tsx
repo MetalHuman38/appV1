@@ -50,7 +50,7 @@ const LeftSideBar = () => {
         ) : (
           <Link to={`/profile/${user.id}`} className="flex gap-3 items-center">
             <img
-              src={user.imageURL || user.avatarUrl}
+              src={`/${user?.imageURL}` || `/${user?.avatarUrl}`}
               alt="profile"
               className="h-14 w-14 rounded-full"
               loading="lazy"

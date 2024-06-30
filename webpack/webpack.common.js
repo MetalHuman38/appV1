@@ -67,7 +67,7 @@ module.exports = {
     }),
   ],
   watchOptions: {
-    ignored: /node_modules|public\/assets\/images/,
+    // ignored: /node_modules|public\/assets\/images/,
     ignored: [path.resolve(__dirname, 'node_modules')],
   },
 };

@@ -26,7 +26,7 @@ const PostCard = ({ post }: PostCardProps) => {
         <div className="flex items-center gap-3">
           <Link to={`/profile/${post?.creator_Id}`}>
             <img
-              src={user?.imageURL || user?.avatarUrl}
+              src={post?.User?.imageURL || post.User?.avatarUrl}
               alt="creator"
               loading="lazy"
               className="rounded-full w-12 lg:h-12"
@@ -34,7 +34,7 @@ const PostCard = ({ post }: PostCardProps) => {
           </Link>
           <div className="flex flex-col">
             <p className="base-meduim lg:body-bold text-light-1">
-              {user?.firstName} {user?.lastName}
+              {post?.User?.firstName} {post?.User?.lastName}
             </p>
             <div className="flex-center gap-2 text-light-3">
               <p className="subtle-semibold lg:small-regular">
@@ -72,7 +72,7 @@ const PostCard = ({ post }: PostCardProps) => {
           </ul>
         </div>
         <img
-          src={post.imageURL || '/assets/icons/image-placeholder.svg'}
+          src={`/${post.imageURL}` || '/assets/icons/image-placeholder.svg'}
           alt="post-image"
           loading="lazy"
           className="post-card_img"

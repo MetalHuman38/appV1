@@ -50,7 +50,6 @@ router.get('/api/getCurrentUser', verifyUser, async (req, res) => {
         }
 
         const user_id = decodedToken.id;
-        console.log('User ID:', user_id);
         if (!user_id) {
           res.status(400).json({ message: 'User ID is required' });
           return;
@@ -62,7 +61,7 @@ router.get('/api/getCurrentUser', verifyUser, async (req, res) => {
             return;
           }
         } catch (error) {
-          res.status(400).json({ message: 'User ID is required' });
+          throw new Error(error as string);
         }
       },
     );

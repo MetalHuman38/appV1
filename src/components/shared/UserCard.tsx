@@ -10,7 +10,7 @@ const UserCard = ({ user }: UserCardProps) => {
   return (
     <Link to={`/profile/${user.id}`} className="user-card">
       <img
-        src={user?.avatarUrl || '/assets/icons/profile-placeholder.svg'}
+        src={`/${user?.imageURL}` || '/assets/icons/profile-placeholder.svg'}
         alt="creator"
         className="rounded-full w-16 h-16"
       />

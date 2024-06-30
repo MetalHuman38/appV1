@@ -1,6 +1,5 @@
-import GridPostList from '@/components/shared/GridPostList';
 import { useGetSavedPosts } from '@/lib/react-query/QueriesAndMutatins';
-import Loader from '@/components/shared/Loader';
+import { GridPostList, Loader } from '@/components/shared';
 import { IUpdatePost } from '@/types';
 import { useUserContext } from '@/lib/context/userContext';
 

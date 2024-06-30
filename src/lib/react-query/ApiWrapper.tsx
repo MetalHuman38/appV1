@@ -554,10 +554,10 @@ export const getAllUsersMutation = async (limit: number): Promise<any> => {
 };
 
 // Wrapper function around getUserByIDMutation
-export const getUserByIDMutation = async (id: number): Promise<any> => {
+export const getUserByIDMutation = async (user_id: number): Promise<any> => {
   try {
     const response = await axiosInstance.get('/api/getUserByID', {
-      params: { id },
+      params: { user_id },
       headers: {
         'Content-Type': 'application/json',
       },

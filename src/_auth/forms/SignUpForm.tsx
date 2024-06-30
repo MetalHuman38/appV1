@@ -13,7 +13,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Link, useNavigate } from 'react-router-dom';
 import { SignUpValidation } from '@/lib/validation';
-import Loader from '@/components/shared/Loader';
+import { Loader } from '@/components/shared';
 import { useState } from 'react';
 import { useRegisterUser } from '@/lib/react-query/QueriesAndMutatins';
 import { toast } from '@/components/ui/use-toast';

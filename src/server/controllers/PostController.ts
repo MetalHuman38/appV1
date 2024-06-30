@@ -215,6 +215,8 @@ export const getAllPosts = async (
             'bio',
             'firstName',
             'lastName',
+            'imageURL',
+            'avatarUrl',
           ],
         },
       ],
@@ -330,7 +332,7 @@ export const getPostById = async (
           return;
         }
 
-        const post_id = req.query.post_id as string;
+        const post_id = parseInt(req.query.post_id as string, 10);
 
         if (!post_id) {
           res.status(400).json({ message: 'Post ID is required' });

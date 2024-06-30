@@ -40,7 +40,7 @@ const GridPostList = ({
         <li key={post?.id} className="relative min-w-80 h-80">
           <Link to={`/posts/${post.id}`} className="grid-post_link">
             <img
-              src={post?.imageURL}
+              src={`/${post?.imageURL}`}
               alt="post image"
               className="w-full h-full object-cover"
             />
@@ -49,11 +49,14 @@ const GridPostList = ({
             {showUser && (
               <div className="flex items-center justify-start gap-3 flex-1">
                 <img
-                  src={post.imageURL}
+                  src={
+                    `/${post?.imageURL}` ||
+                    '/assets/icons/profile-placeholder.svg'
+                  }
                   alt="creator profile pic"
                   className="w-8 h-8 rounded-full"
                 />
-                <p className="line-clamp-1">{user?.username}</p>
+                <p className="line-clamp-1">{post.User?.firstName}</p>
               </div>
             )}
             {showStats && <PostStats post={post} id={user.id} />}

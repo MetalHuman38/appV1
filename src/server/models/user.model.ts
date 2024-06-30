@@ -44,31 +44,10 @@ class Users extends Model<UserAttributes, UserCreationAttributes> {
   declare UserRegistrationID: number | null;
 
   // declare static methods to get user by ID
-  static async getUserByID(id: number): Promise<Users | null> {
-    return await this.findOne({ where: { id: id } });
+  static async getUserByID(user_id: number): Promise<Users | null> {
+    return await this.findOne({ where: { id: user_id } });
   }
 
-  // declare static methods to get all users
-  // static async getAllUsers(): Promise<Users[]> {
-  //   return await this.findAll({
-  //     attributes: [
-  //       'id',
-  //       'firstName',
-  //       'lastName',
-  //       'username',
-  //       'status',
-  //       'bio',
-  //       'join',
-  //       'avatarUrl',
-  //       'imageURL',
-  //       'profilePic',
-  //       'label',
-  //       'last_activity',
-  //       'updated_at',
-  //       'UserRegistrationID',
-  //     ],
-  //   });
-  // }
 
   static async getAllUsers(
     limit: number,

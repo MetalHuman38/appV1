@@ -53,7 +53,7 @@ router.delete('/api/deletePost', deletePost);
 router.get('/api/getAllPosts', getAllPosts);
 
 // Get post by ID
-router.get('/api/getPostById', getPostById);
+router.get('/api/getPostById', verifyUser, getPostById);
 
 // Like a Post
 router.post('/api/likePost', likePost);

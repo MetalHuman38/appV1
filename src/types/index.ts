@@ -31,6 +31,7 @@ export type IUpdatePost = {
   creator_Id: string;
   created_At: Date;
   updatedAt: Date;
+  User: IUser;
 };
 
 export type IUser = {

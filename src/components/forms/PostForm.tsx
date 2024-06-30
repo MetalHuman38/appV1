@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
 // import FileUpLoader from '@/components/shared/FileUpLoader';
-import ImageUpload from '../shared/imageUpload';
+import ImageUpload from '../shared/ImageUpload';
 import { PostValidation } from '@/lib/validation';
 import { useToast } from '../ui/use-toast';
 import { useState } from 'react';
@@ -70,6 +70,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
             creator_Id: post.creator_Id,
             created_At: post.created_At,
             updatedAt: post.updatedAt,
+            User: post.User,
           },
         });
 

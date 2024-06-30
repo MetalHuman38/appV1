@@ -63,16 +63,81 @@ export const getAllUsers = async (req: Request, res: Response) => {
 };
 
 // Get user by ID
+// export const getUserByID = async (req: Request, res: Response) => {
+//   try {
+//     const token = req.cookies.jwt;
+
+//     if (!token) {
+//       res.status(401).json({ message: 'Unauthorized' });
+//       return;
+//     }
+//     jwt.verify(
+//       token,
+//       jwtENV.JWT_SECRET,
+//       async (err: any, decodedToken: any) => {
+//         if (err) {
+//           console.log(err.message);
+//           res.status(401).json({ message: 'Unauthorized' });
+//           return;
+//         }
+
+//         const user_id = decodedToken.id;
+
+//         const user = await Users.findByPk(user_id);
+//         if (!user) {
+//           res.status(404).json({ message: 'User not found' });
+//           return;
+//         }
+
+//         if (user.id !== user_id) {
+//           res.status(403).json({ message: 'Unauthorized attempt!' });
+//           return;
+//         }
+
+//         const requestedUser = await Users.findAll({
+//           where: { id: user_id },
+//           include: [
+//             {
+//               model: Posts,
+//               attributes: [
+//                 'id',
+//                 'caption',
+//                 'imageURL',
+//                 'location',
+//                 'tags',
+//                 'likes_Count',
+//                 'created_At',
+//                 'creator_Id',
+//               ],
+//             },
+//           ],
+//         });
+//         if (!requestedUser) {
+//           res.status(404).json({ message: 'User not found' });
+//           return;
+//         }
+
+//         res
+//           .status(200)
+//           .json({ requestedUser: requestedUser, user_id: user_id });
+//       },
+//     );
+//   } catch (error) {
+//     console.error('Error getting user by ID:', error);
+//     res.status(500).json({ message: 'Internal server error' });
+//   }
+// };
+
+// Update user by ID
+
 export const getUserByID = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const token = req.cookies.jwt;
-
-  if (!token) {
-    res.status(401).json({ message: 'Unauthorized' });
-    return;
-  }
-
   try {
+    const token = req.cookies.jwt;
+
+    if (!token) {
+      res.status(401).json({ message: 'Unauthorized' });
+      return;
+    }
     jwt.verify(
       token,
       jwtENV.JWT_SECRET,
@@ -83,26 +148,28 @@ export const getUserByID = async (req: Request, res: Response) => {
           return;
         }
 
-        const userId = decodedToken.id;
+        const user_id = decodedToken.id;
 
-        const user = await Users.findByPk(userId);
+        const user = await Users.findByPk(user_id);
         if (!user) {
           res.status(404).json({ message: 'User not found' });
           return;
         }
 
-        if (user.id !== Number(id)) {
+        if (user.id !== user_id) {
           res.status(403).json({ message: 'Unauthorized attempt!' });
           return;
         }
 
-        const requestedUser = await Users.getUserByID(Number(id));
+        const requestedUser = await Users.findByPk(user_id);
         if (!requestedUser) {
           res.status(404).json({ message: 'User not found' });
           return;
         }
 
-        res.status(200).json({ user: requestedUser });
+        res
+          .status(200)
+          .json({ requestedUser: requestedUser, user_id: user_id });
       },
     );
   } catch (error) {
@@ -111,7 +178,6 @@ export const getUserByID = async (req: Request, res: Response) => {
   }
 };
 
-// Update user by ID
 export const updateUser = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;

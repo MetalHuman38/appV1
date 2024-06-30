@@ -5,9 +5,7 @@ import {
   useInfinitePosts,
   useSearchPosts,
 } from '@/lib/react-query/QueriesAndMutatins';
-import GridPostList from '@/components/shared/GridPostList';
-import Loader from '@/components/shared/Loader';
-import SearchResults from '@/components/shared/SearchResults';
+import { GridPostList, Loader, SearchResults } from '@/components/shared';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -31,7 +29,7 @@ const Explore = () => {
       ) {
         if (hasNextPage && !isFetchingNextPage) {
           fetchNextPage();
-        }                                                                                                                                                
+        }
       }
     };
     window.addEventListener('scroll', handleScroll);

@@ -1,6 +1,6 @@
 import { useLocation, Navigate, Outlet } from 'react-router-dom';
 import { useUserContext } from '@/lib/context/userContext';
-import Loader from '@/components/shared/Loader';
+import { Loader } from '@/components/shared';
 
 const RequireAuth = () => {
   const { isAuthenticated, isLoading } = useUserContext();

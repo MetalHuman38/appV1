@@ -38,6 +38,8 @@ export default async function ({ app }: { app: Express }) {
   // Serve static files from 'dist' directory
   app.use(express.static(path.join(__dirname, 'dist')));
 
+  app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
   const Trust_Proxy = env.TRUST_PROXY || 'false';
   const numberOfProxies = env.NUMBER_OF_PROXIES || 1;
   if (Trust_Proxy) {
