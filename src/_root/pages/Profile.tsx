@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { LikedPost } from '@/_root/pages';
-import { useUserContext } from '@/lib/context/userContext';
+import { useCurrentUser } from '@/lib/react-query/QueriesAndMutatins';
 import { useGetUserByID } from '@/lib/react-query/QueriesAndMutatins';
 import { GridPostList, Loader } from '@/components/shared';
 
@@ -26,7 +26,7 @@ const StatBlock = ({ value, label }: StatBlockProps) => (
 
 const Profile = () => {
   const { id } = useParams();
-  const { user } = useUserContext();
+  const { data: user } = useCurrentUser();
   const { pathname } = useLocation();
   const { data: requestedUser, isLoading: userLoading } = useGetUserByID(
     Number(id),
@@ -40,7 +40,7 @@ const Profile = () => {
     );
   }
 
-  if (!requestedUser || requestedUser.length === 0) {
+  if (!requestedUser) {
     return (
       <div className="flex-center w-full h-full">
         <p>User not found</p>
@@ -48,9 +48,12 @@ const Profile = () => {
     );
   }
 
-  const userProfile = requestedUser || [];
+  const userProfile = requestedUser;
+  console.log('logged in user', user);
+  console.log('Requested User Profile', userProfile);
 
-  console.log('userProfile', userProfile);
+  const isCurrentUser = user?.id === userProfile?.id;
+  console.log('isCurrentUser', isCurrentUser);
 
   return (
     <div className="profile-container">
@@ -77,7 +80,7 @@ const Profile = () => {
 
             <div className="flex gap-8 mt-10 items-center justify-center xl:justify-start flex-wrap z-20">
               <StatBlock
-                value={userProfile?.Posts?.length || userProfile?.Posts?.length}
+                value={userProfile?.Posts?.length || 0}
                 label="Posts"
               />
               <StatBlock value={20} label="Followers" />
@@ -108,7 +111,7 @@ const Profile = () => {
                 </p>
               </Link>
             </div>
-            <div>
+            <div className={`${user?.id === userProfile?.id && 'hidden'}`}>
               <Button type="button" className="shad-button_primary px-8">
                 Follow
               </Button>

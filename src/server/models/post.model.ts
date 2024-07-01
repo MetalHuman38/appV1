@@ -79,7 +79,11 @@ class Posts extends Model<PostAttributes, PostCreationAttributes> {
   static async getSavedPost(post_id: number): Promise<Posts | null> {
     return await this.findOne({ where: { id: post_id } });
   }
-  
+
+  // declare static methods to get post by reference ID (creator_Id)
+  static async getPostByReferenceID(creator_Id: string): Promise<Posts | null> {
+    return await this.findOne({ where: { creator_Id } });
+  }
 }
 
 // Sync the model with the database

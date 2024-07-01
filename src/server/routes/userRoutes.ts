@@ -11,6 +11,8 @@ import { verifyUser } from '../loaders/auth/userAuth';
 import jwt from 'jsonwebtoken';
 import { jwtENV } from '../config/jwtENV';
 import Users from '../models/user.model';
+import Likes from '../models/likePost.model';
+import Posts from '../models/post.model';
 
 const router = express.Router();
 
@@ -35,6 +37,7 @@ router.use(bodyParser.json());
 router.get('/api/getCurrentUser', verifyUser, async (req, res) => {
   try {
     const token = req.cookies.jwt;
+
     if (!token) {
       res.status(401).json({ message: 'Unauthorized' });
       return;
@@ -60,6 +63,19 @@ router.get('/api/getCurrentUser', verifyUser, async (req, res) => {
             res.status(400).json({ message: 'User ID is required S routes' });
             return;
           }
+
+          const post = await Posts.getPostByReferenceID(user_id);
+          if (!post) {
+            res.status(400).json({ message: 'Post ID is required' });
+            return;
+          }
+
+          const userLikes = await Likes.findByPk(user_id);
+          if (!userLikes) {
+            res.status(400).json({ message: 'User ID is required S routes' });
+            return;
+          }
+          res.status(200).json({ currentUser: user, userLikes, post });
         } catch (error) {
           throw new Error(error as string);
         }

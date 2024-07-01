@@ -48,7 +48,6 @@ class Users extends Model<UserAttributes, UserCreationAttributes> {
     return await this.findOne({ where: { id: user_id } });
   }
 
-
   static async getAllUsers(
     limit: number,
     attributes: string[],

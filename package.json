@@ -10,7 +10,6 @@
     "start:client": "webpack serve --config webpack/webpack.config.js --env env=dev",
     "start:server": "npm run build:server && nodemon",
     "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
@@ -113,10 +112,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
+    "*.{js,jsx,ts,tsx,json}": ["eslint --fix", "prettier --write"],
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "eslint --fix",
       "prettier --write"

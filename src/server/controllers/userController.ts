@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { jwtENV } from '../config/jwtENV';
 import Users from '../models/user.model';
 import getImagePreviewUrl from './imageController';
+import Posts from '../models/post.model';
 
 dotenv.config();
 
@@ -161,15 +162,30 @@ export const getUserByID = async (req: Request, res: Response) => {
           return;
         }
 
-        const requestedUser = await Users.findByPk(user_id);
+        const requestedUser = await Users.findAll({
+          where: { id: user_id },
+          include: [
+            {
+              model: Posts,
+              attributes: [
+                'id',
+                'caption',
+                'imageURL',
+                'location',
+                'tags',
+                'likes_Count',
+                'created_At',
+                'creator_Id',
+              ],
+            },
+          ],
+        });
         if (!requestedUser) {
           res.status(404).json({ message: 'User not found' });
           return;
         }
 
-        res
-          .status(200)
-          .json({ requestedUser: requestedUser, user_id: user_id });
+        res.status(200).json({ requestedUser });
       },
     );
   } catch (error) {
