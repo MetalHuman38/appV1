@@ -54,7 +54,6 @@ export const User = () => {
               signal: controller.signal,
             });
             if (response.status === 200 && response.data.token) {
-              console.log('Response from server', response.data);
               sessionStorage.setItem('jwt', JSON.stringify(newAccessToken));
               axiosInstance.defaults.headers.common['Authorization'] =
                 `Bearer ${newAccessToken}`;

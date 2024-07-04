@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 
 export const keyGenerator = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<string> => {
   if (!req.ip) {
     res.status(500).send({ message: 'Warning: request.ip is missing!' });

@@ -20,7 +20,7 @@ const useAxiosPrivate = () => {
         }
         return config;
       },
-      error => Promise.reject(error),
+      error => Promise.reject(error)
     );
 
     const responseInterceptor = instancePrivate.interceptors.response.use(
@@ -45,7 +45,7 @@ const useAxiosPrivate = () => {
           }
         }
         return Promise.reject(error);
-      },
+      }
     );
     // Cleanup function to eject interceptors when the component unmounts
     return () => {

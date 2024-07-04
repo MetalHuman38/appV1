@@ -17,11 +17,11 @@ export default async function ({ app }: { app: Express }) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
     res.header(
       'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept',
+      'Origin, X-Requested-With, Content-Type, Accept'
     );
     res.header(
       'Access-Control-Allow-Methods',
-      'GET, POST, PUT, DELETE, OPTIONS',
+      'GET, POST, PUT, DELETE, OPTIONS'
     );
     res.header('Access-Control-Allow-Credentials', 'true');
     if (_req.method === 'OPTIONS') {
@@ -57,7 +57,7 @@ export default async function ({ app }: { app: Express }) {
   app.use(
     helmet({
       contentSecurityPolicy: false,
-    }),
+    })
   );
 
   app.use(morgan(env.MORGAN));

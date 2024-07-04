@@ -45,7 +45,7 @@ const ImageUpload = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
         const filesWithPreview: FileWithPreview[] = acceptedFiles.map(file =>
           Object.assign(file, {
             preview: URL.createObjectURL(file),
-          }),
+          })
         );
         setCurrentFile(filesWithPreview);
         setPreviewImage(filesWithPreview[0].preview);
@@ -53,7 +53,7 @@ const ImageUpload = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
         handleUpload(acceptedFiles[0]);
       }
     },
-    [fieldChange],
+    [fieldChange]
   );
 
   const handleUpload = async (file: File) => {

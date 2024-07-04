@@ -34,7 +34,7 @@ class ImageStorages
 
   static async findImageByReferenceKey(
     key: string,
-    value: number,
+    value: number
   ): Promise<ImageStorages | null> {
     try {
       const image = await this.findOne({
@@ -45,7 +45,7 @@ class ImageStorages
     } catch (error) {
       console.error(
         `Error finding image by reference key: ${key}, value: ${value}`,
-        error,
+        error
       );
       throw error; // Re-throw the error after logging it
     }
@@ -89,7 +89,7 @@ ImageStorages.init(
     sequelize,
     modelName: 'ImageStorages',
     timestamps: false,
-  },
+  }
 );
 
 // Define the User model
@@ -131,7 +131,7 @@ ImageStorages.init(
     sequelize,
     modelName: 'ImageStorages',
     timestamps: false,
-  },
+  }
 );
 
 // create a hook that saves uploaded image to the user's columns in the database

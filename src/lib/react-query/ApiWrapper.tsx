@@ -3,7 +3,7 @@ import { INewPost, INewUser, IUpdatePost, IUpdateUser } from '@/types';
 
 // Wrapper function around registerUserMutation that accepts user data and returns a promise
 export const registerUserMutation = async (
-  userData: INewUser,
+  userData: INewUser
 ): Promise<unknown> => {
   try {
     const response = await axiosInstance.post('/api/register', userData);
@@ -17,7 +17,7 @@ export const registerUserMutation = async (
 // Wrapper function around loginUserMutation that accepts email and password
 export const loginUserMutation = async (
   email: string,
-  password: string,
+  password: string
 ): Promise<any> => {
   try {
     const response = await axiosInstance.post(
@@ -28,13 +28,13 @@ export const loginUserMutation = async (
           'Content-Type': 'application/json',
         },
         withCredentials: true,
-      },
+      }
     );
     if (response.status === 200) {
       sessionStorage.setItem('jwt', JSON.stringify(response.data));
       sessionStorage.setItem(
         'refreshToken',
-        JSON.stringify(response.data.refreshToken),
+        JSON.stringify(response.data.refreshToken)
       );
       axiosInstance.defaults.headers.common['Authorization'] =
         `Bearer ${response.data.token}`;
@@ -182,7 +182,7 @@ export const getPreviewImageUrlMutation = async (): Promise<any> => {
 
 // Wrapper function around uploadProfilePicMutation
 export const uploadProfilePicMutation = async (
-  formData: FormData,
+  formData: FormData
 ): Promise<any> => {
   try {
     const response = await axiosInstance.post(
@@ -194,7 +194,7 @@ export const uploadProfilePicMutation = async (
         },
         method: 'POST',
         withCredentials: true,
-      },
+      }
     );
     return response.data;
   } catch (error) {
@@ -238,7 +238,7 @@ export const getSavedPostsMutation = async (user_id: number): Promise<any> => {
 // Wrapper function around likePostMutation
 export const likePostMutation = async (
   post_id: number,
-  likes_Count: number,
+  likes_Count: number
 ): Promise<any> => {
   try {
     const jwt = sessionStorage.getItem('jwt');
@@ -257,7 +257,7 @@ export const likePostMutation = async (
           Authorization: `Bearer ${jwt}`,
         },
         withCredentials: true,
-      },
+      }
     );
     if (response.status === 200) {
       if (response.data.token) {
@@ -276,7 +276,7 @@ export const likePostMutation = async (
 // Wrapper function around savePostMutation
 export const savePostMutation = async (
   post_id: number,
-  user_id: number,
+  user_id: number
 ): Promise<any> => {
   try {
     const jwt = sessionStorage.getItem('jwt');
@@ -295,7 +295,7 @@ export const savePostMutation = async (
           Authorization: `Bearer ${jwt}`,
         },
         withCredentials: true,
-      },
+      }
     );
     if (response.status === 200) {
       if (response.data.token) {
@@ -314,7 +314,7 @@ export const savePostMutation = async (
 // Wrapper function around deletePostMutation
 export const deletePostMutation = async (
   post_id: number,
-  user_id: number,
+  user_id: number
 ): Promise<any> => {
   try {
     const response = await axiosInstance.delete('/api/deletePost', {
@@ -340,7 +340,7 @@ export const deletePostMutation = async (
 // Wrapper function around deleteSavedPostMutation
 export const deleteSavedPostMutation = async (
   post_id: number,
-  user_id: number,
+  user_id: number
 ): Promise<any> => {
   try {
     const jwt = sessionStorage.getItem('jwt');
@@ -372,7 +372,7 @@ export const deleteSavedPostMutation = async (
 // Wrapper function around deleteLikePostMutation
 export const deleteLikedPostMutation = async (
   post_id: number,
-  user_id: number,
+  user_id: number
 ): Promise<any> => {
   try {
     const response = await axiosInstance.delete('/api/deleteLikePost', {
@@ -412,7 +412,7 @@ export const getPostByIdMutation = async (post_id: string): Promise<any> => {
 
 export const updatePostMutation = async (
   post_id: number,
-  post: IUpdatePost,
+  post: IUpdatePost
 ): Promise<any> => {
   try {
     const response = await axiosInstance.put('/api/updatePost', post, {
@@ -462,7 +462,7 @@ export const deletePostByIdMutation = async (post_id: number): Promise<any> => {
 // Wrapper function around infinite Posts
 export const getInfinitePostsMutation = async (
   page: number,
-  limit: number,
+  limit: number
 ): Promise<any> => {
   try {
     const response = await axiosInstance.get('/api/getInfinitePosts', {
@@ -486,7 +486,7 @@ export const getInfinitePostsMutation = async (
 
 // Wrapper function around searchPostsMutation
 export const searchPostsMutation = async (
-  searchValue: string,
+  searchValue: string
 ): Promise<any> => {
   try {
     const response = await axiosInstance.post(
@@ -499,7 +499,7 @@ export const searchPostsMutation = async (
           'Content-Type': 'application/json',
         },
         withCredentials: true,
-      },
+      }
     );
     return response.data;
   } catch (error) {
@@ -573,7 +573,7 @@ export const getUserByIDMutation = async (user_id: number): Promise<any> => {
 // Wrapper function around updateUserMutation
 export const updateUserMutation = async (
   id: number,
-  user: IUpdateUser,
+  user: IUpdateUser
 ): Promise<any> => {
   try {
     const response = await axiosInstance.put('/api/updateUser', user, {

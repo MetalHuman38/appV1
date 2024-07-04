@@ -14,7 +14,7 @@ dotenv.config();
 // Create Post Method - Create a new post
 export const createPost = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const { caption, location, tags } = req.body;
@@ -47,7 +47,7 @@ export const createPost = async (
         // Retrieve the image URL from the ImageStorage table using the static method
         const imageRecord = await ImageStorage.findImageByReferenceKey(
           'user_id',
-          user_id,
+          user_id
         );
         if (!imageRecord) {
           return res.status(404).json({ message: 'Image not found' });
@@ -70,7 +70,7 @@ export const createPost = async (
             .json({ message: 'Post created successfully', newPost });
         }
         return newPost;
-      },
+      }
     );
   } catch (error) {
     console.error('Error creating post:', error);
@@ -81,7 +81,7 @@ export const createPost = async (
 export const deleteFile = async (
   _req: Request,
   res: Response,
-  imageUrl: string,
+  imageUrl: string
 ): Promise<void> => {
   try {
     const image = await ImageStorage.findOne({ where: { imageUrl: imageUrl } });
@@ -102,7 +102,7 @@ export const deleteFile = async (
 // Update Post Method - Update a post
 export const updatePost = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const { caption, location, tags, imageUrl: newImageUrl } = req.body;
@@ -188,7 +188,7 @@ export const updatePost = async (
           .status(200)
           .json({ message: 'Post updated successfully', post: updatedPost });
         return updatedPost;
-      },
+      }
     );
   } catch (error) {
     console.error('Error updating post:', error);
@@ -199,7 +199,7 @@ export const updatePost = async (
 // Get all posts
 export const getAllPosts = async (
   _req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const posts = await Posts.findAll({
@@ -296,7 +296,7 @@ export const likePost = async (req: Request, res: Response): Promise<void> => {
         res
           .status(201)
           .json({ message: 'Post liked successfully', like: newLike });
-      },
+      }
     );
   } catch (error) {
     console.error('Error liking post:', error);
@@ -307,7 +307,7 @@ export const likePost = async (req: Request, res: Response): Promise<void> => {
 // Get post by ID
 export const getPostById = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const token = req.cookies.jwt;
@@ -332,6 +332,26 @@ export const getPostById = async (
           return;
         }
 
+        const user = await Users.findByPk(user_id);
+        if (!user) {
+          res.status(404).json({ message: 'User not found' });
+          return;
+        }
+
+        const requestedUserId = parseInt(req.query.user_id as string, 10);
+        if (!requestedUserId) {
+          res.status(400).json({ message: 'post User ID is required' });
+          return;
+        }
+
+        const requestedUser = await Users.findOne({
+          where: { id: requestedUserId },
+        });
+        if (!requestedUser) {
+          res.status(404).json({ message: 'User not found' });
+          return;
+        }
+
         const post_id = parseInt(req.query.post_id as string, 10);
 
         if (!post_id) {
@@ -339,16 +359,15 @@ export const getPostById = async (
           return;
         }
 
-        const post = await Posts.findOne({
-          where: { id: post_id, creator_Id: user_id },
-        });
+        const post = await Posts.findByPk(post_id);
+
         if (!post) {
-          res.status(404).json({ message: 'Post not found' });
+          res.status(404).json({ message: 'Post not found here' });
           return;
         }
 
-        res.status(200).json({ post });
-      },
+        res.status(200).json({ post, requestedUser });
+      }
     );
   } catch (error) {
     console.error('Error getting post:', error);
@@ -359,7 +378,7 @@ export const getPostById = async (
 // toggle likes
 export const deleteLikedPost = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const token = req.cookies.jwt;
@@ -419,7 +438,7 @@ export const deleteLikedPost = async (
             : 'Post liked successfully',
           post,
         });
-      },
+      }
     );
   } catch (error) {
     console.error('Error toggling like:', error);
@@ -491,7 +510,7 @@ export const savePost = async (req: Request, res: Response): Promise<void> => {
         res
           .status(201)
           .json({ message: 'Post saved successfully', save: newSave });
-      },
+      }
     );
   } catch (error) {
     console.error('Error saving post:', error);
@@ -502,7 +521,7 @@ export const savePost = async (req: Request, res: Response): Promise<void> => {
 // Function to delete a saved post by user
 export const deleteSavedPost = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const token = req.cookies.jwt || req.headers.authorization?.split(' ')[1];
@@ -558,7 +577,7 @@ export const deleteSavedPost = async (
             ? 'Post unsaved successfully'
             : 'Post not saved',
         });
-      },
+      }
     );
   } catch (error) {
     console.error('Error deleting saved post:', error);
@@ -569,7 +588,7 @@ export const deleteSavedPost = async (
 // Get all saved posts by user
 export const getSavedPosts = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const token = req.cookies.jwt || req.headers.authorization?.split(' ')[1];
@@ -604,7 +623,7 @@ export const getSavedPosts = async (
         res.status(200).json({
           savedPosts,
         });
-      },
+      }
     );
   } catch (error) {
     console.error('Error getting saved posts:', error);
@@ -615,7 +634,7 @@ export const getSavedPosts = async (
 // Delete a post -
 export const deletePost = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const token = req.cookies.jwt || req.headers.authorization?.split(' ')[1];
@@ -679,7 +698,7 @@ export const deletePost = async (
 
         await post.destroy();
         res.status(200).json({ message: 'Post deleted successfully' });
-      },
+      }
     );
   } catch (error) {
     console.error('Error deleting post:', error);
@@ -690,7 +709,7 @@ export const deletePost = async (
 // Get all infinite posts
 export const getInfinitePosts = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const { page = 0, limit = 10 } = req.query;
@@ -746,7 +765,7 @@ export const getInfinitePosts = async (
 
 export const searchPosts = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const { searchValue } = req.body;
@@ -787,7 +806,7 @@ export const searchPosts = async (
 
 export const getUserPosts = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const token = req.cookies.jwt || req.headers.authorization?.split(' ')[1];
@@ -813,7 +832,7 @@ export const getUserPosts = async (
           where: { creator_Id: user_id },
         });
         res.status(200).json({ posts });
-      },
+      }
     );
   } catch (error) {
     console.error('Error getting user posts:', error);
@@ -824,7 +843,7 @@ export const getUserPosts = async (
 // Get Popular Posts
 export const getPopularPosts = async (
   _req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const popularPosts = await Posts.findAll({

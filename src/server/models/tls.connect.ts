@@ -11,7 +11,7 @@ const options = {
 const socket = tls.connect(databaseENV.DB_PORT, options, () => {
   console.log(
     'client connected',
-    socket.authorized ? 'authorized' : 'unauthorized',
+    socket.authorized ? 'authorized' : 'unauthorized'
   );
   process.stdin.pipe(socket);
   process.stdin.resume();

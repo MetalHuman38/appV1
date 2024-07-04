@@ -76,7 +76,7 @@ export function createSequelizeInstance(): Sequelize {
       port: dbConfig.port,
       ssl: dbConfig.ssl,
       dialectOptions: dbConfig.dialectOptions,
-    },
+    }
   );
   return sequelize;
 }

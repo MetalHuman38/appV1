@@ -22,7 +22,7 @@ router.use((_req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
   res.header(
     'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept',
+    'Origin, X-Requested-With, Content-Type, Accept'
   );
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Credentials', 'true');
@@ -39,7 +39,7 @@ router.post('/api/uploadImage', upload.single('image'), async (req, res) => {
     console.log('File uploaded:', req.file);
     // Modify the file path to the required format
     const relativePath = `assets/images/${req.file?.filename}`;
-    
+
     const token = req.cookies.jwt;
 
     const post_id = parseInt(req.body.postId as string, 10);
@@ -82,7 +82,7 @@ router.post('/api/uploadImage', upload.single('image'), async (req, res) => {
           message: 'Image uploaded successfully',
           imageUrl: relativePath,
         });
-      },
+      }
     );
   } catch (error) {
     console.error('Error uploading image:', error);

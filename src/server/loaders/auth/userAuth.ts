@@ -9,7 +9,7 @@ dotenv.config();
 export const requireAuth = async (
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ): Promise<void> => {
   try {
     const token = req.cookies.jwt;
@@ -31,7 +31,7 @@ export const requireAuth = async (
             }
           }
           next();
-        },
+        }
       );
     } else {
       res.locals.user = null;
@@ -47,7 +47,7 @@ export const requireAuth = async (
 export const verifyUser = async (
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ): Promise<void> => {
   try {
     const token = req.cookies.jwt;
@@ -80,7 +80,7 @@ export const verifyUser = async (
         }
 
         next();
-      },
+      }
     );
   } catch (error) {
     console.error('Error verifying user:', error);

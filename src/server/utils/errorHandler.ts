@@ -6,7 +6,7 @@ import { env } from '../config/index';
 
 export const handleError = (
   err: Error & { code?: number; error?: [] },
-  res: Response,
+  res: Response
 ): void => {
   console.error(err.message);
 
@@ -67,7 +67,7 @@ export function globalErrorHandler(
   err: Error,
   _req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ) {
   logErrorToFile(err);
 
@@ -95,7 +95,7 @@ process.on('uncaughtException', (err: Error) => {
 process.on('uncaughtException', (err: Error) => {
   fs.writeSync(
     process.stderr.fd,
-    `Caught exception: ${err}\n` + `Exception Origin: ${origin}\n`,
+    `Caught exception: ${err}\n` + `Exception Origin: ${origin}\n`
   );
 });
 

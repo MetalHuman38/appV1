@@ -32,7 +32,7 @@ async function loader() {
     const loginMeasure = performance.measure(
       'Task 2 Duration',
       'Task 1 End',
-      'Task 2 End',
+      'Task 2 End'
     );
 
     console.log(loginMeasure.duration);

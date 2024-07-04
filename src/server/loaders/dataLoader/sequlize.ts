@@ -16,7 +16,7 @@ export const sequelize = new Sequelize({
   port: databaseENV.DB_PORT,
   ssl: databaseENV.DB_SSL,
   models: await importModels(
-    __dirname + '/src/server/models/**/*.model.{ts,js}',
+    __dirname + '/src/server/models/**/*.model.{ts,js}'
   ),
 });
 

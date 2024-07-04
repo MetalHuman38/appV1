@@ -32,7 +32,7 @@ const PostStats = ({ post }: PostStatsProps) => {
       setIsSaved(
         !!post.id &&
           user.id === post.creator_Id &&
-          user.Saves?.includes(post.id),
+          user.Saves?.includes(post.id)
       );
     }
   }, [post.id]);
@@ -67,7 +67,7 @@ const PostStats = ({ post }: PostStatsProps) => {
         JSON.stringify({
           ...JSON.parse(sessionStorage.getItem('savedPost') || '{}'),
           [post.id]: user.id,
-        }),
+        })
       );
     } else {
       savePost({ post_id: post.id, user_id: user?.id });

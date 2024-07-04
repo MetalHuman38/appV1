@@ -50,7 +50,7 @@ class Users extends Model<UserAttributes, UserCreationAttributes> {
 
   static async getAllUsers(
     limit: number,
-    attributes: string[],
+    attributes: string[]
   ): Promise<Users[]> {
     return await this.findAll({
       limit,
@@ -61,7 +61,7 @@ class Users extends Model<UserAttributes, UserCreationAttributes> {
   // declare static methods to update a user by ID
   static async updateUser(
     id: number,
-    attributes: UserAttributes,
+    attributes: UserAttributes
   ): Promise<[number, Users[]]> {
     const [affectedCount, updatedUsers] = await this.update(attributes, {
       where: { id },
@@ -163,7 +163,7 @@ Users.init(
     modelName: 'Users',
     timestamps: false,
     updatedAt: 'updated_at',
-  },
+  }
 );
 
 // Sync User model with the database

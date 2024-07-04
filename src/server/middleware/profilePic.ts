@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     cb(
       null,
-      file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname),
+      file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname)
     );
   },
 });
@@ -47,7 +47,7 @@ const upload = multer({
     const filetypes = /jpeg|jpg|png|svg/;
     const mimetype = filetypes.test(file.mimetype);
     const extname = filetypes.test(
-      path.extname(file.originalname).toLowerCase(),
+      path.extname(file.originalname).toLowerCase()
     );
     if (mimetype && extname) {
       return cb(null, true);
@@ -115,7 +115,7 @@ const uploadMiddleware = async (req: Request, res: Response, next: any) => {
             return res.status(500).json({ message: 'Error retrieving user' });
           }
           return next();
-        },
+        }
       );
     } else {
       res.status(400).send({ error: 'No File Uploaded!' });

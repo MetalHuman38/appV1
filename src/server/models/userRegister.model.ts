@@ -29,7 +29,7 @@ class UserRegistration extends Model<UserAttributes, UserCreationAttributes> {
   // Create a static method to log in user upon successful registration
   static async loginUser(
     email: string,
-    password: string,
+    password: string
   ): Promise<UserRegistration | null> {
     return await this.findOne({
       where: { email: email, hashedpassword: password },
@@ -45,7 +45,7 @@ class UserRegistration extends Model<UserAttributes, UserCreationAttributes> {
   // Create a static method to reset the password, compare the hashed password
   static async resetPassword(
     email: string,
-    password: string,
+    password: string
   ): Promise<UserRegistration | null> {
     return await this.findOne({
       where: { email: email, hashedpassword: password },
@@ -88,7 +88,7 @@ UserRegistration.init(
     createdAt: 'createdAt',
     timestamps: false,
     freezeTableName: true,
-  },
+  }
 );
 
 // Hash the password before saving
@@ -98,7 +98,7 @@ UserRegistration.beforeCreate(async (user: UserRegistration) => {
       const salt = bcrypt.genSaltSync(10);
       const hashedPassword: string = await bcrypt.hash(
         String(user.hashedpassword),
-        salt,
+        salt
       );
       user.hashedpassword = hashedPassword;
     }

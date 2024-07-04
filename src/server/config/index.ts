@@ -68,7 +68,7 @@ assert.ok(NODE_ENV === 'production', 'Node environment should be production');
 assert.ok(BASE_URL === 'http://localhost:8081', 'Base URL should be correct');
 assert.ok(
   BASE64_ENCODED.equals(Buffer.from('🚀')),
-  'Base64 encoded value should match',
+  'Base64 encoded value should match'
 );
 assert.ok(EXTRA === 'true', 'Extra should be true');
 assert.ok(RARE_LIMIT_TIME === 900000, 'Rate limit time should be 15m');
@@ -82,7 +82,7 @@ assert.ok(IDLE_TIMEOUT === 480000, 'Idle timeout should be 8m');
 assert.ok(COMPRESSION_LEVEL === 9, 'Compression level should be 9');
 assert.ok(
   COMPRESSION_THRESHOLD === 1024,
-  'Compression threshold should be 1024',
+  'Compression threshold should be 1024'
 );
 assert.ok(ERROR_TIMEOUT === 5000, 'Error timeout should be 5s');
 

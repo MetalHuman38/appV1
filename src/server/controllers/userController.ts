@@ -5,6 +5,7 @@ import { jwtENV } from '../config/jwtENV';
 import Users from '../models/user.model';
 import getImagePreviewUrl from './imageController';
 import Posts from '../models/post.model';
+import Likes from '../models/likePost.model';
 
 dotenv.config();
 
@@ -55,7 +56,7 @@ export const getAllUsers = async (req: Request, res: Response) => {
 
         const users = await Users.getAllUsers(limit, attributes);
         res.status(200).json({ users });
-      },
+      }
     );
   } catch (error) {
     console.error('Error getting all users:', error);
@@ -130,7 +131,6 @@ export const getAllUsers = async (req: Request, res: Response) => {
 // };
 
 // Update user by ID
-
 export const getUserByID = async (req: Request, res: Response) => {
   try {
     const token = req.cookies.jwt;
@@ -150,6 +150,7 @@ export const getUserByID = async (req: Request, res: Response) => {
         }
 
         const user_id = decodedToken.id;
+        const requestedUserId = parseInt(req.query.user_id as string, 10);
 
         const user = await Users.findByPk(user_id);
         if (!user) {
@@ -162,31 +163,33 @@ export const getUserByID = async (req: Request, res: Response) => {
           return;
         }
 
-        const requestedUser = await Users.findAll({
-          where: { id: user_id },
-          include: [
-            {
-              model: Posts,
-              attributes: [
-                'id',
-                'caption',
-                'imageURL',
-                'location',
-                'tags',
-                'likes_Count',
-                'created_At',
-                'creator_Id',
-              ],
-            },
-          ],
+        const requestedUser = await Users.findOne({
+          where: { id: requestedUserId },
         });
         if (!requestedUser) {
-          res.status(404).json({ message: 'User not found' });
+          res.status(404).json({ message: 'Requested User not found' });
           return;
         }
 
-        res.status(200).json({ requestedUser });
-      },
+        const post = await Posts.getPostByReferenceID(requestedUserId);
+        if (!post) {
+          res.status(400).json({ message: 'Post ID is required' });
+          return;
+        }
+
+        const userLikes = await Likes.findByPk(user_id);
+        if (!userLikes) {
+          res.status(400).json({ message: 'User ID is required S routes' });
+          return;
+        }
+
+        res.status(200).json({
+          requestedUser: requestedUser,
+          post,
+          userLikes,
+          requestedUserId,
+        });
+      }
     );
   } catch (error) {
     console.error('Error getting user by ID:', error);
@@ -194,6 +197,7 @@ export const getUserByID = async (req: Request, res: Response) => {
   }
 };
 
+// Update user by ID
 export const updateUser = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
@@ -246,7 +250,7 @@ export const updateUser = async (req: Request, res: Response) => {
 
         const [affectedCount, updatedUsers] = await Users.updateUser(
           Number(id),
-          attributes,
+          attributes
         );
         if (affectedCount === 0) {
           res.status(400).json({ message: 'Error updating user' });
@@ -254,7 +258,7 @@ export const updateUser = async (req: Request, res: Response) => {
         }
 
         res.status(200).json({ updatedUsers });
-      },
+      }
     );
   } catch (error) {
     console.error('Error updating user:', error);

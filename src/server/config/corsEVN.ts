@@ -21,11 +21,10 @@ const {
 assert.ok(CORS_ORIGIN, 'CORS origin should be present');
 assert.ok(
   CORS_OPTIONS_SUCCESS_STATUS,
-  'CORS options success status should be present',
+  'CORS options success status should be present'
 );
 assert.ok(CORS_CREDENTIALS, 'CORS credentials should be present');
 assert.ok(CORS_METHODS, 'CORS methods should be present');
-
 
 // export the CORS schema
 export const corsENV = {

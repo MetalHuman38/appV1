@@ -10,7 +10,7 @@ dotenv.config();
 
 export const userRegister = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const { name, username, email, password } = req.body;
@@ -25,7 +25,7 @@ export const userRegister = async (
     if (userExists) {
       return handleError(
         new Error('UserRegistrations.email: User already exists '),
-        res,
+        res
       );
     }
 
@@ -94,7 +94,7 @@ export const userLogin = async (req: Request, res: Response): Promise<void> => {
 
 export const userLogout = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   try {
     const accessToken = req.cookies.jwt;
@@ -129,7 +129,7 @@ export const userLogout = async (
 
 export const refreshToken = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void> => {
   const refreshToken = req.cookies.refreshToken;
 
@@ -169,7 +169,7 @@ export const refreshToken = async (
             expiresIn: jwtENV.JWT_EXPIRES_IN as string,
             algorithm: jwtENV.JWT_ALGORITHM as jwt.Algorithm,
             issuer: jwtENV.JWT_ISSUER as string,
-          },
+          }
         );
 
         res.cookie('jwt', newToken, {
@@ -184,7 +184,7 @@ export const refreshToken = async (
         res.status(500).json({ message: 'Error getting current user' });
       }
       return;
-    },
+    }
   );
 };
 

@@ -25,11 +25,12 @@ const Home = () => {
         <div className="home-container">
           <p className="body-medium text-light-1">
             Something went wrong while fetching posts or creators. Please try
+            again!
           </p>
         </div>
         <div className="home-creators">
           <p className="body-medium text-light-1">
-            Something went wrong while fetching posts or creators. Please try
+            Something went wrong while fetching creators. Please try again!
           </p>
         </div>
       </div>

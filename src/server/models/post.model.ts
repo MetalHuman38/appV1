@@ -35,7 +35,7 @@ class Posts extends Model<PostAttributes, PostCreationAttributes> {
 
   static async updatePost(
     id: number,
-    attributes: PostAttributes,
+    attributes: PostAttributes
   ): Promise<[number, Posts[]]> {
     const [affectedCount, updatedPosts] = await this.update(attributes, {
       where: { id },
@@ -60,14 +60,14 @@ class Posts extends Model<PostAttributes, PostCreationAttributes> {
   // declare static methods to get infinite posts
   static async getInfinitePosts(
     offset: number,
-    limit: number,
+    limit: number
   ): Promise<Posts[]> {
     return await this.findAll({ offset, limit });
   }
 
   // declare static methods to get post by ID
-  static async getPostByID(id: number): Promise<Posts | null> {
-    return await this.findOne({ where: { id: id } });
+  static async getPostByID(post_id: number): Promise<Posts | null> {
+    return await this.findOne({ where: { id: post_id } });
   }
 
   // declare static methods to get user's posts
@@ -81,7 +81,7 @@ class Posts extends Model<PostAttributes, PostCreationAttributes> {
   }
 
   // declare static methods to get post by reference ID (creator_Id)
-  static async getPostByReferenceID(creator_Id: string): Promise<Posts | null> {
+  static async getPostByReferenceID(creator_Id: number): Promise<Posts | null> {
     return await this.findOne({ where: { creator_Id } });
   }
 }
@@ -131,12 +131,12 @@ Posts.init(
     sequelize,
     modelName: 'Posts',
     timestamps: false,
-  },
+  }
 );
 
 // Create new post
 Posts.createPost = async function (
-  attributes: PostCreationAttributes,
+  attributes: PostCreationAttributes
 ): Promise<Posts> {
   try {
     const newPost = await this.create(attributes);
@@ -150,7 +150,7 @@ Posts.createPost = async function (
 // Update post by ID
 Posts.updatePost = async function (
   id: number,
-  attributes: PostAttributes,
+  attributes: PostAttributes
 ): Promise<[number, Posts[]]> {
   try {
     const [affectedCount, updatedPosts] = await this.update(attributes, {
@@ -167,7 +167,7 @@ Posts.updatePost = async function (
 // infinite posts
 Posts.getInfinitePosts = async function (
   offset: number,
-  limit: number,
+  limit: number
 ): Promise<Posts[]> {
   try {
     const posts = await this.findAll({ offset, limit });

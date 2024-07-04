@@ -31,7 +31,7 @@ class Saves
   // create custom method to check if post is saved
   static async checkIfSaved(
     user_id: number,
-    post_id: number,
+    post_id: number
   ): Promise<boolean> {
     const save = await this.findOne({ where: { user_id, post_id } });
     return !!save;
@@ -93,7 +93,7 @@ Saves.init(
     tableName: 'Saves',
     timestamps: false,
     freezeTableName: true,
-  },
+  }
 );
 
 // Create a function to delete saved Post using the static method

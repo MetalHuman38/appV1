@@ -7,7 +7,7 @@ import Users from '../models/user.model';
 // Refactored function to return image URL
 export const getImagePreviewUrl = async (
   req: Request,
-  res: Response,
+  res: Response
 ): Promise<void | null> => {
   try {
     const token = req.cookies.jwt;
@@ -39,14 +39,14 @@ export const getImagePreviewUrl = async (
 
         const image = await ImageStorages.findImageByReferenceKey(
           'user_id',
-          user_id,
+          user_id
         );
         if (!image) {
           res.status(200).json({ message: 'No image found' });
         } else {
           res.status(200).json({ imageUrl: image.imageUrl });
         }
-      },
+      }
     );
   } catch (error) {
     console.error('Error getting image preview:', error);

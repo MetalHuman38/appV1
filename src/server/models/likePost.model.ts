@@ -37,7 +37,7 @@ class Likes
   // create a static method to find a like by reference key (userId or postId)
   static async findLikeByReferenceKey(
     key: string,
-    value: number,
+    value: number
   ): Promise<Likes | null> {
     return await this.findOne({ where: { [key]: value } });
   }
@@ -45,7 +45,7 @@ class Likes
   // create a static method to find all likes by reference key (userId or postId)
   static async findAllLikesByReferenceKey(
     key: string,
-    value: number,
+    value: number
   ): Promise<Likes[]> {
     return await this.findAll({ where: { [key]: value } });
   }
@@ -53,7 +53,7 @@ class Likes
   // create a static method to find all likes by reference key (userId or postId)
   static async deleteLikeByReferenceKey(
     key: string,
-    value: number,
+    value: number
   ): Promise<void> {
     await this.destroy({ where: { [key]: value } });
   }
@@ -94,7 +94,7 @@ Likes.init(
     modelName: 'Likes',
     timestamps: false,
     freezeTableName: true,
-  },
+  }
 );
 
 // Define the relationship between User and Like

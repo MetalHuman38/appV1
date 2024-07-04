@@ -14,7 +14,7 @@ async function StartServer() {
     cors({
       origin: 'http://localhost:8080',
       credentials: true,
-    }),
+    })
   );
 
   (await import('./loaders/index.js')).default({ app });
@@ -53,13 +53,13 @@ async function StartServer() {
       },
       level: env.COMPRESSION_LEVEL || 9,
       threshold: env.COMPRESSION_THRESHOLD || 1024,
-    }),
+    })
   );
 
   const idleTimeout = env.IDLE_TIMEOUT || 480000;
   let idleTimer = setTimeout(() => {
     server.close(() => {
-      console.log('Server closed due to idle time out! Restarting...');
+      console.log('Server closed due to idle time out! Restarting....');
       process.exit(0);
     });
   }, idleTimeout);

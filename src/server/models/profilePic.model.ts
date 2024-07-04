@@ -27,7 +27,7 @@ class ProfilePicture extends Model<
 
   // create a static method to find a profile picture by ID
   static async findProfilePictureById(
-    id: number,
+    id: number
   ): Promise<ProfilePicture | null> {
     return await this.findByPk(id);
   }
@@ -73,7 +73,7 @@ ProfilePicture.init(
     updatedAt: 'updatedAt',
     createdAt: 'createdAt',
     freezeTableName: true,
-  },
+  }
 );
 
 // Define the association between User and ProfilePicture

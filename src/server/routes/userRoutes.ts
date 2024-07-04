@@ -21,7 +21,7 @@ router.use((_req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
   res.header(
     'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept',
+    'Origin, X-Requested-With, Content-Type, Accept'
   );
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Credentials', 'true');
@@ -75,11 +75,11 @@ router.get('/api/getCurrentUser', verifyUser, async (req, res) => {
             res.status(400).json({ message: 'User ID is required S routes' });
             return;
           }
-          res.status(200).json({ currentUser: user, userLikes, post });
+          res.status(200).json({ currentUser: user, post, userLikes });
         } catch (error) {
           throw new Error(error as string);
         }
-      },
+      }
     );
   } catch (error) {
     res.status(400).json({ message: 'User ID is required' });

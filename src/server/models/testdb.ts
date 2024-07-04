@@ -20,7 +20,7 @@ async function getAllColumns(tableName: string) {
 
     console.log(
       `Columns fetched successfully for table ${tableName}:`,
-      columns,
+      columns
     );
 
     // Extract and return column names
@@ -28,7 +28,7 @@ async function getAllColumns(tableName: string) {
     return columnNames;
   } catch (error) {
     throw new Error(
-      `Error getting columns for table ${tableName}: ${(error as Error).message}`,
+      `Error getting columns for table ${tableName}: ${(error as Error).message}`
     );
   }
 }
@@ -54,7 +54,7 @@ async function getAllData(): Promise<any> {
     return userReg;
   } catch (error) {
     throw new Error(
-      `Error getting data for table userRegistrations: ${(error as Error).message}`,
+      `Error getting data for table userRegistrations: ${(error as Error).message}`
     );
   }
 }

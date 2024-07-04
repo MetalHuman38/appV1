@@ -29,7 +29,7 @@ const Profile = () => {
   const { data: user } = useCurrentUser();
   const { pathname } = useLocation();
   const { data: requestedUser, isLoading: userLoading } = useGetUserByID(
-    Number(id),
+    Number(id)
   );
 
   if (userLoading) {
@@ -49,10 +49,11 @@ const Profile = () => {
   }
 
   const userProfile = requestedUser;
-  console.log('logged in user', user);
-  console.log('Requested User Profile', userProfile);
+  console.log('userProfile', userProfile);
 
-  const isCurrentUser = user?.id === userProfile?.id;
+  const isCurrentUser = userProfile?.id === user?.id;
+  console.log('isCurrentUser', user);
+
   console.log('isCurrentUser', isCurrentUser);
 
   return (
@@ -62,7 +63,7 @@ const Profile = () => {
           <img
             src={
               userProfile?.imageURL
-                ? `/${userProfile?.imageURL}`
+                ? `/${userProfile.imageURL}`
                 : '/assets/icons/profile-placeholder.svg'
             }
             alt="profile"
@@ -154,7 +155,7 @@ const Profile = () => {
       <Routes>
         <Route
           index
-          element={<GridPostList posts={userProfile?.Posts} showUser={false} />}
+          element={<GridPostList posts={userProfile?.posts} showUser={false} />}
         />
         {userProfile?.id === user?.id && (
           <Route path="/liked-posts" element={<LikedPost />} />
