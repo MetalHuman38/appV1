@@ -75,7 +75,7 @@ router.get('/api/getCurrentUser', verifyUser, async (req, res) => {
             res.status(400).json({ message: 'User ID is required S routes' });
             return;
           }
-          res.status(200).json({ currentUser: user, post, userLikes });
+          res.status(200).json({ user, post, userLikes });
         } catch (error) {
           throw new Error(error as string);
         }

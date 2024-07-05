@@ -8,7 +8,14 @@ import { Button } from '@/components/ui/button';
 const PostDetails = () => {
   const { id } = useParams();
 
-  const { data: post, isPending, error } = useGetPostById(id || '');
+  const {
+    data: post,
+    isPending,
+    error,
+  } = useGetPostById({
+    post_id: String(id),
+    user_id: String(id),
+  });
   const { user } = useUserContext();
   const handleDeletePost = () => {};
 

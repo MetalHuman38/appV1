@@ -11,14 +11,12 @@ const LikedPosts = () => {
       </div>
     );
 
-  console.log('currentUser', currentUser);
-
   return (
     <>
-      {currentUser?.liked?.length === 0 && (
+      {currentUser?.user?.liked?.length === 0 && (
         <p className="text-light-4">No liked posts</p>
       )}
-      <GridPostList posts={currentUser?.userLikes} showStats={false} />
+      <GridPostList posts={currentUser?.user?.userLikes} showStats={false} />
     </>
   );
 };

@@ -26,13 +26,17 @@ const StatBlock = ({ value, label }: StatBlockProps) => (
 
 const Profile = () => {
   const { id } = useParams();
-  const { data: user } = useCurrentUser();
+  const { data: currentUser } = useCurrentUser();
   const { pathname } = useLocation();
-  const { data: requestedUser, isLoading: userLoading } = useGetUserByID(
-    Number(id)
-  );
+  const { data: user_profile, isPending: userPending } = useGetUserByID({
+    user_id: String(id),
+  });
 
-  if (userLoading) {
+  if (!currentUser) {
+    return <Loader />;
+  }
+
+  if (userPending) {
     return (
       <div className="flex-center w-full h-full">
         <Loader />
@@ -40,7 +44,7 @@ const Profile = () => {
     );
   }
 
-  if (!requestedUser) {
+  if (!user_profile) {
     return (
       <div className="flex-center w-full h-full">
         <p>User not found</p>
@@ -48,11 +52,12 @@ const Profile = () => {
     );
   }
 
-  const userProfile = requestedUser;
+  // Assign the user profile to a variable
+  const userProfile = user_profile;
   console.log('userProfile', userProfile);
 
-  const isCurrentUser = userProfile?.id === user?.id;
-  console.log('isCurrentUser', user);
+  const isCurrentUser = userProfile?.user?.id === currentUser?.user?.id;
+  console.log('userImage', userProfile?.imageURL);
 
   console.log('isCurrentUser', isCurrentUser);
 
@@ -62,8 +67,8 @@ const Profile = () => {
         <div className="flex xl:flex-row flex-col max-xl:items-center flex-1 gap-7">
           <img
             src={
-              userProfile?.imageURL
-                ? `/${userProfile.imageURL}`
+              userProfile?.user?.imageURL
+                ? `/${userProfile?.user?.imageURL}`
                 : '/assets/icons/profile-placeholder.svg'
             }
             alt="profile"
@@ -72,16 +77,16 @@ const Profile = () => {
           <div className="flex flex-col flex-1 justify-between md:mt-2">
             <div className="flex flex-col w-full">
               <h1 className="text-center xl:text-left h3-bold md:h1-semibold w-full">
-                {userProfile?.firstName} {userProfile?.lastName}
+                {userProfile?.user?.firstName} {userProfile?.user?.lastName}
               </h1>
               <p className="small-regular md:body-medium text-light-3 text-center xl:text-left">
-                @{userProfile?.username}
+                @{userProfile?.user?.username}
               </p>
             </div>
 
             <div className="flex gap-8 mt-10 items-center justify-center xl:justify-start flex-wrap z-20">
               <StatBlock
-                value={userProfile?.Posts?.length || 0}
+                value={userProfile?.user?.post?.length || 0}
                 label="Posts"
               />
               <StatBlock value={20} label="Followers" />
@@ -89,16 +94,18 @@ const Profile = () => {
             </div>
 
             <p className="small-medium md:base-medium text-center xl:text-left mt-7 max-w-screen-sm">
-              {userProfile?.bio}
+              {userProfile?.user?.bio}
             </p>
           </div>
 
           <div className="flex justify-center gap-4">
-            <div className={`${user?.id !== userProfile?.id && 'hidden'}`}>
+            <div
+              className={`${currentUser?.user?.id !== userProfile?.user?.id && 'hidden'}`}
+            >
               <Link
                 to={`/update-profile/${userProfile?.id}`}
                 className={`h-12 bg-dark-4 px-5 text-light-1 flex-center gap-2 rounded-lg ${
-                  user?.id !== userProfile?.id && 'hidden'
+                  currentUser?.user?.id === userProfile?.user?.id && 'hidden'
                 }`}
               >
                 <img
@@ -112,7 +119,9 @@ const Profile = () => {
                 </p>
               </Link>
             </div>
-            <div className={`${user?.id === userProfile?.id && 'hidden'}`}>
+            <div
+              className={`${currentUser?.user?.id === userProfile?.user?.id && 'hidden'}`}
+            >
               <Button type="button" className="shad-button_primary px-8">
                 Follow
               </Button>
@@ -120,10 +129,10 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      {userProfile?.id === user?.id && (
+      {userProfile?.user?.id === currentUser?.user?.id && (
         <div className="flex max-w-5xl w-full">
           <Link
-            to={`/profile/${userProfile?.id}`}
+            to={`/profile/${userProfile?.user?.id}`}
             className={`profile-tab rounded-l-lg ${
               pathname === `/profile/${id}` && '!bg-dark-3'
             }`}
@@ -155,9 +164,11 @@ const Profile = () => {
       <Routes>
         <Route
           index
-          element={<GridPostList posts={userProfile?.posts} showUser={false} />}
+          element={
+            <GridPostList posts={userProfile?.user?.post} showUser={false} />
+          }
         />
-        {userProfile?.id === user?.id && (
+        {userProfile?.user?.id === currentUser?.user?.id && (
           <Route path="/liked-posts" element={<LikedPost />} />
         )}
       </Routes>

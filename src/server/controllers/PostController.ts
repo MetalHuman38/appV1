@@ -310,6 +310,13 @@ export const getPostById = async (
   res: Response
 ): Promise<void> => {
   try {
+    const requestedUserId = parseInt(req.query.user_id as string, 10);
+
+    if (!requestedUserId) {
+      res.status(400).json({ message: 'post User ID is required' });
+      return;
+    }
+
     const token = req.cookies.jwt;
     if (!token) {
       res.status(401).json({ message: 'Unauthorized' });
@@ -338,12 +345,6 @@ export const getPostById = async (
           return;
         }
 
-        const requestedUserId = parseInt(req.query.user_id as string, 10);
-        if (!requestedUserId) {
-          res.status(400).json({ message: 'post User ID is required' });
-          return;
-        }
-
         const requestedUser = await Users.findOne({
           where: { id: requestedUserId },
         });
@@ -366,7 +367,7 @@ export const getPostById = async (
           return;
         }
 
-        res.status(200).json({ post, requestedUser });
+        res.status(200).json({ post, requestedUser, requestedUserId });
       }
     );
   } catch (error) {
@@ -734,35 +735,6 @@ export const getInfinitePosts = async (
 };
 
 // Search posts
-// export const searchPosts = async (
-//   req: Request,
-//   res: Response,
-// ): Promise<void> => {
-//   try {
-//     const { searchValue } = req.body;
-//     if (!searchValue) {
-//       res.status(400).json({ message: 'Search value is required' });
-//       return;
-//     }
-
-//     const posts = await Posts.findAll({
-//       where: {
-//         caption: {
-//           [Op.like]: `%${searchValue}%`,
-//         },
-//       },
-//     });
-//     res.status(200).json({
-//       posts,
-//     });
-//   } catch (error) {
-//     console.error('Error searching posts:', error);
-//     res.status(500).json({ message: 'Internal server error' });
-//   }
-// };
-
-// Get user's posts
-
 export const searchPosts = async (
   req: Request,
   res: Response
@@ -804,6 +776,7 @@ export const searchPosts = async (
   }
 };
 
+// Get all posts by user
 export const getUserPosts = async (
   req: Request,
   res: Response

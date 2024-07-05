@@ -152,21 +152,21 @@ export const getUserByID = async (req: Request, res: Response) => {
         const user_id = decodedToken.id;
         const requestedUserId = parseInt(req.query.user_id as string, 10);
 
-        const user = await Users.findByPk(user_id);
-        if (!user) {
+        const users = await Users.findByPk(user_id);
+        if (!users) {
           res.status(404).json({ message: 'User not found' });
           return;
         }
 
-        if (user.id !== user_id) {
+        if (users.id !== user_id) {
           res.status(403).json({ message: 'Unauthorized attempt!' });
           return;
         }
 
-        const requestedUser = await Users.findOne({
+        const user = await Users.findOne({
           where: { id: requestedUserId },
         });
-        if (!requestedUser) {
+        if (!user) {
           res.status(404).json({ message: 'Requested User not found' });
           return;
         }
@@ -184,10 +184,10 @@ export const getUserByID = async (req: Request, res: Response) => {
         }
 
         res.status(200).json({
-          requestedUser: requestedUser,
+          user,
           post,
           userLikes,
-          requestedUserId,
+          user_id: user_id,
         });
       }
     );

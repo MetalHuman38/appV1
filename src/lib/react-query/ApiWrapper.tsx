@@ -390,10 +390,13 @@ export const deleteLikedPostMutation = async (
 };
 
 // Wrapper function around updatePostMutation
-export const getPostByIdMutation = async (post_id: string): Promise<any> => {
+export const getPostByIdMutation = async (
+  post_id: string,
+  user_id: string
+): Promise<any> => {
   try {
     const response = await axiosInstance.get('/api/getPostById', {
-      params: { post_id },
+      params: { post_id, user_id },
       headers: {
         'Content-Type': 'application/json',
       },
@@ -554,7 +557,7 @@ export const getAllUsersMutation = async (limit: number): Promise<any> => {
 };
 
 // Wrapper function around getUserByIDMutation
-export const getUserByIDMutation = async (user_id: number): Promise<any> => {
+export const getUserByIDMutation = async (user_id: string): Promise<any> => {
   try {
     const response = await axiosInstance.get('/api/getUserByID', {
       params: { user_id },

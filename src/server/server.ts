@@ -32,9 +32,9 @@ async function StartServer() {
   server.on('connection', socket => {
     const id = idSeq++;
     asyncLocalStorage.run(id, () => {
-      logWithId('Client connected to server!');
+      logWithId('Client connected to server!!');
       socket.on('close', () => {
-        logWithId('Client disconnected from server!');
+        logWithId('Client disconnected from server!!!');
       });
     });
   });
@@ -68,7 +68,7 @@ async function StartServer() {
     clearTimeout(idleTimer);
     idleTimer = setTimeout(() => {
       server.close(() => {
-        console.log('Cleared Time out! Restarting....');
+        console.log('Cleared Time out! Restarting...');
         process.exit(0);
       });
     }, idleTimeout);

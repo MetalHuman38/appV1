@@ -272,10 +272,16 @@ export const useDeleteLikePost = () => {
 };
 
 // Wrapper function around getPostByIdMutation
-export const useGetPostById = (post_id: string) => {
+export const useGetPostById = ({
+  post_id,
+  user_id,
+}: {
+  post_id: string;
+  user_id: string;
+}) => {
   return useQuery({
     queryKey: [Query_Keys.GET_POST_BY_ID, post_id],
-    queryFn: () => getPostByIdMutation(post_id),
+    queryFn: () => getPostByIdMutation(post_id, user_id),
     enabled: !!post_id,
   });
 };
@@ -361,7 +367,7 @@ export const useGetAllUsers = ({ limit }: { limit: number }) => {
 };
 
 // Wrapper function around getUserByIDMutation
-export const useGetUserByID = (user_id: number) => {
+export const useGetUserByID = ({ user_id }: { user_id: string }) => {
   return useQuery({
     queryKey: [Query_Keys.GET_USER_BY_ID, user_id],
     queryFn: () => getUserByIDMutation(user_id),
