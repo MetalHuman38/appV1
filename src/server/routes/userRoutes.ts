@@ -1,18 +1,16 @@
-import express from 'express';
-import cors from 'cors';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import express from 'express';
+import jwt from 'jsonwebtoken';
+import { jwtENV } from '../config/jwtENV';
 import {
   getAllUsers,
   getUserByID,
   updateUser,
 } from '../controllers/userController';
 import { verifyUser } from '../loaders/auth/userAuth';
-import jwt from 'jsonwebtoken';
-import { jwtENV } from '../config/jwtENV';
-import Users from '../models/user.model';
-import Likes from '../models/likePost.model';
-import Posts from '../models/post.model';
+import { Likes, Posts, Users } from '../models/index.model';
 
 const router = express.Router();
 
@@ -75,7 +73,7 @@ router.get('/api/getCurrentUser', verifyUser, async (req, res) => {
             res.status(400).json({ message: 'User ID is required S routes' });
             return;
           }
-          res.status(200).json({ user, post, userLikes });
+          res.status(200).json({ user, post, userLikes, user_id: user.id });
         } catch (error) {
           throw new Error(error as string);
         }
@@ -93,6 +91,6 @@ router.get('/api/getAllUsers', getAllUsers);
 router.get('/api/getUserByID', getUserByID);
 
 // Update user by ID
-router.get('/api/updateUser', updateUser);
+router.put('/api/updateUser', updateUser);
 
 export default router;

@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
 import { useUserContext } from '@/lib/context/userContext';
+import { IUser } from '@/types';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../axios/axiosConfig';
 import useRefreshToken from '../hooks/useRefreshToken';
-import { useNavigate } from 'react-router-dom';
 import { useCurrentUser } from '../react-query/QueriesAndMutatins';
-import { IUser } from '@/types';
 
 export const User = () => {
   const { user, setIsLoading, isAuthenticated } = useUserContext();

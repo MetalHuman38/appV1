@@ -1,16 +1,18 @@
+import { LikedPost } from '@/_root/pages';
+import { GridPostList, Loader } from '@/components/shared';
+import { Button } from '@/components/ui/button';
 import {
-  Route,
-  Routes,
+  useCurrentUser,
+  useGetUserByID,
+} from '@/lib/react-query/QueriesAndMutatins';
+import {
   Link,
   Outlet,
-  useParams,
+  Route,
+  Routes,
   useLocation,
+  useParams,
 } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { LikedPost } from '@/_root/pages';
-import { useCurrentUser } from '@/lib/react-query/QueriesAndMutatins';
-import { useGetUserByID } from '@/lib/react-query/QueriesAndMutatins';
-import { GridPostList, Loader } from '@/components/shared';
 
 interface StatBlockProps {
   value: string | number;
@@ -57,7 +59,7 @@ const Profile = () => {
   console.log('userProfile', userProfile);
 
   const isCurrentUser = userProfile?.user?.id === currentUser?.user?.id;
-  console.log('userImage', userProfile?.imageURL);
+  console.log('userImage', userProfile?.user?.profilePic);
 
   console.log('isCurrentUser', isCurrentUser);
 
@@ -67,9 +69,11 @@ const Profile = () => {
         <div className="flex xl:flex-row flex-col max-xl:items-center flex-1 gap-7">
           <img
             src={
-              userProfile?.user?.imageURL
-                ? `/${userProfile?.user?.imageURL}`
-                : '/assets/icons/profile-placeholder.svg'
+              userProfile?.user?.profilePic
+                ? `/${userProfile.user.profilePic}`
+                : userProfile?.user?.avatarUrl
+                  ? userProfile?.user?.avatarUrl
+                  : '/assets/icons/profile-placeholder.svg'
             }
             alt="profile"
             className="w-28 h-28 lg:h-36 lg:w-36 rounded-full"
@@ -103,7 +107,7 @@ const Profile = () => {
               className={`${currentUser?.user?.id !== userProfile?.user?.id && 'hidden'}`}
             >
               <Link
-                to={`/update-profile/${userProfile?.id}`}
+                to={`/update-profile/${userProfile?.user?.id}`}
                 className={`h-12 bg-dark-4 px-5 text-light-1 flex-center gap-2 rounded-lg ${
                   currentUser?.user?.id === userProfile?.user?.id && 'hidden'
                 }`}
@@ -146,9 +150,10 @@ const Profile = () => {
             Posts
           </Link>
           <Link
-            to={`/profile/${id}/liked-posts`}
+            to={`/profile/${userProfile?.user?.id}/liked-posts`}
             className={`profile-tab rounded-r-lg ${
-              pathname === `/profile/${id}/liked-posts` && '!bg-dark-3'
+              pathname === `/profile/${userProfile?.user?.id}/liked-posts` &&
+              '!bg-dark-3'
             }`}
           >
             <img

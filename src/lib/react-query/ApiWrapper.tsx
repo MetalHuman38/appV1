@@ -1,5 +1,5 @@
-import axiosInstance from '../axios/axiosConfig';
 import { INewPost, INewUser, IUpdatePost, IUpdateUser } from '@/types';
+import axiosInstance from '../axios/axiosConfig';
 
 // Wrapper function around registerUserMutation that accepts user data and returns a promise
 export const registerUserMutation = async (
@@ -82,6 +82,26 @@ export const getCurrentUserMutation = async (): Promise<any> => {
     return response.data;
   } catch (error) {
     console.error('Error getting current user:', error);
+    throw error;
+  }
+};
+
+// Wrapper function around getUserDataMutation
+export const getUserDataMutation = async (
+  user_id: string,
+  post_id: string
+): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/api/getUserData', {
+      params: { user_id, post_id },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error getting user data:', error);
     throw error;
   }
 };
@@ -186,10 +206,11 @@ export const uploadProfilePicMutation = async (
 ): Promise<any> => {
   try {
     const response = await axiosInstance.post(
-      '/api/upload-profilePic',
+      '/api/uploadProfilePic',
       formData,
       {
         headers: {
+          'Custom-Header': 'image',
           'Content-Type': 'multipart/form-data',
         },
         method: 'POST',
@@ -199,6 +220,23 @@ export const uploadProfilePicMutation = async (
     return response.data;
   } catch (error) {
     console.error('Error uploading profile picture:', error);
+    throw error;
+  }
+};
+
+// ** Wrapper function around getProfilePicPreviewUrlMutation
+export const getProfilePicPreviewUrlMutation = async (): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/api/sendProfilePicUrl', {
+      headers: {
+        'Custom-Header': 'image',
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error getting profile pic preview:', error);
     throw error;
   }
 };
@@ -575,12 +613,12 @@ export const getUserByIDMutation = async (user_id: string): Promise<any> => {
 
 // Wrapper function around updateUserMutation
 export const updateUserMutation = async (
-  id: number,
+  user_id: number,
   user: IUpdateUser
 ): Promise<any> => {
   try {
     const response = await axiosInstance.put('/api/updateUser', user, {
-      params: { id },
+      params: { user_id },
       headers: {
         'Content-Type': 'application/json',
       },

@@ -15,7 +15,7 @@ interface ProfilePictureAttributes {
 interface ProfilePictureCreationAttributes
   extends Optional<ProfilePictureAttributes, 'id'> {}
 
-class ProfilePicture extends Model<
+class ProfilePictures extends Model<
   ProfilePictureAttributes,
   ProfilePictureCreationAttributes
 > {
@@ -27,13 +27,39 @@ class ProfilePicture extends Model<
 
   // create a static method to find a profile picture by ID
   static async findProfilePictureById(
-    id: number
-  ): Promise<ProfilePicture | null> {
-    return await this.findByPk(id);
+    user_id: number
+  ): Promise<ProfilePictures | null> {
+    return await this.findByPk(user_id);
+  }
+
+  // ** create a static method to retireve a profile picture by reference ID(user_id)
+  static async getProfilePicByReferenceID(
+    user_id: number
+  ): Promise<ProfilePictures | null> {
+    return await this.findOne({ where: { user_id } });
+  }
+
+  static async findProfilePicByReferenceKey(
+    key: string,
+    value: number
+  ): Promise<ProfilePictures | null> {
+    try {
+      const profileImage = await this.findOne({
+        where: { [key]: value },
+        order: [['created_At', 'DESC']],
+      });
+      return profileImage;
+    } catch (error) {
+      console.error(
+        `Error finding profile image by reference key: ${key}, value: ${value}`,
+        error
+      );
+      throw error; // Re-throw the error after logging it
+    }
   }
 }
 
-ProfilePicture.init(
+ProfilePictures.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -67,28 +93,26 @@ ProfilePicture.init(
   },
   {
     sequelize,
-    modelName: 'ProfilePicture',
-    tableName: 'ProfilePictures', // Specify the table name
-    timestamps: true,
+    modelName: 'ProfilePictures',
+    timestamps: false,
     updatedAt: 'updatedAt',
     createdAt: 'createdAt',
-    freezeTableName: true,
   }
 );
 
 // Define the association between User and ProfilePicture
-Users.hasOne(ProfilePicture, {
+Users.hasOne(ProfilePictures, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
   onUpdate: 'CASCADE',
 });
-ProfilePicture.belongsTo(Users, {
+ProfilePictures.belongsTo(Users, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
   onUpdate: 'CASCADE',
 });
 
-ProfilePicture.sync({ force: false })
+ProfilePictures.sync({ force: false })
   .then(() => {
     console.log('Profile Pic synced successfully');
   })
@@ -96,4 +120,4 @@ ProfilePicture.sync({ force: false })
     console.error('Error syncing creating profile pic table:', err);
   });
 
-export default ProfilePicture;
+export default ProfilePictures;

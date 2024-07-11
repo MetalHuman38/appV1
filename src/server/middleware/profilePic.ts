@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'; // Import the Request and Response types from express
+import jwt from 'jsonwebtoken';
 import multer from 'multer';
 import path from 'path';
-import ProfilePicture from '../models/profilePic.model.js';
-import jwt from 'jsonwebtoken';
-import User from '../models/user.model.js';
 import { validateMIMEType } from 'validate-image-type';
+import ProfilePictures from '../models/profilePic.model';
+import Users from '../models/user.model';
 
 // Define custom destination directory
 const uploadDir = '/home/bkalejaiye/appV-1/public/assets/images';
@@ -79,17 +79,17 @@ const uploadMiddleware = async (req: Request, res: Response, next: any) => {
             return res.status(401).json({ message: 'Unauthorized' });
           }
 
-          const userId = decodedToken.id;
+          const user_id = decodedToken.id;
 
-          const user = await User.findByPk(userId);
+          const user = await Users.findByPk(user_id);
 
           if (!user) {
             return res.status(404).json({ message: 'User not found' });
           }
 
           try {
-            const imageRecord = await ProfilePicture.create({
-              user_id: userId,
+            const imageRecord = await ProfilePictures.create({
+              user_id: user_id,
               profilePic: imageUrl,
               created_At: new Date(),
               updated_At: new Date(),
@@ -103,9 +103,9 @@ const uploadMiddleware = async (req: Request, res: Response, next: any) => {
             await user.update({ profilePic: imageUrl });
             // Send ImageUrl to the request body
 
-            req.body.imageid = imageRecord.id;
+            req.body.imageid = imageRecord.user_id;
 
-            console.log('Image ID:', imageRecord.id);
+            console.log('Image ID:', imageRecord.user_id);
 
             res.status(201).send({ imageUrl });
 
@@ -127,4 +127,4 @@ const uploadMiddleware = async (req: Request, res: Response, next: any) => {
   return next();
 };
 
-export { uploadMiddleware, upload };
+export { upload, uploadMiddleware };

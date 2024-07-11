@@ -1,22 +1,22 @@
-import express from 'express';
-import cors from 'cors';
-import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import express from 'express';
 import {
   createPost,
   deleteLikedPost,
   deletePost,
   deleteSavedPost,
   getAllPosts,
+  getInfinitePosts,
+  getPopularPosts,
   getPostById,
+  getSavedPosts,
+  getUserPosts,
   likePost,
   savePost,
-  updatePost,
-  getInfinitePosts,
   searchPosts,
-  getUserPosts,
-  getPopularPosts,
-  getSavedPosts,
+  updatePost,
 } from '../controllers/PostController';
 import { verifyUser } from '../loaders/auth/userAuth';
 

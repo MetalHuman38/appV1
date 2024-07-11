@@ -1,18 +1,16 @@
-import express from 'express';
-import type { Express } from 'express';
-import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import type { Express } from 'express';
+import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import path from 'path';
 import { env } from '../config/index';
 import { router } from '../routes/router';
-import { limiter } from './auth/ipConfig';
 import { globalErrorHandler } from '../utils/errorHandler';
-import path from 'path';
+import { limiter } from './auth/ipConfig';
 
 export default async function ({ app }: { app: Express }) {
-  app.get('/status', (_req, res) => res.sendStatus(200).end());
-
   app.use((_req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
     res.header(

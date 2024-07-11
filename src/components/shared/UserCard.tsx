@@ -1,29 +1,36 @@
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { IUser } from '@/types';
+import { Link } from 'react-router-dom';
 
 type UserCardProps = {
   user: IUser;
 };
 
+// ** This component is used to display a user card in the profile page
 const UserCard = ({ user }: UserCardProps) => {
   return (
-    <Link to={`/profile/${user.id}`} className="user-card">
+    <Link to={`/profile/${user?.id}`} className="user-card">
       <img
-        src={`/${user?.imageURL}` || '/assets/icons/profile-placeholder.svg'}
+        src={
+          user?.profilePic
+            ? `/${user.profilePic}`
+            : user?.avatarUrl
+              ? `/${user.avatarUrl}`
+              : '/assets/icons/profile-placeholder.svg'
+        }
         alt="creator"
         className="rounded-full w-16 h-16"
       />
       <div className="flex-center flex-col gap-1">
         <p className="base-medium text-light-1 text-center line-clamp-1">
-          {user.firstName} {user.lastName}
+          {user?.firstName} {user?.lastName}
         </p>
         <p className="small-regular text-light-3 text-center line-clamp-1">
-          @{user.username}
+          @{user?.username}
         </p>
       </div>
       <Button type="button" size="sm" className="shad-button_primary px-5">
-        follow
+        Follow
       </Button>
     </Link>
   );

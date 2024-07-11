@@ -1,7 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon';
-import User from './user.model.js';
-import Post from './post.model.js';
+import Posts from './post.model';
+import Users from './user.model';
 
 interface LikeAttributes {
   id: number;
@@ -98,22 +98,22 @@ Likes.init(
 );
 
 // Define the relationship between User and Like
-User.hasMany(Likes, {
+Users.hasMany(Likes, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
-Likes.belongsTo(User, {
+Likes.belongsTo(Users, {
   foreignKey: 'user_id',
 });
 
 // Define the relationship between Post and Like
-Post.hasMany(Likes, {
+Posts.hasMany(Likes, {
   foreignKey: 'post_id',
   onDelete: 'CASCADE',
 });
 
-Likes.belongsTo(Post, {
+Likes.belongsTo(Posts, {
   foreignKey: 'post_id',
 });
 

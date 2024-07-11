@@ -1,6 +1,6 @@
+import bcrypt from 'bcrypt';
 import { DataTypes, Model, Optional } from 'sequelize';
 import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon';
-import bcrypt from 'bcrypt';
 import { generateAvatarUrl } from '../utils/avatar';
 import Users from './user.model';
 

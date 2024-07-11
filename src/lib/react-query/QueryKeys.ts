@@ -11,6 +11,7 @@ export enum Query_Keys {
   GET_CURRENT_USER = 'GET_CURRENT_USER',
   GET_ALL_USERS = 'GET_ALL_USERS',
   GET_USER_BY_ID = 'GET_USER_BY_ID',
+  GET_USER_DATA = 'GET_USER_DATA',
 
   // Post Mutations
   CREATE_POST = 'CREATE_POST',
@@ -31,6 +32,7 @@ export enum Query_Keys {
 
   // Get preview image
   GET_IMAGE_PREVIEW = 'GET_IMAGE_PREVIEW',
+  GET_PROFILE_PIC_PREVIEW = 'GET_PROFILE_PIC_PREVIEW',
 
   // save post
   SAVE_POST = 'SAVE_POST',

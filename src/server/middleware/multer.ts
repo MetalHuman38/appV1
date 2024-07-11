@@ -1,11 +1,11 @@
+import 'dotenv/config';
 import { Request, Response } from 'express'; // Import the Request and Response types from express
+import jwt from 'jsonwebtoken';
 import multer from 'multer';
 import path from 'path';
-import ImageStorage from '../models/image.model.js';
-import 'dotenv/config';
-import jwt from 'jsonwebtoken';
-import User from '../models/user.model.js';
 import { validateMIMEType } from 'validate-image-type';
+import ImageStorages from '../models/image.model';
+import Users from '../models/user.model';
 
 // Define custom destination directory
 const uploadDir = '/home/bkalejaiye/appV-1/public/assets/images';
@@ -80,14 +80,14 @@ const uploadMiddleware = async (req: Request, res: Response, next: any) => {
 
           const userId = decodedToken.id;
 
-          const user = await User.findByPk(userId);
+          const user = await Users.findByPk(userId);
 
           if (!user) {
             return res.status(404).json({ message: 'User not found' });
           }
 
           try {
-            const imageRecord = await ImageStorage.create({
+            const imageRecord = await ImageStorages.create({
               imageUrl: imageUrl,
               user_id: userId,
               post_id: req.body.postId || null,
@@ -126,4 +126,4 @@ const uploadMiddleware = async (req: Request, res: Response, next: any) => {
   return next();
 };
 
-export { uploadMiddleware, upload };
+export { upload, uploadMiddleware };

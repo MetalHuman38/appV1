@@ -1,15 +1,17 @@
-import dotenv from 'dotenv';
-import express from 'express';
-import cors from 'cors';
-import { corOptions } from '../config/corOptions';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import upload from '../services/multer.config';
-import getImagePreviewUrl from '../controllers/imageController';
-import ImageStorages from '../models/image.model';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import express from 'express';
 import jwt from 'jsonwebtoken';
-import Users from '../models/user.model';
+import { corOptions } from '../config/corOptions';
 import { jwtENV } from '../config/jwtENV';
+import {
+  getImagePreviewUrl,
+  getProfilePicPreviewUrl,
+} from '../controllers/imageController';
+import { ImageStorages, ProfilePictures, Users } from '../models/index.model';
+import upload from '../services/multer.config';
 
 dotenv.config();
 
@@ -90,6 +92,70 @@ router.post('/api/uploadImage', upload.single('image'), async (req, res) => {
   }
 });
 
+router.post(
+  '/api/uploadProfilePic',
+  upload.single('file'),
+  async (req, res) => {
+    try {
+      console.log('File uploaded:', req.file);
+      // Modify the file path to the required format
+      const relativePath = `assets/images/${req.file?.filename}`;
+
+      const token = req.cookies.jwt;
+
+      if (!token) {
+        res.status(401).json({ message: 'Unauthorized' });
+        return;
+      }
+      jwt.verify(
+        token,
+        jwtENV.JWT_SECRET as string,
+        async (err: any, decodedToken: any) => {
+          if (err) {
+            res.status(401).json({ message: 'Unauthorized' });
+            return;
+          }
+          const user_id = decodedToken.id;
+          if (!user_id) {
+            res.status(401).json({ message: 'Unauthorized' });
+            return;
+          }
+          const user = await Users.findByPk(user_id);
+          if (!user) {
+            res.status(401).json({ message: 'Unauthorized' });
+            return;
+          }
+
+          const profilePicRecord = await ProfilePictures.create({
+            profilePic: relativePath,
+            user_id: user_id || null,
+            created_At: new Date(),
+            updated_At: new Date(),
+          });
+
+          if (!profilePicRecord) {
+            res.status(500).send({ error: 'Error creating image record' });
+            return;
+          }
+
+          await user.update({ profilePic: relativePath });
+          res.status(200).json({
+            message: 'Image uploaded successfully',
+            profilePic: relativePath,
+          });
+        }
+      );
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  }
+);
+
+// ** Return picture url for preview
 router.get('/api/sendImageUrl', getImagePreviewUrl);
+
+// ** Return Profile picture url for preview
+router.get('/api/sendProfilePicUrl', getProfilePicPreviewUrl);
 
 export default router;

@@ -1,9 +1,12 @@
+import { INewPost, INewUser, IUpdatePost, IUpdateUser } from '@/types';
 import {
   useInfiniteQuery,
   useMutation,
   useQuery,
   useQueryClient,
 } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+import { useUserContext } from '../context/userContext';
 import {
   checkAuthUserMutation,
   createPostMutation,
@@ -18,6 +21,7 @@ import {
   getPreviewImageUrlMutation,
   getSavedPostsMutation,
   getUserByIDMutation,
+  getUserDataMutation,
   getUserPostsMutation,
   likePostMutation,
   loginUserMutation,
@@ -31,10 +35,7 @@ import {
   uploadImageMutation,
   uploadProfilePicMutation,
 } from './ApiWrapper';
-import { INewPost, INewUser, IUpdatePost, IUpdateUser } from '@/types';
 import { Query_Keys } from './QueryKeys';
-import { useUserContext } from '../context/userContext';
-import { useNavigate } from 'react-router-dom';
 
 // Wrapper function around registerUserMutation that accepts user data and returns a promise
 export const useRegisterUser = () => {
@@ -63,6 +64,21 @@ export const useCurrentUser = () => {
   return useQuery({
     queryKey: [Query_Keys.GET_CURRENT_USER],
     queryFn: () => getCurrentUserMutation(),
+  });
+};
+
+// Wrapper function around getUserDataMutation
+export const useUserData = ({
+  user_id,
+  post_id,
+}: {
+  user_id: string;
+  post_id: string;
+}) => {
+  return useQuery({
+    queryKey: [Query_Keys.GET_USER_DATA],
+    queryFn: () => getUserDataMutation(user_id, post_id),
+    enabled: !!user_id,
   });
 };
 
@@ -130,6 +146,19 @@ export const useGetPreviewImage = () => {
     onSuccess: data => {
       QueryClient.invalidateQueries({
         queryKey: [Query_Keys.GET_IMAGE_PREVIEW, data?.imageUrl],
+      });
+    },
+  });
+};
+
+// ** Profile Picture Uploader **
+export const useGetProfilePicPreview = () => {
+  const QueryClient = useQueryClient();
+  return useMutation({
+    mutationFn: () => getPreviewImageUrlMutation(),
+    onSuccess: data => {
+      QueryClient.invalidateQueries({
+        queryKey: [Query_Keys.GET_PROFILE_PIC_PREVIEW, data?.profilePic],
       });
     },
   });
@@ -387,6 +416,9 @@ export const useUpdateUser = () => {
       });
       QueryClient.invalidateQueries({
         queryKey: [Query_Keys.GET_CURRENT_USER],
+      });
+      QueryClient.invalidateQueries({
+        queryKey: [Query_Keys.GET_PROFILE_PIC_PREVIEW],
       });
     },
   });

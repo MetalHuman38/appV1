@@ -1,16 +1,17 @@
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import express from 'express';
 import { env } from '../config/index';
 import authRoutes from './authRoutes';
-import currentUserRoute from './currentUserRoute';
-import userRoutes from './userRoutes';
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-import postRoutes from './postRoutes';
+import currentUserRoutes from './currentUserRoutes';
 import imageRoutes from './imageRoutes';
+import postRoutes from './postRoutes';
+import userDataRoutes from './userDataRoutes';
+import userRoutes from './userRoutes';
 
 const router = express.Router();
 
-router.use((_req, res, next) => {
+router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
   res.header(
     'Access-Control-Allow-Headers',
@@ -18,7 +19,10 @@ router.use((_req, res, next) => {
   );
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Credentials', 'true');
-  next();
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200); // Handle preflight request for CORS
+  }
+  return next();
 });
 
 // app.use(express.urlencoded({ extended: false }));
@@ -37,12 +41,14 @@ router.get('/', (_req, res) => {
 
 router.use(authRoutes);
 
+router.use(userRoutes);
+
+router.use(currentUserRoutes);
+
+router.use(userDataRoutes);
+
 router.use(postRoutes);
 
 router.use(imageRoutes);
-
-router.use(userRoutes);
-
-router.use(currentUserRoute);
 
 export { router };

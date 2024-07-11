@@ -1,6 +1,6 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon';
-import Users from './user.model.js';
+import Users from './user.model';
 
 interface PostAttributes {
   id: number;

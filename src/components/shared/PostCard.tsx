@@ -1,9 +1,9 @@
 import { useUserContext } from '@/lib/context/userContext';
 import { timeAgo } from '@/lib/utils';
+import { IUpdatePost } from '@/types';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PostStats from './PostStats';
-import { IUpdatePost } from '@/types';
 
 type PostCardProps = {
   post: IUpdatePost;
@@ -26,7 +26,7 @@ const PostCard = ({ post }: PostCardProps) => {
         <div className="flex items-center gap-3">
           <Link to={`/profile/${post?.creator_Id}`}>
             <img
-              src={post?.User?.imageURL || post.User?.avatarUrl}
+              src={post?.User?.profilePic || post.User?.avatarUrl}
               alt="creator"
               loading="lazy"
               className="rounded-full w-12 lg:h-12"

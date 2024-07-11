@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
+import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { jwtENV } from '../config/jwtENV';
-import { Request, Response } from 'express';
 import { jwtGenerator, jwtRefresh } from '../loaders/auth/jwtGenerator';
-import UserRegistration from '../models/userRegister.model';
+import { UserRegistration } from '../models/index.model';
 import { handleError } from '../utils/errorHandler';
 
 dotenv.config();
@@ -149,14 +149,13 @@ export const refreshToken = async (
       }
 
       try {
-        const userId = decodedToken.id;
-        console.log('User ID:', userId);
-        if (!userId) {
+        const user_id = decodedToken.id;
+        if (!user_id) {
           res.status(400).json({ message: 'User ID is required' });
           return;
         }
 
-        const user = await UserRegistration.findByPk(userId);
+        const user = await UserRegistration.findByPk(user_id);
         if (!user) {
           return res.status(404).json({ message: 'User not found' });
         }
@@ -186,11 +185,4 @@ export const refreshToken = async (
       return;
     }
   );
-};
-
-export default {
-  userRegister,
-  userLogin,
-  userLogout,
-  refreshToken,
 };

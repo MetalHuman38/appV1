@@ -1,10 +1,10 @@
-import { sidebarLinks } from '@/constants';
-import { useEffect } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { sidebarLinks } from '@/constants';
+import { useUserContext } from '@/lib/context/userContext';
 import { useLogOut } from '@/lib/react-query/QueriesAndMutatins';
 import { INavLink } from '@/types';
-import { useUserContext } from '@/lib/context/userContext';
+import { useEffect } from 'react';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 const LeftSideBar = () => {
   const { user, isLoading, isAuthenticated } = useUserContext();
@@ -50,7 +50,13 @@ const LeftSideBar = () => {
         ) : (
           <Link to={`/profile/${user.id}`} className="flex gap-3 items-center">
             <img
-              src={`/${user?.imageURL}` || `/${user?.avatarUrl}`}
+              src={
+                user?.profilePic && user.profilePic !== ''
+                  ? `/${user.profilePic}`
+                  : user?.avatarUrl
+                    ? `/${user.avatarUrl}`
+                    : '/assets/icons/profile-placeholder.svg'
+              }
               alt="profile"
               className="h-14 w-14 rounded-full"
               loading="lazy"

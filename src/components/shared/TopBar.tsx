@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useUserContext } from '@/lib/context/userContext';
 import { useLogOut } from '@/lib/react-query/QueriesAndMutatins';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const TopBar = () => {
   const { user, isLoading } = useUserContext();
@@ -45,7 +44,11 @@ const TopBar = () => {
             <Link to={`/profile/${user.id}`} className="flex-center gap-3">
               <img
                 src={
-                  `/${user.imageURL}` || '/assets/icons/profile-placeholder.svg'
+                  user?.profilePic
+                    ? `/${user.profilePic}`
+                    : user?.avatarUrl
+                      ? `/${user.avatarUrl}`
+                      : '/assets/icons/profile-placeholder.svg'
                 }
                 alt="profile"
                 className="h-8 w-8 rounded-full"

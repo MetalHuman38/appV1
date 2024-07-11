@@ -1,14 +1,16 @@
 import dotenv from 'dotenv';
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import ImageStorage from '../models/image.model';
-import Users from '../models/user.model';
-import { jwtENV } from '../config/jwtENV';
-import Posts from '../models/post.model';
-import getImagePreviewUrl from './imageController';
-import Likes from '../models/likePost.model';
-import Saves from '../models/savePost.model';
 import { Op } from 'sequelize';
+import { jwtENV } from '../config/jwtENV';
+import {
+  ImageStorages,
+  Likes,
+  Posts,
+  Saves,
+  Users,
+} from '../models/index.model';
+import { getImagePreviewUrl } from './imageController';
 
 dotenv.config();
 // Create Post Method - Create a new post
@@ -45,7 +47,7 @@ export const createPost = async (
         }
 
         // Retrieve the image URL from the ImageStorage table using the static method
-        const imageRecord = await ImageStorage.findImageByReferenceKey(
+        const imageRecord = await ImageStorages.findImageByReferenceKey(
           'user_id',
           user_id
         );
@@ -84,7 +86,9 @@ export const deleteFile = async (
   imageUrl: string
 ): Promise<void> => {
   try {
-    const image = await ImageStorage.findOne({ where: { imageUrl: imageUrl } });
+    const image = await ImageStorages.findOne({
+      where: { imageUrl: imageUrl },
+    });
 
     if (!image) {
       res.status(404).json({ message: 'Image not found' });
@@ -345,9 +349,7 @@ export const getPostById = async (
           return;
         }
 
-        const requestedUser = await Users.findOne({
-          where: { id: requestedUserId },
-        });
+        const requestedUser = await Users.findByPk(requestedUserId);
         if (!requestedUser) {
           res.status(404).json({ message: 'User not found' });
           return;
@@ -367,7 +369,7 @@ export const getPostById = async (
           return;
         }
 
-        res.status(200).json({ post, requestedUser, requestedUserId });
+        res.status(200).json({ post, requestedUser, requestedUserId, post_id });
       }
     );
   } catch (error) {
@@ -689,7 +691,7 @@ export const deletePost = async (
 
         // Find associated images and delete them
         if (post.imageURL) {
-          const image = await ImageStorage.findOne({
+          const image = await ImageStorages.findOne({
             where: { imageUrl: post.imageURL },
           });
           if (image) {

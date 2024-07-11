@@ -1,10 +1,10 @@
-import { Request, Response } from 'express';
-import ImageStorages from '../models/image.model';
-import jwt from 'jsonwebtoken';
 import 'dotenv/config';
-import Users from '../models/user.model';
+import { Request, Response } from 'express';
+import jwt from 'jsonwebtoken';
+import { jwtENV } from '../config/jwtENV';
+import { ImageStorages, ProfilePictures, Users } from '../models/index.model';
 
-// Refactored function to return image URL
+// ** Refactored function to return image URL
 export const getImagePreviewUrl = async (
   req: Request,
   res: Response
@@ -54,4 +54,51 @@ export const getImagePreviewUrl = async (
   }
 };
 
-export default getImagePreviewUrl;
+// ** Return Profile picture url for preview
+export const getProfilePicPreviewUrl = async (
+  req: Request
+): Promise<void | null> => {
+  try {
+    const token = req.cookies.jwt;
+    if (!token) {
+      throw new Error('Unauthorized');
+    }
+
+    jwt.verify(
+      token,
+      jwtENV.JWT_SECRET as string,
+      async (err: any, decodedToken: any) => {
+        if (err) {
+          throw new Error('Unauthorized');
+        }
+
+        const user_id = decodedToken.id;
+        if (!user_id) {
+          throw new Error('Unauthorized');
+        }
+
+        const user = await Users.findByPk(user_id);
+        if (!user) {
+          console.log('No user found');
+          throw new Error('Unauthorized');
+        }
+
+        const profilePic = await ProfilePictures.findProfilePicByReferenceKey(
+          'user_id',
+          user_id
+        );
+        if (!profilePic) {
+          console.log('No profile pic found');
+          return null;
+        }
+        console.log('Profile Pic:', profilePic);
+        return profilePic;
+      }
+    );
+  } catch (error) {
+    console.error('Error getting profile pic preview:', error);
+    throw new Error('Failed to get profile pic preview');
+  }
+};
+
+export default { getImagePreviewUrl, getProfilePicPreviewUrl };

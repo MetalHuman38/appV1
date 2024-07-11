@@ -1,3 +1,5 @@
+import { IUpdatePost } from '@/types';
+import { useEffect, useState } from 'react';
 import {
   useCurrentUser,
   useDeleteLikePost,
@@ -5,8 +7,6 @@ import {
   useLikePost,
   useSavePost,
 } from '../../lib/react-query/QueriesAndMutatins';
-import { IUpdatePost } from '@/types';
-import { useEffect, useState } from 'react';
 import Loader from './Loader';
 
 type PostStatsProps = {

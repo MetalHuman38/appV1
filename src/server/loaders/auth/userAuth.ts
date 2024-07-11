@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
+import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { jwtENV } from '../../config/jwtENV';
-import { Request, Response, NextFunction } from 'express';
-import Users from '../../models/user.model';
+import { Users } from '../../models/index.model';
 
 dotenv.config();
 

@@ -1,7 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon.js';
-import Users from './user.model.js';
 import Posts from './post.model.js';
+import Users from './user.model.js';
 
 interface ImageStorageAttributes {
   id: number;

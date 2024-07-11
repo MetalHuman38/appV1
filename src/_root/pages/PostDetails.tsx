@@ -1,9 +1,12 @@
-import { useGetPostById } from '@/lib/react-query/QueriesAndMutatins';
 import { Loader, PostStats } from '@/components/shared';
-import { Link, useParams } from 'react-router-dom';
-import { timeAgo } from '@/lib/utils';
-import { useUserContext } from '@/lib/context/userContext';
 import { Button } from '@/components/ui/button';
+import { useUserContext } from '@/lib/context/userContext';
+import {
+  useGetPostById,
+  useUserData,
+} from '@/lib/react-query/QueriesAndMutatins';
+import { timeAgo } from '@/lib/utils';
+import { Link, useParams } from 'react-router-dom';
 
 const PostDetails = () => {
   const { id } = useParams();
@@ -17,12 +20,14 @@ const PostDetails = () => {
     user_id: String(id),
   });
   const { user } = useUserContext();
+  const { data: user_data } = useUserData({
+    user_id: String(id),
+    post_id: String(id),
+  });
   const handleDeletePost = () => {};
 
   if (isPending) return <div>Loading...</div>;
   if (error) return <div>Error Loading Post</div>;
-
-  console.log('Post:', post?.imageURL);
 
   return (
     <div className="post_details-container">
@@ -53,7 +58,7 @@ const PostDetails = () => {
 
                 <div className="flex flex-col">
                   <p className="base-meduim lg:body-bold text-light-1">
-                    {user?.firstName} {user?.lastName}
+                    {user_data?.user?.firstName} {user_data?.user?.lastName}
                   </p>
                   <div className="flex-center gap-2 text-light-3">
                     <p className="subtle-semibold lg:small-regular">

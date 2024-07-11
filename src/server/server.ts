@@ -1,11 +1,11 @@
 require('dotenv').config();
-import express from 'express';
-import http from 'node:http'; // Correctly import the 'http' module
-import { AsyncLocalStorage } from 'node:async_hooks';
-import { env } from './config';
 import compression from 'compression';
-import process from 'node:process';
 import cors from 'cors';
+import express from 'express';
+import { AsyncLocalStorage } from 'node:async_hooks';
+import http from 'node:http'; // Correctly import the 'http' module
+import process from 'node:process';
+import { env } from './config';
 
 async function StartServer() {
   const app = express();
@@ -32,7 +32,7 @@ async function StartServer() {
   server.on('connection', socket => {
     const id = idSeq++;
     asyncLocalStorage.run(id, () => {
-      logWithId('Client connected to server!!');
+      logWithId('Client connected to server!!!');
       socket.on('close', () => {
         logWithId('Client disconnected from server!!!');
       });
@@ -68,7 +68,7 @@ async function StartServer() {
     clearTimeout(idleTimer);
     idleTimer = setTimeout(() => {
       server.close(() => {
-        console.log('Cleared Time out! Restarting...');
+        console.log('Cleared Time out! Restarting....');
         process.exit(0);
       });
     }, idleTimeout);

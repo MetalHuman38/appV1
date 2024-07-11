@@ -1,7 +1,3 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -12,17 +8,21 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { z } from 'zod';
 // import FileUpLoader from '@/components/shared/FileUpLoader';
-import ImageUpload from '../shared/ImageUpload';
-import { PostValidation } from '@/lib/validation';
-import { useToast } from '../ui/use-toast';
-import { useState } from 'react';
+import { useUserContext } from '@/lib/context/userContext';
 import {
   useCreatePost,
   useUpdatePost,
 } from '@/lib/react-query/QueriesAndMutatins';
-import { useUserContext } from '@/lib/context/userContext';
+import { PostValidation } from '@/lib/validation';
 import { IUpdatePost } from '@/types';
+import { useState } from 'react';
+import ImageUpload from '../shared/ImageUpload';
+import { useToast } from '../ui/use-toast';
 
 type PostFormProps = {
   post?: IUpdatePost;
@@ -74,7 +74,6 @@ const PostForm = ({ post, action }: PostFormProps) => {
           },
         });
 
-        console.log(updatedPost);
         toast({
           title: 'Post updated successfully',
         });
@@ -96,7 +95,12 @@ const PostForm = ({ post, action }: PostFormProps) => {
         location: values.location,
         tags: Array.isArray(values.tags) ? values.tags.join(',') : values.tags,
       });
-      console.log(newPost);
+      if (!newPost) {
+        toast({
+          title: 'Failed to create post! Please try again.',
+        });
+      }
+
       toast({
         title: 'Post created successfully',
       });
@@ -158,7 +162,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
               <FormControl>
                 <ImageUpload
                   fieldChange={field.onChange}
-                  // mediaUrl={ `/${post?.imageURL || ''}`}
+                  //** mediaUrl={ `/${post?.imageURL || ''}`}
                   mediaUrl={post ? `/${post.imageURL}` : ''}
                 />
               </FormControl>

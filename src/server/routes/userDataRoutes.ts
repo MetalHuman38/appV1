@@ -2,13 +2,11 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express from 'express';
-import { corOptions } from '../config/corOptions';
-import * as authController from '../controllers/authController';
+import { getUserDataByID } from '../controllers/userController';
 
 const router = express.Router();
 
-router.use(cors(corOptions));
-
+router.use(cors());
 router.use((_req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
   res.header(
@@ -20,18 +18,12 @@ router.use((_req, res, next) => {
   next();
 });
 
-// app.use(express.urlencoded({ extended: false }));
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(cookieParser());
 router.use(express.json());
 router.use(bodyParser.json());
 
-router.post('/api/register', authController.userRegister);
-
-router.post('/api/login', authController.userLogin);
-
-router.get('/api/logout', authController.userLogout);
-
-router.post('/api/refresh-token', authController.refreshToken);
+// ** current user datas(post, likes, user_id)
+router.get('/api/getUserData', getUserDataByID);
 
 export default router;
