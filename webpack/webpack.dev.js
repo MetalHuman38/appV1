@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const path = require('path');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
+const isDevelopment = process.env.NODE_ENV !== 'development';
+
 module.exports = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
@@ -11,7 +13,7 @@ module.exports = {
     }),
     new RefreshWebpackPlugin(),
   ],
-  devServer: {
+  devServer: isDevelopment && {
     static: {
       directory: path.join(__dirname, '../build'),
       watch: {

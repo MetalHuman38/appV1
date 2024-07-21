@@ -1,6 +1,5 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import axiosInstance from './axios/axiosConfig';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -89,14 +88,4 @@ export function formatDateString(dateString: string) {
 
 export const checkIsLiked = (likeList: string[], userId: string) => {
   return likeList.includes(userId);
-};
-
-export const initializeAxiosHeaders = () => {
-  const currentUser = sessionStorage.getItem('jwt');
-  const token = currentUser ? JSON.parse(currentUser)?.token : null;
-  if (token) {
-    axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  } else {
-    delete axiosInstance.defaults.headers.common['Authorization'];
-  }
 };

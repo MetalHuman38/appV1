@@ -5,7 +5,6 @@ const customErrorFormatter = require('./errorFormatter');
 
 module.exports = {
   mode: 'development',
-  // entry: [path.resolve(__dirname, '..', 'src/server/server.ts')],
   entry: {
     server: path.resolve(__dirname, '..', 'src/server/server.ts'),
   },

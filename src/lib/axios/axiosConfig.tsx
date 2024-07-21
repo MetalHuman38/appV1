@@ -28,13 +28,16 @@ export const instancePrivate = axios.create({
   },
 });
 
-// Retrieve the token from session storage and set it in the axios instance if it exists
-const currentUser = sessionStorage.getItem('jwt');
-const token = currentUser ? JSON.parse(currentUser) : null;
-if (token) {
-  axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-} else {
-  delete axiosInstance.defaults.headers.common['Authorization'];
-}
+// Check if sessionStorage is available (i.e., running in a browser)
+// if (typeof window !== 'undefined' && window.sessionStorage) {
+//   // Retrieve the token from session storage and set it in the axios instance if it exists
+//   const currentUser = sessionStorage.getItem('jwt');
+//   const token = currentUser ? JSON.parse(currentUser) : null;
+//   if (token) {
+//     axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+//   } else {
+//     delete axiosInstance.defaults.headers.common['Authorization'];
+//   }
+// }
 
 export default axiosInstance;

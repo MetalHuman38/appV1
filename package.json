@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "private": true,
+  "homepage": "https://metalbrain.net",
   "scripts": {
     "build:client": "webpack --config webpack/webpack.config.js --env env=prod",
     "build:server": "webpack --config webpack/webpack.server.config.js --mode production",
@@ -113,10 +114,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
+    "*.{js,jsx,ts,tsx,json}": ["eslint --fix", "prettier --write"],
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "eslint --fix",
       "prettier --write"

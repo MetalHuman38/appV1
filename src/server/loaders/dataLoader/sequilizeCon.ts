@@ -1,6 +1,6 @@
-import { Sequelize, Dialect } from 'sequelize';
-import { databaseENV } from '../../config/databaseENV';
 import fs from 'node:fs';
+import { Dialect, Sequelize } from 'sequelize';
+import { databaseENV } from '../../config/databaseENV';
 
 interface DBConfig {
   Dialect: Dialect;
