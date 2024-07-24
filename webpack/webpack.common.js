@@ -1,6 +1,8 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -55,7 +57,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '..', './build'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/',
   },
   plugins: [
@@ -64,6 +66,13 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [{ from: 'public', to: '' }],
+    }),
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false,
+      dry: true,
+      verbose: true,
+      protectWebpackAssets: false,
+
     }),
   ],
   watchOptions: {

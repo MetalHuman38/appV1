@@ -28,10 +28,15 @@ const StatBlock = ({ value, label }: StatBlockProps) => (
 
 const Profile = () => {
   const { id } = useParams();
-  const { data: currentUser } = useCurrentUser();
+  const { data: currentUser } = useCurrentUser({
+    user_id: Number(id),
+    post_id: Number(id),
+    creator_id: Number(id),
+  });
   const { pathname } = useLocation();
   const { data: user_profile, isPending: userPending } = useGetUserByID({
     user_id: String(id),
+    post_id: String(id),
   });
 
   if (!currentUser) {

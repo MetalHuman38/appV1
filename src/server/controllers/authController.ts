@@ -68,7 +68,6 @@ export const userLogin = async (req: Request, res: Response): Promise<void> => {
     }
     const token = jwtGenerator({ id: user.id });
     const refreshToken = jwtRefresh({ id: user.id });
-    console.log('User logged in:', refreshToken);
     // Setting the access token cookie
     res.cookie('jwt', token, {
       httpOnly: jwtENV.JWT_HTTP_ONLY,

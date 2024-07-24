@@ -66,16 +66,20 @@ export const checkAuthUserMutation = async (): Promise<any> => {
 };
 
 // Wrapper function around logged in user
-export const getCurrentUserMutation = async (): Promise<any> => {
+export const getCurrentUserMutation = async (
+  user_id: number,
+  post_id: number,
+  creator_id: number
+): Promise<any> => {
   try {
     const jwt = sessionStorage.getItem('jwt');
     if (jwt) {
       axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
     }
     const response = await axiosInstance.get('/api/getCurrentUser', {
+      params: { user_id, post_id, creator_id },
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${jwt}`,
       },
       withCredentials: true,
     });
@@ -595,10 +599,13 @@ export const getAllUsersMutation = async (limit: number): Promise<any> => {
 };
 
 // Wrapper function around getUserByIDMutation
-export const getUserByIDMutation = async (user_id: string): Promise<any> => {
+export const getUserByIDMutation = async (
+  user_id: string,
+  post_id: string
+): Promise<any> => {
   try {
     const response = await axiosInstance.get('/api/getUserByID', {
-      params: { user_id },
+      params: { user_id, post_id },
       headers: {
         'Content-Type': 'application/json',
       },

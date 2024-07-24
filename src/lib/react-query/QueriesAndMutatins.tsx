@@ -60,10 +60,18 @@ export const useCheckAuthUser = () => {
 };
 
 // Wrapper function around logged in user
-export const useCurrentUser = () => {
+export const useCurrentUser = ({
+  user_id,
+  post_id,
+  creator_id,
+}: {
+  user_id: number;
+  post_id: number;
+  creator_id: number;
+}) => {
   return useQuery({
     queryKey: [Query_Keys.GET_CURRENT_USER],
-    queryFn: () => getCurrentUserMutation(),
+    queryFn: () => getCurrentUserMutation(user_id, post_id, creator_id),
   });
 };
 
@@ -396,10 +404,16 @@ export const useGetAllUsers = ({ limit }: { limit: number }) => {
 };
 
 // Wrapper function around getUserByIDMutation
-export const useGetUserByID = ({ user_id }: { user_id: string }) => {
+export const useGetUserByID = ({
+  user_id,
+  post_id,
+}: {
+  user_id: string;
+  post_id: string;
+}) => {
   return useQuery({
     queryKey: [Query_Keys.GET_USER_BY_ID, user_id],
-    queryFn: () => getUserByIDMutation(user_id),
+    queryFn: () => getUserByIDMutation(user_id, post_id),
     enabled: !!user_id,
   });
 };

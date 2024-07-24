@@ -1,8 +1,14 @@
 import { GridPostList, Loader } from '@/components/shared';
 import { useCurrentUser } from '@/lib/react-query/QueriesAndMutatins';
+import { useParams } from 'react-router-dom';
 
 const LikedPosts = () => {
-  const { data: currentUser } = useCurrentUser();
+  const { id } = useParams();
+  const { data: currentUser } = useCurrentUser({
+    user_id: Number(id),
+    post_id: Number(id),
+    creator_id: Number(id),
+  });
 
   if (!currentUser)
     return (

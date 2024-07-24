@@ -1,5 +1,6 @@
 import { IUpdatePost } from '@/types';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   useCurrentUser,
   useDeleteLikePost,
@@ -21,7 +22,12 @@ const PostStats = ({ post }: PostStatsProps) => {
   const { mutate: savePost, isPending: isSavingPost } = useSavePost();
   const { mutate: deletePost, isPending: isDeletingSaved } = useDeletePost();
   const { mutate: deleteLikePost } = useDeleteLikePost();
-  const { data: user } = useCurrentUser();
+  const { currentUser_id } = useParams();
+  const { data: user } = useCurrentUser({
+    user_id: Number(currentUser_id),
+    post_id: Number(post.id),
+    creator_id: Number(post.creator_Id),
+  });
 
   useEffect(() => {
     if (user) {

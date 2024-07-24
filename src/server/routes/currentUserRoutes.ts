@@ -32,7 +32,7 @@ router.use(bodyParser.json());
 router.get('/api/getUser', verifyUser, async (req: Request, res: Response) => {
   const token = req.cookies.jwt;
   if (!token) {
-    console.log('No token found: send 401 Unauthorized');
+    console.log('No token found: send 401 Unauthorized in auth routes');
     res.status(401).json({ message: 'Unauthorized' });
     return;
   }
@@ -43,7 +43,9 @@ router.get('/api/getUser', verifyUser, async (req: Request, res: Response) => {
     async (err: any, decodedToken: any) => {
       if (err) {
         console.log('JWT verification error', err.message);
-        res.status(401).json({ message: 'Unauthorized Invalid Token' });
+        res
+          .status(401)
+          .json({ message: 'Unauthorized Invalid Token in auth routes' });
         return;
       }
 
@@ -52,11 +54,11 @@ router.get('/api/getUser', verifyUser, async (req: Request, res: Response) => {
         if (!user) {
           return res
             .status(400)
-            .json({ message: 'User ID is required S routes' });
+            .json({ message: 'User ID is required in Auth route' });
         }
         res.status(200).json({ user });
       } catch (error) {
-        console.error('Error getting current user:', error);
+        console.error('Error getting user:', error);
         res.status(500).json({ message: 'Error getting current user' });
         return; // Add a return statement here
       }

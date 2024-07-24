@@ -85,7 +85,6 @@ export const verifyUser = async (
   } catch (error) {
     console.error('Error verifying user:', error);
     res.locals.user = null;
-    next();
   }
 };
 

@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { jwtENV } from '../config/jwtENV';
 import { Likes, Posts, ProfilePictures, Users } from '../models/index.model';
+import { validateAndParseParams } from '../utils/validateAndParseParams';
 
 dotenv.config();
 
@@ -148,7 +149,26 @@ export const getUserByID = async (req: Request, res: Response) => {
         }
 
         const user_id = decodedToken.id;
+        if (!user_id) {
+          res
+            .status(400)
+            .json({ message: 'User ID (decodedToken) is required' });
+          return;
+        }
+
         const requestedUserId = parseInt(req.query.user_id as string, 10);
+        if (!requestedUserId) {
+          res.status(400).json({ message: 'Requested ID is required' });
+          return;
+        }
+
+        const post_id = parseInt(req.query.post_id as string, 10);
+        if (!post_id) {
+          res.status(400).json({
+            message: 'Post ID is required (getUser post_id variables)',
+          });
+          return;
+        }
 
         const users = await Users.findByPk(user_id);
         if (!users) {
@@ -171,21 +191,25 @@ export const getUserByID = async (req: Request, res: Response) => {
 
         const post = await Posts.getPostByReferenceID(requestedUserId);
         if (!post) {
-          res.status(400).json({ message: 'Post ID is required' });
+          res
+            .status(400)
+            .json({ message: 'Post ID is required in post (getUserByID)' });
           return;
         }
 
         const userLikes = await Likes.findByPk(user_id);
         if (!userLikes) {
-          res.status(400).json({ message: 'User ID is required S routes' });
+          res.status(400).json({ message: 'User ID is required likes routes' });
           return;
         }
 
         res.status(200).json({
           user,
-          post,
-          userLikes,
+          post: post || [],
+          userLikes: userLikes || [],
           user_id: user_id,
+          requestedUserId,
+          post_id,
         });
       }
     );
@@ -194,99 +218,6 @@ export const getUserByID = async (req: Request, res: Response) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
-
-// Update user by ID
-// export const updateUser = async (
-//   req: Request,
-//   res: Response,
-//   next: NextFunction
-// ) => {
-//   try {
-//     const { profilePic: newImageUrl } = req.body;
-
-//     const token = req.cookies.jwt;
-
-//     if (!token) {
-//       res.status(401).json({ message: 'Unauthorized' });
-//       return;
-//     }
-
-//     jwt.verify(
-//       token,
-//       jwtENV.JWT_SECRET,
-//       async (err: any, decodedToken: any) => {
-//         if (err) {
-//           console.log(err.message);
-//           return res.status(401).json({ message: 'Unauthorized' });
-//         }
-
-//         const user_id = decodedToken.id;
-//         if (!user_id) {
-//           return res.status(401).json({ message: 'Unauthorized' });
-//         }
-
-//         const user = await Users.findByPk(user_id);
-//         if (!user) {
-//           return res.status(404).json({ message: 'User not found' });
-//         }
-
-//         if (user.id !== user_id) {
-//           return res.status(403).json({ message: 'Unauthorized attempt!' });
-//         }
-
-//         const { newUser, ...rest } = req.body;
-//         if (Object.keys(rest).length === 0) {
-//           return res.status(400).json({ message: 'No fields to update' });
-//         }
-
-//         if (newUser) {
-//           const spaceIndex = newUser?.lastIndexOf(' ');
-//           const firstName =
-//             spaceIndex !== -1 ? newUser.slice(0, spaceIndex) : newUser;
-//           const lastName =
-//             spaceIndex !== -1 ? newUser.slice(spaceIndex + 1) : '';
-//           rest.firstName = firstName;
-//           rest.lastName = lastName;
-//         }
-
-//         let profilePic = user?.profilePic;
-
-//         if (newImageUrl) {
-//           try {
-//             const previewImageUrl = await getProfilePicPreviewUrl(req, res);
-//             if (!previewImageUrl) {
-//               return res
-//                 .status(404)
-//                 .json({ message: 'preview Image not found' });
-//             }
-//             profilePic = previewImageUrl;
-//           } catch (error) {
-//             console.error('Error fetching image preview URL:', error);
-//             return res.status(500).json({ message: 'Internal server error' });
-//           }
-//         }
-
-//         const attributes = { ...rest, profilePic };
-
-//         const [affectedCount, updatedUsers] = await Users.updateUser(
-//           user_id,
-//           attributes
-//         );
-//         if (affectedCount === 0) {
-//           console.log('Error updating user:', updatedUsers);
-//           return res.status(400).json({ message: 'Error updating user' });
-//         }
-
-//         res.status(200).json({ updatedUsers });
-//       }
-//     );
-//   } catch (error) {
-//     console.error('Error updating user:', error);
-//     return res.status(500).json({ message: 'Internal server error' });
-//   }
-// };
-
-// Get user for post view by ID
 
 export const updateUser = async (req: Request, res: Response) => {
   try {
@@ -463,6 +394,8 @@ export const getUserDataByID = async (req: Request, res: Response) => {
 
         const user_id = decodedToken.id;
         const post_id = parseInt(req.query.post_id as string, 10);
+        const likes_id = parseInt(req.query.likes_id as string, 10);
+        console.log('likes_id', likes_id);
 
         const users = await Users.findByPk(user_id);
         if (!users) {
@@ -490,11 +423,90 @@ export const getUserDataByID = async (req: Request, res: Response) => {
           return;
         }
 
-        res.status(200).json({ user, post, userLikes, creator });
+        res.status(200).json({
+          user,
+          post,
+          userLikes,
+          creator,
+        });
       }
     );
   } catch (error) {
     console.error('Error getting user by ID:', error);
     res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+export const getCurrentUser = async (req: Request, res: Response) => {
+  try {
+    const token = req.cookies.jwt;
+    if (!token) {
+      res.status(401).json({ message: 'Unauthorized' });
+      return;
+    }
+
+    jwt.verify(
+      token,
+      jwtENV.JWT_SECRET,
+      async (err: any, decodedToken: any) => {
+        if (err) {
+          console.log(err.message);
+          res.status(401).json({ message: 'Unauthorized' });
+          return;
+        }
+
+        const user_id = decodedToken.id;
+        if (!user_id) {
+          res.status(400).json({ message: 'User ID is required' });
+          return;
+        }
+
+        // Validate and parse parameters
+        let post_id, likes_id;
+        try {
+          ({ post_id, likes_id } = validateAndParseParams(req));
+        } catch (error: any) {
+          res.status(400).json({ message: error.message });
+          return;
+        }
+
+        const user = await Users.findByPk(user_id);
+        if (!user) {
+          res.status(400).json({ message: 'User not found' });
+          return;
+        }
+
+        if (user.id !== user_id) {
+          res.status(403).json({ message: 'Unauthorized attempt!' });
+          return;
+        }
+
+        const post = await Posts.getPostByReferenceID(user_id);
+        if (!post) {
+          res.status(400).json({ message: 'Post not found' });
+          return;
+        }
+
+        const userLikes = await Likes.findByPk(user_id);
+        if (!userLikes) {
+          res.status(400).json({ message: 'User likes not found' });
+          return;
+        }
+
+        console.log('User:', user, 'Post:', post, 'UserLikes:', userLikes);
+
+        res.status(200).json({
+          user,
+          post,
+          userLikes,
+          user_id,
+          post_id,
+          likes_id,
+        });
+      }
+    );
+  } catch (error: any) {
+    console.error('Error in getCurrentUser:', error.message);
+    res.status(400).json({ message: error.message });
   }
 };

@@ -1,15 +1,20 @@
 import { useUserContext } from '@/lib/context/userContext';
 import { IUser } from '@/types';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axiosInstance from '../axios/axiosConfig';
 import useRefreshToken from '../hooks/useRefreshToken';
 import { useCurrentUser } from '../react-query/QueriesAndMutatins';
 
 export const User = () => {
+  const { id } = useParams();
   const { user, setIsLoading, isAuthenticated } = useUserContext();
   const [users, setUser] = useState<IUser[] | null>(null);
-  const { data, isLoading, refetch } = useCurrentUser();
+  const { data, isLoading, refetch } = useCurrentUser({
+    user_id: Number(id),
+    post_id: Number(id),
+    creator_id: Number(id),
+  });
   const navigate = useNavigate();
 
   useEffect(() => {

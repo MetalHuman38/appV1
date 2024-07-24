@@ -4,7 +4,7 @@ import {
   useGetAllPosts,
   useGetAllUsers,
 } from '@/lib/react-query/QueriesAndMutatins';
-import { IUpdatePost, IUser } from '@/types';
+import { IUpdatePost } from '@/types';
 
 const Home = () => {
   const {
@@ -62,7 +62,7 @@ const Home = () => {
             <Loader />
           ) : (
             <ul className="user-grid">
-              {userData?.users.map((creator: IUser) => (
+              {userData?.users.map((creator: any) => (
                 <li key={creator.id} className="flex-1 min-w-w[200px] w-full">
                   <UserCard user={creator} />
                 </li>

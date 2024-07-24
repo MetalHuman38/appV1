@@ -1,8 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-
-const isDevelopment = process.env.NODE_ENV !== 'development';
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -12,8 +11,9 @@ module.exports = {
       'process.env.name': JSON.stringify('Metal Brain'),
     }),
     new RefreshWebpackPlugin(),
+    new CleanWebpackPlugin(),
   ],
-  devServer: isDevelopment && {
+  devServer: {
     static: {
       directory: path.join(__dirname, '../build'),
       watch: {
