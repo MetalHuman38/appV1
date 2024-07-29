@@ -17,6 +17,7 @@ import {
   getAllUsersMutation,
   getCurrentUserMutation,
   getInfinitePostsMutation,
+  getLikedPostsMutation,
   getPostByIdMutation,
   getPreviewImageUrlMutation,
   getSavedPostsMutation,
@@ -36,6 +37,16 @@ import {
   uploadProfilePicMutation,
 } from './ApiWrapper';
 import { Query_Keys } from './QueryKeys';
+
+// ** Wrapper functions around the mutations and queries **
+
+// ** Wrapper function around admin login mutation
+export const useAdminLogin = () => {
+  return useMutation({
+    mutationFn: (user: { email: string; password: string }) =>
+      loginUserMutation(user.email, user.password),
+  });
+};
 
 // Wrapper function around registerUserMutation that accepts user data and returns a promise
 export const useRegisterUser = () => {
@@ -60,18 +71,11 @@ export const useCheckAuthUser = () => {
 };
 
 // Wrapper function around logged in user
-export const useCurrentUser = ({
-  user_id,
-  post_id,
-  creator_id,
-}: {
-  user_id: number;
-  post_id: number;
-  creator_id: number;
-}) => {
+export const useCurrentUser = ({ user_id }: { user_id: number }) => {
   return useQuery({
     queryKey: [Query_Keys.GET_CURRENT_USER],
-    queryFn: () => getCurrentUserMutation(user_id, post_id, creator_id),
+    queryFn: () => getCurrentUserMutation(user_id),
+    enabled: !!user_id,
   });
 };
 
@@ -221,6 +225,15 @@ export const useLikePost = () => {
         queryKey: [Query_Keys.GET_CURRENT_USER],
       });
     },
+  });
+};
+
+// ** Wrapper function around getLikedPostsMutation **
+export const useGetLikedPosts = ({ user_id }: { user_id: number }) => {
+  return useQuery({
+    queryKey: [Query_Keys.GET_LIKED_POSTS],
+    queryFn: () => getLikedPostsMutation(user_id),
+    enabled: !!user_id,
   });
 };
 
@@ -405,16 +418,14 @@ export const useGetAllUsers = ({ limit }: { limit: number }) => {
 
 // Wrapper function around getUserByIDMutation
 export const useGetUserByID = ({
-  user_id,
-  post_id,
+  requestedUserId,
 }: {
-  user_id: string;
-  post_id: string;
+  requestedUserId: number;
 }) => {
   return useQuery({
-    queryKey: [Query_Keys.GET_USER_BY_ID, user_id],
-    queryFn: () => getUserByIDMutation(user_id, post_id),
-    enabled: !!user_id,
+    queryKey: [Query_Keys.GET_USER_BY_ID, requestedUserId],
+    queryFn: () => getUserByIDMutation(requestedUserId),
+    enabled: !!requestedUserId,
   });
 };
 

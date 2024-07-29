@@ -1,6 +1,5 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import Loader from '@/components/shared/Loader';
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -10,16 +9,16 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { SignInValidation } from '@/lib/validation';
-import Loader from '@/components/shared/Loader';
-import { z } from 'zod';
 import { useToast } from '@/components/ui/use-toast';
-import { useNavigate } from 'react-router-dom';
-import { useLoginUser } from '@/lib/react-query/QueriesAndMutatins';
 import { useUserContext } from '@/lib/context/userContext';
-import { useState, useRef, useEffect } from 'react';
 import { useAuth } from '@/lib/hooks/useAuth';
+import { useLoginUser } from '@/lib/react-query/QueriesAndMutatins';
+import { SignInValidation } from '@/lib/validation';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import { z } from 'zod';
 
 const SignInForm = () => {
   const { checkAuthUser, setIsAuthenticated } = useUserContext();
@@ -52,6 +51,36 @@ const SignInForm = () => {
         email: values.email,
         password: values.password,
       });
+
+      // const admin = await adminLoginMutation.mutateAsync({
+      //   email: values.email,
+      //   password: values.password,
+      // });
+
+      // if (admin) {
+      //   const token = admin.token;
+      //   setAuth({ token });
+      //   if (!admin) {
+      //     return toast({
+      //       title: 'Check your email and password and try again',
+      //     });
+      //   }
+      //   if (admin.status === 401) {
+      //     return toast({ title: 'Forbidden! Unauthorized attempts...' });
+      //   }
+      //   toast({
+      //     title: 'Checking authentication......!',
+      //   });
+
+      //   // Call the checkAuthUser function to check if the user is authenticated
+      //   await checkAuthUser();
+      //   setIsAuthenticated(true);
+      //   toast({
+      //     title: 'User Login Successfully',
+      //   });
+      //   navigate('/');
+      //   form.reset();
+      // }
 
       const token = user.token;
       setAuth({ token });
@@ -183,6 +212,15 @@ const SignInForm = () => {
             Dont have an account?
             <Link to="/sign-up" className="text-light-8 text-small-bold ml-1">
               Sign Up
+            </Link>
+          </p>
+          <p className="text-small-regular text-light-3 text-center mt-2">
+            Are you an admin?
+            <Link
+              to="/admin-login"
+              className="text-light-8 text-small-bold ml-1"
+            >
+              Admin Login
             </Link>
           </p>
         </form>

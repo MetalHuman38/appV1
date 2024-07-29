@@ -2,6 +2,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import { env } from '../config/index';
+import adminRoutes from './adminRoutes';
 import authRoutes from './authRoutes';
 import currentUserRoutes from './currentUserRoutes';
 import imageRoutes from './imageRoutes';
@@ -38,6 +39,8 @@ router.get('/', (_req, res) => {
     name: `${env.APP_NAME}`,
   });
 });
+
+router.use(adminRoutes);
 
 router.use(authRoutes);
 

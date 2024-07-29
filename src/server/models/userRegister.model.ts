@@ -35,6 +35,7 @@ class UserRegistration extends Model<UserAttributes, UserCreationAttributes> {
       where: { email: email, hashedpassword: password },
     });
   }
+
   // Create a static method to log out user
   static async logoutUser(email: string): Promise<UserRegistration | null> {
     return await this.findOne({
@@ -116,7 +117,9 @@ UserRegistration.afterCreate(async (user: UserRegistration) => {
       const first_Name =
         spaceIndex !== -1 ? user.newUser?.slice(0, spaceIndex) : user.newUser;
       const lastName =
-        spaceIndex !== -1 ? user.newUser?.slice(spaceIndex ?? +1) : null ?? '';
+        spaceIndex !== -1
+          ? user.newUser?.slice(spaceIndex ?? +1)
+          : user.newUser;
       const avatar = generateAvatarUrl(user.username);
 
       // Create or update the user record in the Users table

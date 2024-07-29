@@ -1,14 +1,39 @@
 import { GridPostList, Loader } from '@/components/shared';
-import { useCurrentUser } from '@/lib/react-query/QueriesAndMutatins';
+import { useUserContext } from '@/lib/context/userContext';
+import {
+  useCurrentUser,
+  useGetAllPosts,
+  useGetLikedPosts,
+} from '@/lib/react-query/QueriesAndMutatins';
 import { useParams } from 'react-router-dom';
 
 const LikedPosts = () => {
   const { id } = useParams();
+  const { user } = useUserContext();
+  const { data: post } = useGetAllPosts();
   const { data: currentUser } = useCurrentUser({
-    user_id: Number(id),
-    post_id: Number(id),
-    creator_id: Number(id),
+    user_id: Number(user?.id) || Number(id),
   });
+  const {
+    data: likedPosts,
+    isLoading,
+    isError,
+  } = useGetLikedPosts({
+    user_id: Number(user?.id) || Number(id),
+  });
+
+  console.log('Current User post', post);
+  console.log('Current User likedPosts', likedPosts);
+  if (isLoading) {
+    return (
+      <div className="flex-center w-full h-full">
+        <Loader />
+      </div>
+    );
+  }
+  if (isError) {
+    return <p className="text-light-4">Error! Failed to fetch liked posts</p>;
+  }
 
   if (!currentUser)
     return (
@@ -19,10 +44,10 @@ const LikedPosts = () => {
 
   return (
     <>
-      {currentUser?.user?.liked?.length === 0 && (
+      {likedPosts?.length === 0 && (
         <p className="text-light-4">No liked posts</p>
       )}
-      <GridPostList posts={currentUser?.user?.userLikes} showStats={false} />
+      <GridPostList posts={likedPosts?.user?.Posts} showStats={false} />
     </>
   );
 };

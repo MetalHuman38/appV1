@@ -1,6 +1,7 @@
-import { createSequelizeInstance } from './sequilizeCon';
 import { Sequelize } from 'sequelize';
+import { createSequelizeInstance } from './sequilizeCon';
 
+// ** Database Connection
 export async function waitForDB(): Promise<Sequelize> {
   const sequelize = createSequelizeInstance();
 

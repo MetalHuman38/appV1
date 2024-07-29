@@ -7,9 +7,10 @@ import { validateMIMEType } from 'validate-image-type';
 import ImageStorages from '../models/image.model';
 import Users from '../models/user.model';
 
-// Define custom destination directory
+// ** Define custom destination directory
 const uploadDir = '/home/bkalejaiye/appV-1/public/assets/images';
 
+// ** Define storage
 const storage = multer.diskStorage({
   destination: function (_req, _file, cb) {
     cb(null, uploadDir);
@@ -23,7 +24,7 @@ const storage = multer.diskStorage({
   },
 });
 
-// Check file type
+// ** Check file type
 const validateMimeType = async (file: any, cb: any) => {
   try {
     const validationResult = await validateMIMEType(file.path, {
@@ -41,6 +42,7 @@ const validateMimeType = async (file: any, cb: any) => {
   }
 };
 
+// ** Define upload
 const upload = multer({
   storage: storage,
   limits: { fileSize: 10000000 },
@@ -57,6 +59,7 @@ const upload = multer({
   },
 });
 
+// ** Upload middleware
 const uploadMiddleware = async (req: Request, res: Response, next: any) => {
   try {
     if (req.file) {

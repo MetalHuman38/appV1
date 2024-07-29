@@ -1,3 +1,4 @@
+import adminRoutes from './adminRoutes';
 import authRoutes from './authRoutes';
 import currentUserRoutes from './currentUserRoutes';
 import imageRoutes from './imageRoutes';
@@ -6,6 +7,7 @@ import userDataRoutes from './userDataRoutes';
 import userRoutes from './userRoutes';
 
 export {
+  adminRoutes,
   authRoutes,
   currentUserRoutes,
   imageRoutes,
@@ -21,6 +23,7 @@ const Routes = {
   imageRoutes,
   postRoutes,
   userDataRoutes,
+  adminRoutes,
 };
 
 export default Routes;

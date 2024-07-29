@@ -3,6 +3,7 @@ import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon.js';
 import Posts from './post.model.js';
 import Users from './user.model.js';
 
+// ** Define the ImageStorage Interface
 interface ImageStorageAttributes {
   id: number;
   imageUrl: string | null;
@@ -11,12 +12,14 @@ interface ImageStorageAttributes {
   created_At: Date;
 }
 
+// ** Define the ImageStorage Creation Attributes
 interface ImageStorageCreationAttributes
   extends Optional<ImageStorageAttributes, 'id'> {}
 
-// Define Instance of Sequelize
+// ** Define Instance of Sequelize
 const sequelize = createSequelizeInstance();
 
+// ** Define the ImageStorage Model
 class ImageStorages
   extends Model<ImageStorageAttributes, ImageStorageCreationAttributes>
   implements ImageStorageAttributes
@@ -52,7 +55,7 @@ class ImageStorages
   }
 }
 
-// Define the ImageStorage model
+// ** Define the ImageStorage Model
 ImageStorages.init(
   {
     id: {
@@ -92,49 +95,7 @@ ImageStorages.init(
   }
 );
 
-// Define the User model
-ImageStorages.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false,
-    },
-    imageUrl: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Users',
-        key: 'id',
-      },
-    },
-    post_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Posts',
-        key: 'id',
-      },
-      allowNull: true,
-    },
-    created_At: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-  },
-
-  {
-    sequelize,
-    modelName: 'ImageStorages',
-    timestamps: false,
-  }
-);
-
-// create a hook that saves uploaded image to the user's columns in the database
+// ** Define the hook to update the user's imageURL after creating an image
 ImageStorages.afterCreate(async image => {
   const user = await Users.findByPk(image.user_id);
   if (user) {
@@ -143,7 +104,7 @@ ImageStorages.afterCreate(async image => {
   }
 });
 
-// After Uploading an image, save to user's table
+// ** Define the relationship between the User and ImageStorage models
 Users.hasMany(ImageStorages, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
@@ -169,7 +130,7 @@ ImageStorages.belongsTo(Posts, {
   onUpdate: 'CASCADE',
 });
 
-// sync the ImageStorage model with the database
+// ** sync the ImageStorage model with the database
 await sequelize
   .sync({ force: false })
   .then(() => {
@@ -178,13 +139,5 @@ await sequelize
   .catch(err => {
     console.error('Error syncing new image:', err);
   });
-
-// ImageStorage.sync({ force: true })
-//   .then(() => {
-//     console.log('ImageStorage synced successfully');
-//   })
-//   .catch(err => {
-//     console.error('Error syncing ImageStorage:', err);
-//   });
 
 export default ImageStorages;

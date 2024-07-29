@@ -1,16 +1,22 @@
 import { Loader, UserCard } from '@/components/shared';
 import { useToast } from '@/components/ui/use-toast';
-import { useGetAllUsers } from '@/lib/react-query/QueriesAndMutatins';
-import { IUser } from '@/types';
+import {
+  useGetAllPosts,
+  useGetAllUsers,
+} from '@/lib/react-query/QueriesAndMutatins';
 
 const AllUsers = () => {
   const { toast } = useToast();
-
+  const { data: post } = useGetAllPosts();
   const {
-    data: userData,
+    data: creatorData,
     isLoading,
     isError: isErrorCreators,
-  } = useGetAllUsers({ limit: 10 });
+  } = useGetAllUsers({
+    limit: 10,
+  });
+
+  console.log('post.creator_id:', post?.creator_Id);
 
   if (isErrorCreators) {
     toast({ title: 'Error! failed to fetch creators!' });
@@ -25,9 +31,9 @@ const AllUsers = () => {
     );
   }
 
-  console.log('user', userData);
+  const creators = creatorData?.user ? Object.values(creatorData.user) : [];
 
-  const creators = userData?.users || [];
+  console.log('userData:', creators);
 
   return (
     <div className="common-container">
@@ -37,8 +43,8 @@ const AllUsers = () => {
           <p>No creators found.</p>
         ) : (
           <ul className="user-grid">
-            {creators.map((creator: IUser) => (
-              <li key={creator.id} className="flex-1 min-w-w[200px] w-full">
+            {creators?.map((creator: any) => (
+              <li key={creator?.id} className="flex-1 min-w-w[200px] w-full">
                 <UserCard user={creator} />
               </li>
             ))}

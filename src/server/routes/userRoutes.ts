@@ -2,13 +2,13 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express from 'express';
-// import jwt from 'jsonwebtoken';
-// import { jwtENV } from '../config/jwtENV';
 import {
   getAllUsers,
+  getCurrentUser,
   getUserByID,
   updateUser,
 } from '../controllers/userController';
+import { verifyUser } from '../loaders/auth/userAuth';
 // import { verifyUser } from '../loaders/auth/userAuth';
 // import { Likes, Posts, Users } from '../models/index.model';
 // import { validateAndParseParams } from '../utils/validateAndParseParams';
@@ -31,6 +31,8 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(cookieParser());
 router.use(express.json());
 router.use(bodyParser.json());
+
+router.get('/api/getCurrentUser', verifyUser, getCurrentUser);
 
 // Get all users
 router.get('/api/getAllUsers', getAllUsers);

@@ -2,10 +2,11 @@ import dotenv from 'dotenv';
 import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { jwtENV } from '../../config/jwtENV';
-import { Users } from '../../models/index.model';
+import Users from '../../models/user.model';
 
 dotenv.config();
 
+// ** Require Auth
 export const requireAuth = async (
   req: Request,
   res: Response,
@@ -44,6 +45,7 @@ export const requireAuth = async (
   }
 };
 
+// ** Verify User
 export const verifyUser = async (
   req: Request,
   res: Response,

@@ -93,6 +93,12 @@ Saves.init(
     tableName: 'Saves',
     timestamps: false,
     freezeTableName: true,
+    indexes: [
+      {
+        unique: true,
+        fields: ['user_id', 'post_id'],
+      },
+    ],
   }
 );
 
@@ -104,15 +110,16 @@ Saves.deleteSavedPost = async function (post_id: number): Promise<void> {
   }
 };
 
-// Create relationship between Saves and Users
-Saves.belongsTo(Users, {
-  foreignKey: 'user_id',
-  targetKey: 'id',
-});
-
 // Create relationship between Saves and Posts
 Saves.belongsTo(Posts, {
   foreignKey: 'post_id',
+  targetKey: 'id',
+  onDelete: 'RESTRICT',
+});
+
+// Create relationship between Saves and Users
+Saves.belongsTo(Users, {
+  foreignKey: 'user_id',
   targetKey: 'id',
 });
 

@@ -50,6 +50,9 @@ export type IUser = {
   last_activity: Date;
   updated_at: Date;
   UserRegistrationID: number;
+  currentUser: IUser;
+  user_id: number;
+  post_id: number;
 };
 
 export type INewUser = {

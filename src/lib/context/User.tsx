@@ -11,9 +11,7 @@ export const User = () => {
   const { user, setIsLoading, isAuthenticated } = useUserContext();
   const [users, setUser] = useState<IUser[] | null>(null);
   const { data, isLoading, refetch } = useCurrentUser({
-    user_id: Number(id),
-    post_id: Number(id),
-    creator_id: Number(id),
+    user_id: Number(user?.id) || Number(id),
   });
   const navigate = useNavigate();
 

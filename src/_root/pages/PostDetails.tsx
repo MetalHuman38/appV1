@@ -20,7 +20,7 @@ const PostDetails = () => {
     user_id: String(id),
   });
   const { user } = useUserContext();
-  const { data: user_data } = useUserData({
+  const { data: userData } = useUserData({
     user_id: String(id),
     post_id: String(id),
   });
@@ -58,7 +58,8 @@ const PostDetails = () => {
 
                 <div className="flex flex-col">
                   <p className="base-meduim lg:body-bold text-light-1">
-                    {user_data?.user?.firstName} {user_data?.user?.lastName}
+                    {userData?.userPostData?.firstName}{' '}
+                    {userData?.userPostData?.lastName}
                   </p>
                   <div className="flex-center gap-2 text-light-3">
                     <p className="subtle-semibold lg:small-regular">

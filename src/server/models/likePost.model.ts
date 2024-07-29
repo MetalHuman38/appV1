@@ -3,6 +3,7 @@ import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon';
 import Posts from './post.model';
 import Users from './user.model';
 
+// ** Define the Like Interface
 interface LikeAttributes {
   id: number;
   user_id: number;
@@ -12,7 +13,7 @@ interface LikeAttributes {
 
 interface LikeCreationAttributes extends Optional<LikeAttributes, 'id'> {}
 
-// Define Instance of Sequelize
+// ** Define Instance of Sequelize
 const sequelize = createSequelizeInstance();
 
 class Likes
@@ -24,17 +25,17 @@ class Likes
   declare post_id: number;
   declare created_At: Date;
 
-  // create a static method to create a new like
+  // ** create a static method to create a new like
   static async createLike(attributes: LikeCreationAttributes): Promise<Likes> {
     return await this.create(attributes);
   }
 
-  // create a static method to find a like by ID
+  // ** create a static method to find a like by ID
   static async findLikeById(id: number): Promise<Likes | null> {
     return await this.findByPk(id);
   }
 
-  // create a static method to find a like by reference key (userId or postId)
+  // ** create a static method to find a like by reference key (userId or postId)
   static async findLikeByReferenceKey(
     key: string,
     value: number
@@ -42,7 +43,7 @@ class Likes
     return await this.findOne({ where: { [key]: value } });
   }
 
-  // create a static method to find all likes by reference key (userId or postId)
+  // ** create a static method to find all likes by reference key (userId or postId)
   static async findAllLikesByReferenceKey(
     key: string,
     value: number
@@ -50,7 +51,7 @@ class Likes
     return await this.findAll({ where: { [key]: value } });
   }
 
-  // create a static method to find all likes by reference key (userId or postId)
+  // ** create a static method to find all likes by reference key (userId or postId)
   static async deleteLikeByReferenceKey(
     key: string,
     value: number
@@ -59,7 +60,7 @@ class Likes
   }
 }
 
-// Define the User model
+// ** Initialize the Like Model
 Likes.init(
   {
     id: {
@@ -97,17 +98,18 @@ Likes.init(
   }
 );
 
-// Define the relationship between User and Like
+// ** Define the relationship between User and Like
 Users.hasMany(Likes, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
+// ** Define the relationship between Post and Like
 Likes.belongsTo(Users, {
   foreignKey: 'user_id',
 });
 
-// Define the relationship between Post and Like
+// ** Define the relationship between Post and Like
 Posts.hasMany(Likes, {
   foreignKey: 'post_id',
   onDelete: 'CASCADE',
@@ -117,7 +119,7 @@ Likes.belongsTo(Posts, {
   foreignKey: 'post_id',
 });
 
-// Sync the Like model with the database
+// ** Sync the Like model with the database
 Likes.sync({ force: false })
   .then(() => {
     console.log('Like synced successfully');

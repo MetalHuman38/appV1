@@ -18,7 +18,6 @@ import { useToast } from '@/components/ui/use-toast';
 import ProfilePicUploader from '@/components/shared/ProfilePicUploader';
 import { useUserContext } from '@/lib/context/userContext';
 import {
-  useCurrentUser,
   useGetUserByID,
   useUpdateUser,
 } from '@/lib/react-query/QueriesAndMutatins';
@@ -29,26 +28,21 @@ const UpdateProfile = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { user, setUser } = useUserContext();
-  const { data: userData } = useCurrentUser({
-    user_id: Number(id),
-    post_id: Number(id),
-    creator_id: Number(id),
-  });
+
   const form = useForm<z.infer<typeof ProfileValidation>>({
     resolver: zodResolver(ProfileValidation),
     defaultValues: {
-      file: userData?.profilePic || [],
-      name: `${userData?.user?.firstName} ${userData?.user?.lastName}`,
-      username: userData?.user?.username,
-      email: userData?.user?.email,
-      bio: userData?.user?.bio || '',
+      file: [],
+      name: `${user?.firstName} ${user?.lastName}`,
+      username: user?.username,
+      email: user?.email,
+      bio: user?.bio || '',
     },
   });
 
   // Queries
   const { data: currentUser } = useGetUserByID({
-    user_id: String(id),
-    post_id: String(id),
+    requestedUserId: Number(id),
   });
   const { mutateAsync: updateUser, isPending: isPendingUpdate } =
     useUpdateUser();
@@ -63,20 +57,19 @@ const UpdateProfile = () => {
     );
 
   console.log('user', user);
-  console.log('userData', userData);
-  console.log('currentUser.imageURL', userData?.user?.profilePic);
+  console.log('currentUser.imageURL', currentUser?.profilePic);
 
   // Handler
   const handleUpdate = async (value: z.infer<typeof ProfileValidation>) => {
     const updatedUser = await updateUser({
       user_id: currentUser?.user?.id,
       user: {
-        id: userData?.user?.id,
+        id: currentUser?.user?.id,
         file: value.file,
         newUser: value.name,
         bio: value.bio,
-        profilePic: userData?.user?.profilePic,
-        imageURL: userData?.user?.imageURL,
+        profilePic: currentUser?.user?.profilePic,
+        imageURL: currentUser?.user?.imageURL,
       },
     });
 
@@ -87,12 +80,12 @@ const UpdateProfile = () => {
     }
 
     setUser({
-      ...userData,
+      ...currentUser,
       name: updatedUser?.name,
       bio: updatedUser?.bio,
-      profilePic: updatedUser?.user?.profilePic,
+      profilePic: updatedUser?.currentUser?.profilePic,
     });
-    return navigate(`/profile/${id}`);
+    return navigate(`/profile/${user?.id}`);
   };
 
   return (

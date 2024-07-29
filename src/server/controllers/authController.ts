@@ -8,6 +8,7 @@ import { handleError } from '../utils/errorHandler';
 
 dotenv.config();
 
+// ** User Registration
 export const userRegister = async (
   req: Request,
   res: Response
@@ -55,6 +56,7 @@ export const userRegister = async (
   }
 };
 
+// ** User Login
 export const userLogin = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password } = req.body;
@@ -91,6 +93,7 @@ export const userLogin = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
+// ** User Logout
 export const userLogout = async (
   req: Request,
   res: Response
@@ -126,6 +129,7 @@ export const userLogout = async (
   }
 };
 
+// ** Refresh Token
 export const refreshToken = async (
   req: Request,
   res: Response

@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import { Dialect, Sequelize } from 'sequelize';
 import { databaseENV } from '../../config/databaseENV';
 
+// ** Database Configuration
 interface DBConfig {
   Dialect: Dialect;
   host: string;
@@ -32,6 +33,7 @@ interface DBConfig {
   };
 }
 
+// ** Database Further Configuration
 const dbConfig: DBConfig = {
   Dialect: 'mariadb',
   host: databaseENV.DB_HOST || 'localhost',
@@ -64,6 +66,7 @@ const dbConfig: DBConfig = {
   },
 };
 
+// ** Create a new Sequelize instance
 export function createSequelizeInstance(): Sequelize {
   // Create a new Sequelize instance
   const sequelize = new Sequelize(

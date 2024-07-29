@@ -14,10 +14,14 @@ const Home = () => {
   } = useGetAllPosts();
 
   const {
-    data: userData,
+    data: topCreators,
     isLoading,
     isError: isErrorCreators,
-  } = useGetAllUsers({ limit: 10 });
+  } = useGetAllUsers({
+    limit: 10,
+  });
+
+  console.log('creators:', topCreators);
 
   if (isErrorPosts || isErrorCreators) {
     return (
@@ -36,6 +40,8 @@ const Home = () => {
       </div>
     );
   }
+
+  const creators = topCreators?.user ? Object.values(topCreators.user) : [];
 
   return (
     <div className="flex flex-1">
@@ -58,12 +64,12 @@ const Home = () => {
       <div>
         <div className="home-creators">
           <h2 className="h3-bold md:h2-bold text-light-1">Top Creators</h2>
-          {isLoading ? (
+          {isLoading && !creators ? (
             <Loader />
           ) : (
             <ul className="user-grid">
-              {userData?.users.map((creator: any) => (
-                <li key={creator.id} className="flex-1 min-w-w[200px] w-full">
+              {creators?.map((creator: any) => (
+                <li key={creator?.id} className="flex-1 min-w-w[200px] w-full">
                   <UserCard user={creator} />
                 </li>
               ))}

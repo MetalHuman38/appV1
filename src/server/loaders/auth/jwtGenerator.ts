@@ -4,6 +4,7 @@ import { jwtENV } from '../../config/jwtENV';
 
 dotenv.config();
 
+// ** JWT Generator
 export const jwtGenerator = (payload: any): string => {
   try {
     return jwt.sign(payload, jwtENV.JWT_SECRET as string, {
@@ -16,6 +17,7 @@ export const jwtGenerator = (payload: any): string => {
   }
 };
 
+// ** JWT Verifier
 export const jwtVerifier = (token: string): any => {
   try {
     return jwt.verify(token, jwtENV.JWT_SECRET as string);
@@ -24,6 +26,7 @@ export const jwtVerifier = (token: string): any => {
   }
 };
 
+// ** JWT Refresh
 export const jwtRefresh = (payload: any): string => {
   try {
     return jwt.sign(payload, jwtENV.JWT_REFRESH_SECRET as string, {

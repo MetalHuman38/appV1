@@ -1,7 +1,8 @@
+import { Request, Response } from 'express';
 import rateLimit from 'express-rate-limit';
 import { env } from '../../config/index';
-import { Request, Response } from 'express';
 
+// ** Key Generator
 export const keyGenerator = async (
   req: Request,
   res: Response
@@ -14,6 +15,7 @@ export const keyGenerator = async (
   return req.ip.replace(/:\d+[^:]*$/, '');
 };
 
+// ** Rate Limiter
 export const limiter = rateLimit({
   windowMs: env.RARE_LIMIT_WINDOW_MS,
   max: env.MAX,

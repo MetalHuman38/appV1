@@ -1,7 +1,30 @@
 import { INewPost, INewUser, IUpdatePost, IUpdateUser } from '@/types';
 import axiosInstance from '../axios/axiosConfig';
 
-// Wrapper function around registerUserMutation that accepts user data and returns a promise
+// ** Wrapper function around adminLoginMutation
+export const adminLoginMutation = async (
+  email: string,
+  password: string
+): Promise<any> => {
+  try {
+    const response = await axiosInstance.post(
+      '/api/adminLogin',
+      JSON.stringify({ email, password }),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error logging in admin:', error);
+    throw error;
+  }
+};
+
+// ** Wrapper function around registerUserMutation that accepts user data and returns a promise
 export const registerUserMutation = async (
   userData: INewUser
 ): Promise<unknown> => {
@@ -14,7 +37,7 @@ export const registerUserMutation = async (
   }
 };
 
-// Wrapper function around loginUserMutation that accepts email and password
+// ** Wrapper function around loginUserMutation that accepts email and password
 export const loginUserMutation = async (
   email: string,
   password: string
@@ -66,18 +89,14 @@ export const checkAuthUserMutation = async (): Promise<any> => {
 };
 
 // Wrapper function around logged in user
-export const getCurrentUserMutation = async (
-  user_id: number,
-  post_id: number,
-  creator_id: number
-): Promise<any> => {
+export const getCurrentUserMutation = async (user_id: number): Promise<any> => {
   try {
     const jwt = sessionStorage.getItem('jwt');
     if (jwt) {
       axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${jwt}`;
     }
     const response = await axiosInstance.get('/api/getCurrentUser', {
-      params: { user_id, post_id, creator_id },
+      params: { user_id },
       headers: {
         'Content-Type': 'application/json',
       },
@@ -311,6 +330,23 @@ export const likePostMutation = async (
     return response.data;
   } catch (error) {
     console.error('Error liking post:', error);
+    throw error;
+  }
+};
+
+// ** Wrapper function around getLikedPostsMutation
+export const getLikedPostsMutation = async (user_id: number): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/api/getLikedPosts', {
+      params: { user_id },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error getting liked posts:', error);
     throw error;
   }
 };
@@ -600,12 +636,11 @@ export const getAllUsersMutation = async (limit: number): Promise<any> => {
 
 // Wrapper function around getUserByIDMutation
 export const getUserByIDMutation = async (
-  user_id: string,
-  post_id: string
+  requestedUserId: number
 ): Promise<any> => {
   try {
     const response = await axiosInstance.get('/api/getUserByID', {
-      params: { user_id, post_id },
+      params: { requestedUserId },
       headers: {
         'Content-Type': 'application/json',
       },

@@ -9,6 +9,7 @@ import {
   deleteSavedPost,
   getAllPosts,
   getInfinitePosts,
+  getLikedPosts,
   getPopularPosts,
   getPostById,
   getSavedPosts,
@@ -19,6 +20,7 @@ import {
   updatePost,
 } from '../controllers/PostController';
 import { verifyUser } from '../loaders/auth/userAuth';
+import { Saves } from '../models/index.model';
 
 const router = express.Router();
 
@@ -58,8 +60,30 @@ router.get('/api/getPostById', verifyUser, getPostById);
 // Like a Post
 router.post('/api/likePost', likePost);
 
+// ** get liked posts
+router.get('/api/getLikedPosts', verifyUser, getLikedPosts);
+
 // Save a Post
-router.post('/api/savePost', verifyUser, savePost);
+// router.post('/api/savePost', verifyUser, savePost);
+router.post('/api/savePost', verifyUser, savePost, async (req, res) => {
+  try {
+    const { user_id, post_id } = req.body;
+    await Saves.create({
+      user_id,
+      post_id,
+    });
+    res.status(200).send('Post saved');
+  } catch (error: any) {
+    if (
+      error.name === 'SequelizeUniqueConstraintError' ||
+      error.code === 'ER_DUP_ENTRY'
+    ) {
+      res.status(400).json({ message: 'Post already saved by this user' });
+    }
+    console.error('Error saving post:', error);
+    res.status(500).send('Error saving post');
+  }
+});
 
 // get saved posts
 router.get('/api/getSavedPosts', verifyUser, getSavedPosts);

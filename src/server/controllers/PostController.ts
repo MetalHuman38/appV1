@@ -10,10 +10,11 @@ import {
   Saves,
   Users,
 } from '../models/index.model';
+import { validateAndParseParams } from '../utils/validateAndParseParams';
 import { getImagePreviewUrl } from './imageController';
 
 dotenv.config();
-// Create Post Method - Create a new post
+// ** Create Post Method - Create a new post
 export const createPost = async (
   req: Request,
   res: Response
@@ -80,6 +81,7 @@ export const createPost = async (
   }
 };
 
+// ** Delete File Method - Delete a file
 export const deleteFile = async (
   _req: Request,
   res: Response,
@@ -103,7 +105,7 @@ export const deleteFile = async (
   }
 };
 
-// Update Post Method - Update a post
+// ** Update Post Method - Update a post
 export const updatePost = async (
   req: Request,
   res: Response
@@ -200,7 +202,7 @@ export const updatePost = async (
   }
 };
 
-// Get all posts
+// ** Get all posts
 export const getAllPosts = async (
   _req: Request,
   res: Response
@@ -232,7 +234,7 @@ export const getAllPosts = async (
   }
 };
 
-// Function to like a post by user
+// ** Function to like a post by user
 export const likePost = async (req: Request, res: Response): Promise<void> => {
   try {
     const token = req.cookies.jwt;
@@ -308,7 +310,82 @@ export const likePost = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// Get post by ID
+// ** Function to get all likes by post
+export const getLikedPosts = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const token = req.cookies.jwt;
+    if (!token) {
+      res.status(401).json({ message: 'Unauthorized' });
+      return;
+    }
+
+    jwt.verify(
+      token,
+      jwtENV.JWT_SECRET as string,
+      async (err: any, decodedToken: any) => {
+        if (err) {
+          console.log(err.message);
+          res.status(401).json({ message: 'Unauthorized' });
+          return;
+        }
+
+        const users_id = decodedToken.id;
+        if (!users_id) {
+          res.status(400).json({ message: 'User ID is required' });
+          return;
+        }
+
+        const user_id = parseInt(req.query.user_id as string, 10);
+
+        if (!user_id) {
+          res.status(400).json({ message: 'Post ID is required' });
+          return;
+        }
+
+        const requestedUserId = parseInt(req.query.user_id as string, 10);
+
+        const user = await Users.findByPk(requestedUserId, {
+          include: [
+            {
+              model: Posts,
+              attributes: [
+                'id',
+                'caption',
+                'imageURL',
+                'location',
+                'tags',
+                'created_At',
+                'likes_Count',
+              ],
+            },
+          ],
+        });
+        if (!user) {
+          res.status(404).json({ message: 'User not found' });
+          return;
+        }
+
+        const likes = await Likes.findAll({
+          where: { user_id },
+        });
+
+        const likedPosts = likes.map(like => like.post_id);
+
+        res
+          .status(200)
+          .json({ user, likes, likedPosts, user_id, requestedUserId });
+      }
+    );
+  } catch (error) {
+    console.error('Error getting likes:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+// ** Get post by ID
 export const getPostById = async (
   req: Request,
   res: Response
@@ -345,17 +422,19 @@ export const getPostById = async (
 
         const user = await Users.findByPk(user_id);
         if (!user) {
-          res.status(404).json({ message: 'User not found' });
+          res.status(404).json({ message: 'user not found in user' });
           return;
         }
 
-        const requestedUser = await Users.findByPk(requestedUserId);
-        if (!requestedUser) {
-          res.status(404).json({ message: 'User not found' });
+        // Validate and parse parameters
+        let post_id, creator_id, requestedUserId;
+        try {
+          ({ post_id, creator_id, requestedUserId } =
+            validateAndParseParams(req));
+        } catch (error: any) {
+          res.status(400).json({ message: error.message });
           return;
         }
-
-        const post_id = parseInt(req.query.post_id as string, 10);
 
         if (!post_id) {
           res.status(400).json({ message: 'Post ID is required' });
@@ -369,7 +448,7 @@ export const getPostById = async (
           return;
         }
 
-        res.status(200).json({ post, requestedUser, requestedUserId, post_id });
+        res.status(200).json({ post, creator_id, requestedUserId, post_id });
       }
     );
   } catch (error) {
@@ -378,7 +457,7 @@ export const getPostById = async (
   }
 };
 
-// toggle likes
+// ** toggle likes
 export const deleteLikedPost = async (
   req: Request,
   res: Response
@@ -448,7 +527,7 @@ export const deleteLikedPost = async (
     res.status(500).json({ message: 'Internal server error' });
   }
 };
-// Function to save a post by user
+// ** Function to save a post by user
 export const savePost = async (req: Request, res: Response): Promise<void> => {
   try {
     const token = req.cookies.jwt || req.headers.authorization?.split(' ')[1];
@@ -521,7 +600,7 @@ export const savePost = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// Function to delete a saved post by user
+// ** Get all saved posts by user
 export const deleteSavedPost = async (
   req: Request,
   res: Response
@@ -549,10 +628,12 @@ export const deleteSavedPost = async (
           return;
         }
 
-        const post_id = parseInt(req.body.post_id as string, 10);
-
-        if (!post_id) {
-          res.status(400).json({ message: 'Post ID is required' });
+        // Validate and parse parameters
+        let post_id;
+        try {
+          ({ post_id } = validateAndParseParams(req));
+        } catch (error: any) {
+          res.status(400).json({ message: error.message });
           return;
         }
 
@@ -588,7 +669,7 @@ export const deleteSavedPost = async (
   }
 };
 
-// Get all saved posts by user
+// ** Get all saved posts by user
 export const getSavedPosts = async (
   req: Request,
   res: Response
@@ -634,7 +715,7 @@ export const getSavedPosts = async (
   }
 };
 
-// Delete a post -
+// ** Delete a post
 export const deletePost = async (
   req: Request,
   res: Response
@@ -709,7 +790,7 @@ export const deletePost = async (
   }
 };
 
-// Get all infinite posts
+// ** Get Infinite Posts
 export const getInfinitePosts = async (
   req: Request,
   res: Response
@@ -736,7 +817,7 @@ export const getInfinitePosts = async (
   }
 };
 
-// Search posts
+// ** Search posts
 export const searchPosts = async (
   req: Request,
   res: Response
@@ -778,7 +859,7 @@ export const searchPosts = async (
   }
 };
 
-// Get all posts by user
+// ** Get all posts by user
 export const getUserPosts = async (
   req: Request,
   res: Response
@@ -815,7 +896,7 @@ export const getUserPosts = async (
   }
 };
 
-// Get Popular Posts
+// ** Get Popular Posts
 export const getPopularPosts = async (
   _req: Request,
   res: Response

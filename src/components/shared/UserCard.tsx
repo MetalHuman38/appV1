@@ -13,9 +13,9 @@ const UserCard = ({ user }: UserCardProps) => {
       <img
         src={
           user?.profilePic
-            ? `/${user.profilePic}`
+            ? `/${user?.profilePic}`
             : user?.avatarUrl
-              ? `/${user.avatarUrl}`
+              ? `${user?.avatarUrl}`
               : '/assets/icons/profile-placeholder.svg'
         }
         alt="creator"

@@ -1,13 +1,20 @@
 import { Button } from '@/components/ui/button';
 import { sidebarLinks } from '@/constants';
 import { useUserContext } from '@/lib/context/userContext';
-import { useLogOut } from '@/lib/react-query/QueriesAndMutatins';
+import {
+  useGetUserByID,
+  useLogOut,
+} from '@/lib/react-query/QueriesAndMutatins';
 import { INavLink } from '@/types';
 import { useEffect } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 const LeftSideBar = () => {
   const { user, isLoading, isAuthenticated } = useUserContext();
+  const { data: userDataById } = useGetUserByID({
+    requestedUserId: Number(user?.id),
+  });
+
   const { mutate: signOut, isSuccess } = useLogOut();
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -48,13 +55,16 @@ const LeftSideBar = () => {
         {!user ? (
           <p>Loading user data...</p>
         ) : (
-          <Link to={`/profile/${user.id}`} className="flex gap-3 items-center">
+          <Link
+            to={`/profile/${userDataById?.user?.id}`}
+            className="flex gap-3 items-center"
+          >
             <img
               src={
                 user?.profilePic && user.profilePic !== ''
-                  ? `/${user.profilePic}`
+                  ? `/${userDataById?.user?.profilePic}`
                   : user?.avatarUrl
-                    ? `/${user.avatarUrl}`
+                    ? `${user.avatarUrl}`
                     : '/assets/icons/profile-placeholder.svg'
               }
               alt="profile"

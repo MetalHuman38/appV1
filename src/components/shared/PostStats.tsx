@@ -1,3 +1,4 @@
+import { useUserContext } from '@/lib/context/userContext';
 import { IUpdatePost } from '@/types';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -22,36 +23,35 @@ const PostStats = ({ post }: PostStatsProps) => {
   const { mutate: savePost, isPending: isSavingPost } = useSavePost();
   const { mutate: deletePost, isPending: isDeletingSaved } = useDeletePost();
   const { mutate: deleteLikePost } = useDeleteLikePost();
-  const { currentUser_id } = useParams();
-  const { data: user } = useCurrentUser({
-    user_id: Number(currentUser_id),
-    post_id: Number(post.id),
-    creator_id: Number(post.creator_Id),
+  const { id } = useParams();
+  const { user } = useUserContext();
+  const { data: users } = useCurrentUser({
+    user_id: Number(user?.id) || Number(id),
   });
 
   useEffect(() => {
-    if (user) {
+    if (users) {
       const savedPost = JSON.parse(localStorage.getItem('savedPost') || '{}');
-      if (savedPost[post.id] === user.id) {
+      if (savedPost[post.id] === users.id) {
         setIsSaved(true);
       }
       setIsSaved(
         !!post.id &&
-          user.id === post.creator_Id &&
-          user.Saves?.includes(post.id)
+          users?.id === post.creator_Id &&
+          users?.Saves?.includes(post.id)
       );
     }
-  }, [post.id]);
+  }, [post?.id]);
 
   const handLikePost = async (e: React.MouseEvent) => {
     e.stopPropagation();
     try {
       if (likesCount > 0) {
         setLikesCount(likesCount - 1);
-        deleteLikePost({ post_id: post.id, user_id: user?.id });
+        deleteLikePost({ post_id: post.id, user_id: users?.id });
       } else {
         setLikesCount(likesCount + 1);
-        likePost({ post_id: post.id, likes_Count: user?.id });
+        likePost({ post_id: post.id, likes_Count: users?.id });
       }
     } catch (error) {
       console.error('Error liking post:', error);
@@ -67,16 +67,16 @@ const PostStats = ({ post }: PostStatsProps) => {
     e.stopPropagation();
     if (isSaved) {
       setIsSaved(false);
-      deletePost({ post_id: post.id, user_id: user.id });
+      deletePost({ post_id: post.id, user_id: users.id });
       sessionStorage.setItem(
         'savedPost',
         JSON.stringify({
           ...JSON.parse(sessionStorage.getItem('savedPost') || '{}'),
-          [post.id]: user.id,
+          [post.id]: users.id,
         })
       );
     } else {
-      savePost({ post_id: post.id, user_id: user?.id });
+      savePost({ post_id: post.id, user_id: users?.id });
       setIsSaved(true);
     }
   };

@@ -8,11 +8,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { z } from 'zod';
-// import FileUpLoader from '@/components/shared/FileUpLoader';
 import { useUserContext } from '@/lib/context/userContext';
 import {
   useCreatePost,
@@ -20,7 +15,11 @@ import {
 } from '@/lib/react-query/QueriesAndMutatins';
 import { PostValidation } from '@/lib/validation';
 import { IUpdatePost } from '@/types';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { z } from 'zod';
 import ImageUpload from '../shared/ImageUpload';
 import { useToast } from '../ui/use-toast';
 

@@ -49,13 +49,18 @@ class Users extends Model<UserAttributes, UserCreationAttributes> {
   }
 
   static async getAllUsers(
-    limit: number,
+    limit: number | undefined,
     attributes: string[]
   ): Promise<Users[]> {
     return await this.findAll({
       limit,
       attributes,
     });
+  }
+
+  // Static method to get user profile when visiting a user's profile
+  static async getUserProfile(user_id: number): Promise<Users | null> {
+    return await this.findOne({ where: { id: user_id } });
   }
 
   // declare static methods to update a user by ID
@@ -113,7 +118,8 @@ Users.init(
       },
     },
     hashedpassword: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     status: {
       type: DataTypes.STRING,

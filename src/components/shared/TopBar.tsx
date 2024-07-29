@@ -1,3 +1,4 @@
+import { Loader } from '@/components/shared';
 import { Button } from '@/components/ui/button';
 import { useUserContext } from '@/lib/context/userContext';
 import { useLogOut } from '@/lib/react-query/QueriesAndMutatins';
@@ -6,6 +7,9 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const TopBar = () => {
   const { user, isLoading } = useUserContext();
+  const isCurrentUser = user === user;
+  console.log('is current user data?:', isCurrentUser);
+  console.log('user data:', user?.id);
   const { mutate: signOut, isSuccess } = useLogOut();
   const navigate = useNavigate();
 
@@ -16,8 +20,8 @@ const TopBar = () => {
     }
   }, [isSuccess, navigate]);
 
-  if (isLoading) {
-    return <p>Loading user data...</p>;
+  if (!user || isLoading) {
+    return <Loader />;
   }
 
   return (
@@ -45,9 +49,9 @@ const TopBar = () => {
               <img
                 src={
                   user?.profilePic
-                    ? `/${user.profilePic}`
+                    ? `/${user?.profilePic}`
                     : user?.avatarUrl
-                      ? `/${user.avatarUrl}`
+                      ? `${user?.avatarUrl}`
                       : '/assets/icons/profile-placeholder.svg'
                 }
                 alt="profile"
