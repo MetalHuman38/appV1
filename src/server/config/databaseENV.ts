@@ -19,6 +19,9 @@ const dataSchemaENV = load({
   DB_SSL_CA: String,
   DB_SSL_KEY: String,
   DB_SSL_CERT: String,
+  REJECT_UNAUTHORIZED: Boolean,
+  CIPHERS: String,
+  MIN_VERSION: String,
   DB_CONNECTION_ATTRIBUTES: String,
   DB_CONNECTION_TIMEOUT: Number,
 });
@@ -40,6 +43,9 @@ const {
   DB_SSL_CA,
   DB_SSL_KEY,
   DB_SSL_CERT,
+  REJECT_UNAUTHORIZED,
+  CIPHERS,
+  MIN_VERSION,
   DB_CONNECTION_ATTRIBUTES,
   DB_CONNECTION_TIMEOUT,
 } = dataSchemaENV;
@@ -69,6 +75,9 @@ export const databaseENV = {
   DB_SSL_CA,
   DB_SSL_KEY,
   DB_SSL_CERT,
+  REJECT_UNAUTHORIZED,
+  CIPHERS,
+  MIN_VERSION,
 };
 
 export default {

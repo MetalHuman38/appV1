@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express from 'express';
 import {
+  fetchUsersForHomeStory,
   getAllUsers,
   getCurrentUser,
   getUserByID,
@@ -42,5 +43,8 @@ router.get('/api/getUserByID', getUserByID);
 
 // Update user by ID
 router.put('/api/updateUser', updateUser);
+
+// ** fetch users for the home page
+router.get('/api/fetchUsers', fetchUsersForHomeStory);
 
 export default router;

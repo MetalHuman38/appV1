@@ -214,15 +214,6 @@ const SignInForm = () => {
               Sign Up
             </Link>
           </p>
-          <p className="text-small-regular text-light-3 text-center mt-2">
-            Are you an admin?
-            <Link
-              to="/admin-login"
-              className="text-light-8 text-small-bold ml-1"
-            >
-              Admin Login
-            </Link>
-          </p>
         </form>
       </div>
     </Form>

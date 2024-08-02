@@ -2,15 +2,14 @@ import { GridPostList, Loader } from '@/components/shared';
 import { useUserContext } from '@/lib/context/userContext';
 import {
   useCurrentUser,
-  useGetAllPosts,
   useGetLikedPosts,
 } from '@/lib/react-query/QueriesAndMutatins';
 import { useParams } from 'react-router-dom';
 
+// ** LikedPosts Component
 const LikedPosts = () => {
   const { id } = useParams();
   const { user } = useUserContext();
-  const { data: post } = useGetAllPosts();
   const { data: currentUser } = useCurrentUser({
     user_id: Number(user?.id) || Number(id),
   });
@@ -22,8 +21,6 @@ const LikedPosts = () => {
     user_id: Number(user?.id) || Number(id),
   });
 
-  console.log('Current User post', post);
-  console.log('Current User likedPosts', likedPosts);
   if (isLoading) {
     return (
       <div className="flex-center w-full h-full">

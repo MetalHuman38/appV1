@@ -15,6 +15,7 @@ import {
   useParams,
 } from 'react-router-dom';
 
+// ** StatBlock Component
 interface StatBlockProps {
   value: string | number;
   label: string;
@@ -27,6 +28,7 @@ const StatBlock = ({ value, label }: StatBlockProps) => (
   </div>
 );
 
+// ** Profile Component
 const Profile = () => {
   const { id } = useParams();
   const { pathname } = useLocation();
@@ -40,8 +42,6 @@ const Profile = () => {
   const { data: currentUser, isLoading: userPending } = useGetUserByID({
     requestedUserId: Number(id),
   });
-
-  console.log('user.post.id', post?.id);
 
   if (userPending) {
     return (
@@ -76,9 +76,6 @@ const Profile = () => {
       </div>
     );
   }
-
-  console.log('user', user);
-  console.log('currentUser', currentUser);
 
   const isCurrentUser = user?.id === currentUser?.id;
   console.log('Current User Profile', isCurrentUser);

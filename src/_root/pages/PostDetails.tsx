@@ -8,6 +8,7 @@ import {
 import { timeAgo } from '@/lib/utils';
 import { Link, useParams } from 'react-router-dom';
 
+// ** PostDetails Component
 const PostDetails = () => {
   const { id } = useParams();
 

@@ -8,8 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const TopBar = () => {
   const { user, isLoading } = useUserContext();
   const isCurrentUser = user === user;
-  console.log('is current user data?:', isCurrentUser);
-  console.log('user data:', user?.id);
+  console.log('is current user?:', isCurrentUser, 'logged in user:', user?.id);
   const { mutate: signOut, isSuccess } = useLogOut();
   const navigate = useNavigate();
 

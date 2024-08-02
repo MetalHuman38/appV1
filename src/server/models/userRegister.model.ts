@@ -4,6 +4,7 @@ import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon';
 import { generateAvatarUrl } from '../utils/avatar';
 import Users from './user.model';
 
+// ** Define the UserRegistration Model **
 interface UserAttributes {
   id: number;
   newUser: string;
@@ -13,9 +14,10 @@ interface UserAttributes {
   createdAt: Date;
 }
 
+// ** Define the UserCreationAttributes **
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
-// Define Instance of Sequelize
+// ** Define Instance of Sequelize
 const sequelize = createSequelizeInstance();
 
 class UserRegistration extends Model<UserAttributes, UserCreationAttributes> {
@@ -26,7 +28,7 @@ class UserRegistration extends Model<UserAttributes, UserCreationAttributes> {
   declare hashedpassword: string;
   declare createdAt: Date;
 
-  // Create a static method to log in user upon successful registration
+  // ** Create a static method to log in user upon successful registration
   static async loginUser(
     email: string,
     password: string
@@ -36,14 +38,14 @@ class UserRegistration extends Model<UserAttributes, UserCreationAttributes> {
     });
   }
 
-  // Create a static method to log out user
+  // ** Create a static method to log out user
   static async logoutUser(email: string): Promise<UserRegistration | null> {
     return await this.findOne({
       where: { email: email },
     });
   }
 
-  // Create a static method to reset the password, compare the hashed password
+  // ** Create a static method to reset the password, compare the hashed password
   static async resetPassword(
     email: string,
     password: string
@@ -54,6 +56,7 @@ class UserRegistration extends Model<UserAttributes, UserCreationAttributes> {
   }
 }
 
+// ** Initialize UserRegistration model **
 UserRegistration.init(
   {
     id: {
@@ -68,10 +71,18 @@ UserRegistration.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [3, 20],
+      },
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+        len: [7, 100],
+      },
     },
     hashedpassword: {
       type: DataTypes.STRING,
@@ -92,7 +103,7 @@ UserRegistration.init(
   }
 );
 
-// Hash the password before saving
+// ** Hash the password before saving
 UserRegistration.beforeCreate(async (user: UserRegistration) => {
   try {
     if (user) {
@@ -109,6 +120,7 @@ UserRegistration.beforeCreate(async (user: UserRegistration) => {
   }
 });
 
+// ** Create a new user record in the Users table
 UserRegistration.afterCreate(async (user: UserRegistration) => {
   try {
     if (user) {
@@ -130,12 +142,12 @@ UserRegistration.afterCreate(async (user: UserRegistration) => {
         email: user.email,
         hashedpassword: user.hashedpassword,
         status: 'unverified',
-        bio: 'I am a new user.',
+        bio: 'Write something interesting about yourself.',
         join: new Date(),
         avatarUrl: avatar,
         imageURL: null,
         profilePic: null,
-        label: 'New User',
+        label: 'I am a new user',
         last_activity: new Date(),
         updated_at: new Date(),
         UserRegistrationID: user.id,
@@ -147,7 +159,7 @@ UserRegistration.afterCreate(async (user: UserRegistration) => {
   }
 });
 
-// Define a custom method to login user with email and password and compare the hashed password
+// ** Define a custom method to login user with email and password and compare the hashed password
 UserRegistration.loginUser = async function (email: string, password: string) {
   try {
     const user = await this.findOne({ where: { email: email } });
@@ -167,7 +179,7 @@ UserRegistration.loginUser = async function (email: string, password: string) {
   }
 };
 
-// Define a custom method to logout user
+// ** Define a custom method to logout user
 UserRegistration.logoutUser = async function (email: string) {
   try {
     return await this.findOne({ where: { email: email } });
@@ -177,6 +189,7 @@ UserRegistration.logoutUser = async function (email: string) {
   }
 };
 
+// ** Sync the UserRegistration model with the database
 await sequelize
   .sync({ force: false })
   .then(() => {

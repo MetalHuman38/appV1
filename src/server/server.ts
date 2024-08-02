@@ -2,6 +2,7 @@ require('dotenv').config();
 import compression from 'compression';
 import cors from 'cors';
 import express from 'express';
+import morgan from 'morgan';
 import { AsyncLocalStorage } from 'node:async_hooks';
 import http from 'node:http'; // Correctly import the 'http' module
 import process from 'node:process';
@@ -22,6 +23,8 @@ async function StartServer() {
   );
 
   (await import('./loaders/index.js')).default({ app });
+
+  app.use(morgan(env.MORGAN));
 
   app.use('/heavy', (_req, res) => {
     const heavy = Array.from({ length: 1e6 }, () => Math.random());

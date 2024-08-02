@@ -2,7 +2,7 @@ import tls from 'node:tls';
 import { databaseENV } from '../config/databaseENV';
 
 const options = {
-  // Necessary only if the server's cert isn't for "localhost".
+  // ** Necessary only if the server's cert isn't for "localhost".
   checkServerIdentity: () => {
     return undefined;
   },

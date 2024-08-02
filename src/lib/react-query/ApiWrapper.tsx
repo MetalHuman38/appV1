@@ -351,7 +351,7 @@ export const getLikedPostsMutation = async (user_id: number): Promise<any> => {
   }
 };
 
-// Wrapper function around savePostMutation
+// ** Wrapper function around savePostMutation
 export const savePostMutation = async (
   post_id: number,
   user_id: number
@@ -389,7 +389,7 @@ export const savePostMutation = async (
   }
 };
 
-// Wrapper function around deletePostMutation
+// ** Wrapper function around deletePostMutation
 export const deletePostMutation = async (
   post_id: number,
   user_id: number
@@ -415,7 +415,7 @@ export const deletePostMutation = async (
   }
 };
 
-// Wrapper function around deleteSavedPostMutation
+// ** Wrapper function around deleteSavedPostMutation
 export const deleteSavedPostMutation = async (
   post_id: number,
   user_id: number
@@ -447,7 +447,7 @@ export const deleteSavedPostMutation = async (
   }
 };
 
-// Wrapper function around deleteLikePostMutation
+// ** Wrapper function around deleteLikePostMutation
 export const deleteLikedPostMutation = async (
   post_id: number,
   user_id: number
@@ -467,7 +467,7 @@ export const deleteLikedPostMutation = async (
   }
 };
 
-// Wrapper function around updatePostMutation
+// ** Wrapper function around updatePostMutation
 export const getPostByIdMutation = async (
   post_id: string,
   user_id: string
@@ -491,6 +491,7 @@ export const getPostByIdMutation = async (
   }
 };
 
+// ** Wrapper function around updatePostMutation
 export const updatePostMutation = async (
   post_id: number,
   post: IUpdatePost
@@ -510,7 +511,7 @@ export const updatePostMutation = async (
   }
 };
 
-// Wrapper function around deletePostMutation
+// ** Wrapper function around deletePostMutation
 export const deletePostByIdMutation = async (post_id: number): Promise<any> => {
   try {
     const jwt = sessionStorage.getItem('jwt');
@@ -540,7 +541,7 @@ export const deletePostByIdMutation = async (post_id: number): Promise<any> => {
   }
 };
 
-// Wrapper function around infinite Posts
+// ** Wrapper function around infinite Posts
 export const getInfinitePostsMutation = async (
   page: number,
   limit: number
@@ -565,7 +566,7 @@ export const getInfinitePostsMutation = async (
   }
 };
 
-// Wrapper function around searchPostsMutation
+// ** Wrapper function around searchPostsMutation
 export const searchPostsMutation = async (
   searchValue: string
 ): Promise<any> => {
@@ -589,7 +590,7 @@ export const searchPostsMutation = async (
   }
 };
 
-// Wrapper function around getUserPostsMutation
+// ** Wrapper function around getUserPostsMutation
 export const getUserPostsMutation = async (user_id: number): Promise<any> => {
   try {
     const response = await axiosInstance.get('/api/getUserPosts', {
@@ -606,7 +607,7 @@ export const getUserPostsMutation = async (user_id: number): Promise<any> => {
   }
 };
 
-// Wrapper function around getPopularPostsMutation
+// ** Wrapper function around getPopularPostsMutation
 export const getPopularPostsMutation = async (): Promise<any> => {
   try {
     const response = await axiosInstance.get('/api/getPopularPosts');
@@ -617,7 +618,7 @@ export const getPopularPostsMutation = async (): Promise<any> => {
   }
 };
 
-// Wrapper function around getAllUsersMutation
+// ** Wrapper function around getAllUsersMutation
 export const getAllUsersMutation = async (limit: number): Promise<any> => {
   try {
     const response = await axiosInstance.get('/api/getAllUsers', {
@@ -634,7 +635,7 @@ export const getAllUsersMutation = async (limit: number): Promise<any> => {
   }
 };
 
-// Wrapper function around getUserByIDMutation
+// ** Wrapper function around getUserByIDMutation
 export const getUserByIDMutation = async (
   requestedUserId: number
 ): Promise<any> => {
@@ -653,7 +654,7 @@ export const getUserByIDMutation = async (
   }
 };
 
-// Wrapper function around updateUserMutation
+// ** Wrapper function around updateUserMutation
 export const updateUserMutation = async (
   user_id: number,
   user: IUpdateUser
@@ -669,6 +670,25 @@ export const updateUserMutation = async (
     return response.data;
   } catch (error) {
     console.error('Error updating user:', error);
+    throw error;
+  }
+};
+// ** Fetch users for home story
+export const fetchUsersForHomeStoryMutation = async (
+  limit: number,
+  offset: number
+): Promise<any> => {
+  try {
+    const response = await axiosInstance.get('/api/fetchUsers', {
+      params: { limit, offset },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching users for home story:', error);
     throw error;
   }
 };

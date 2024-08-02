@@ -5,6 +5,7 @@ const env = load({
   PORT: Number,
   NODE_ENV: ['production' as const, 'development' as const],
   MORGAN: ['combined' as const, 'dev' as const, 'tiny' as const],
+  LOGGER: ['winston' as const, 'pino' as const],
   APP_NAME: String,
   BASE_URL: String,
   BASE64_ENCODED: Buffer,
@@ -40,6 +41,7 @@ const {
   TRACING,
   PORT,
   MORGAN,
+  LOGGER,
   NODE_ENV,
   BASE_URL,
   BASE64_ENCODED,
@@ -109,6 +111,7 @@ export default {
   errorTimeout: ERROR_TIMEOUT,
   logs: {
     morgan: MORGAN,
+    logger: LOGGER,
   },
 };
 

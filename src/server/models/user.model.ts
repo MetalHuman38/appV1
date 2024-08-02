@@ -1,6 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import { createSequelizeInstance } from '../loaders/dataLoader/sequilizeCon';
 
+// ** Define the User Model Interface **
 interface UserAttributes {
   id: number;
   firstName: string | null;
@@ -22,9 +23,10 @@ interface UserAttributes {
 
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
-// Define Instance of Sequelize
+// ** Define Instance of Sequelize
 const sequelize = createSequelizeInstance();
 
+// ** Define the User Model **
 class Users extends Model<UserAttributes, UserCreationAttributes> {
   declare id: number;
   declare firstName: string | null;
@@ -43,11 +45,12 @@ class Users extends Model<UserAttributes, UserCreationAttributes> {
   declare updated_at: Date | undefined;
   declare UserRegistrationID: number | null;
 
-  // declare static methods to get user by ID
+  // ** declare static methods to get user by ID
   static async getUserByID(user_id: number): Promise<Users | null> {
     return await this.findOne({ where: { id: user_id } });
   }
 
+  // ** Static method to get user by email
   static async getAllUsers(
     limit: number | undefined,
     attributes: string[]
@@ -58,12 +61,12 @@ class Users extends Model<UserAttributes, UserCreationAttributes> {
     });
   }
 
-  // Static method to get user profile when visiting a user's profile
+  // ** Static method to get user profile when visiting a user's profile
   static async getUserProfile(user_id: number): Promise<Users | null> {
     return await this.findOne({ where: { id: user_id } });
   }
 
-  // declare static methods to update a user by ID
+  // ** declare static methods to update a user by ID
   static async updateUser(
     id: number,
     attributes: UserAttributes
@@ -76,7 +79,7 @@ class Users extends Model<UserAttributes, UserCreationAttributes> {
   }
 }
 
-// Sync the model with the database
+// ** Initialize User model **
 Users.init(
   {
     id: {
@@ -172,7 +175,7 @@ Users.init(
   }
 );
 
-// Sync User model with the database
+// ** Sync User model with the database
 await sequelize
   .sync({ force: false })
   .then(() => {

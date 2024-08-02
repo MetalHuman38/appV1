@@ -13,6 +13,7 @@ import {
   deleteLikedPostMutation,
   deletePostByIdMutation,
   deletePostMutation,
+  fetchUsersForHomeStoryMutation,
   getAllPostsMutation,
   getAllUsersMutation,
   getCurrentUserMutation,
@@ -446,5 +447,19 @@ export const useUpdateUser = () => {
         queryKey: [Query_Keys.GET_PROFILE_PIC_PREVIEW],
       });
     },
+  });
+};
+
+// ** Wrapper function around fetchUsersForHomeStory **
+export const useFetchUsersForHomeStory = ({
+  limit,
+  offset,
+}: {
+  limit: number;
+  offset: number;
+}) => {
+  return useQuery({
+    queryKey: [Query_Keys.FETCH_USERS_FOR_HOME_STORY],
+    queryFn: () => fetchUsersForHomeStoryMutation(limit, offset),
   });
 };

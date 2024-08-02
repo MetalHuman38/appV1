@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
+import { Op } from 'sequelize';
 import { jwtENV } from '../config/jwtENV';
 import { Posts, ProfilePictures, Users } from '../models/index.model';
 import { validateAndParseParams } from '../utils/validateAndParseParams';
@@ -415,5 +416,77 @@ export const getCurrentUser = async (req: Request, res: Response) => {
   } catch (error: any) {
     console.error('Error in getCurrentUser:', error.message);
     res.status(400).json({ message: error.message });
+  }
+};
+
+// ** Fetch users for home story view with limit and offset
+export const fetchUsersForHomeStory = async (req: Request, res: Response) => {
+  try {
+    const token = req.cookies.jwt;
+
+    if (!token) {
+      res.status(401).json({ message: 'Unauthorized' });
+      return;
+    }
+
+    jwt.verify(
+      token,
+      jwtENV.JWT_SECRET,
+      async (err: any, decodedToken: any) => {
+        if (err) {
+          console.log(err.message);
+          res.status(401).json({ message: 'Unauthorized' });
+          return;
+        }
+
+        const users_id = decodedToken.id;
+        if (!users_id) {
+          res.status(400).json({ message: 'User ID is required' });
+          return;
+        }
+
+        const limit = parseInt(req.query.limit as string, 10) || 10; // Default limit to 10
+        const offset = parseInt(req.query.offset as string, 10) || 0; // Default offset to 0
+
+        try {
+          const user = await Users.findAll({
+            where: {
+              id: {
+                [Op.ne]: users_id,
+              },
+            },
+            limit: limit,
+            offset: offset,
+          });
+
+          if (!user) {
+            res.status(404).json({ message: 'Users not found' });
+            return;
+          }
+
+          if (!user || user.length === 0) {
+            res.status(404).json({ message: 'Users not found' });
+            return;
+          }
+
+          const usersObject = user.reduce((acc: any, user: any) => {
+            acc[user.id] = user;
+            return acc;
+          }, {});
+
+          res.status(200).json({
+            user: usersObject,
+            limit: limit,
+            offset: offset,
+          });
+        } catch (dbError) {
+          console.error('Error getting all users:', dbError);
+          res.status(500).json({ message: 'Internal server error!' });
+        }
+      }
+    );
+  } catch (error) {
+    console.error('Error getting all users:', error);
+    res.status(500).json({ message: 'Internal server error!' });
   }
 };

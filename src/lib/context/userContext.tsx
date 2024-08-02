@@ -1,15 +1,15 @@
-import { IUser } from '@/types';
 import { useCheckAuthUser } from '@/lib/react-query/QueriesAndMutatins';
-import { useNavigate } from 'react-router-dom';
+import { IUser } from '@/types';
 import {
   createContext,
   Dispatch,
+  ReactNode,
   SetStateAction,
   useContext,
-  useState,
-  ReactNode,
   useEffect,
+  useState,
 } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export type userContexType = {
   user: IUser | null;
@@ -55,7 +55,6 @@ export default function UserProvider({ children }: UserProviderProps) {
       if (currentUser) {
         setIsAuthenticated(true);
         setUser(currentUser);
-        console.log(`User is authenticated: ${isAuthenticated}`);
         return true;
       } else {
         setIsAuthenticated(false);
@@ -74,8 +73,10 @@ export default function UserProvider({ children }: UserProviderProps) {
       try {
         const isLoggedIn = await checkAuthUser();
         if (!isLoggedIn) {
-          console.log('User is not authenticated');
+          console.log('If user not authenticated, return:', ` ${isLoggedIn}`);
           navigate('/sign-in');
+        } else {
+          console.log('if user is authenticated, return:', ` ${isLoggedIn}`);
         }
       } catch (error: any) {
         console.error('Error fetching user data:', error);

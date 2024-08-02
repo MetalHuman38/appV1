@@ -157,6 +157,68 @@
     @apply hidden xl:flex flex-col w-72 2xl:w-465 px-6 py-10 gap-10  overflow-scroll custom-scrollbar;
   }
 
+  .custom-top {
+    top: calc(50% - 96px/2 - 0.5px);
+  }
+
+  /** Story css configure **/
+
+  .arrow-button {
+    @apply flex flex-row items-center p-0 justify-center w-[26px] h-[26px] rounded-3xl gap-2.5 shadow-md bg-dark-3 cursor-pointer;
+  }
+      
+  .arrow-icon {
+    @apply w-[14px] h-[14px] top-[1.91px] left-[9.76px] rotate-90;
+  }
+
+  .story-card {
+    @apply flex flex-col justify-center items-center py-[17px] px-0 gap-2.5 w-[600px] h-[95px];
+  }
+
+  .inner-story-card {
+    @apply w-[600px] h-[95px];
+  }
+
+  .story-items {
+    @apply flex flex-row items-start py-[1px] pb-0 left-0 right-0 h-[96px] gap-[7px];
+  }
+
+  .story-item {
+    @apply flex flex-col justify-between items-center py-0 px-[3px] gap-1.5 isolate w-[86px] h-[94px] ;
+  }
+
+  .user-profile {
+    @apply flex flex-row items-start pb-0 py-[4px] gap-2.5 m-auto w-[80px] h-[72px] rounded-full;
+  }
+
+  /* My Story */
+  .my-story-text {
+      @apply h-[16px] left-[11px] right-[10px] top-0 text-light-3 text-center line-clamp-1;
+    }
+
+  /* Story + icon */
+  .story-icon {
+    @apply absolute w-[52px] h-[52px] left-[30.5px] top-[30.5px];
+  }
+
+  .story-cross-icon {
+    @apply absolute items-center justify-center left-[37.5%] right-[37.5%] top-[37.5%] bottom-[37.5%] rounded-[1.5px];
+  }
+
+  .story-cover-icon {
+    @apply absolute w-[36.13px] h-[36.13px] left-[27.16%] right-[28.16%] top-[27.16%] bottom-[28.16%] rounded-sm;
+  }
+
+  .story-add-square {
+    @apply w-[16px] h-[16px] left-[65.5px] top-[54] rounded-[1.5px];
+  }
+
+  .story-button {
+    @apply flex flex-row items-start py-11 pb-0 gap-2.5 w-[48px] h-[48px] right-0 top-[calc(50%-48px/2-0.5px)];
+  }
+  
+  /** Story css configure ending **/
+
   /* Post Details */
   .post_details-container {
     @apply flex flex-col flex-1 gap-10 overflow-scroll py-10 px-5 md:p-14 custom-scrollbar items-center;
@@ -250,9 +312,14 @@
     @apply sticky top-0 z-50 md:hidden bg-dark-2 w-full;
   }
 
-  /* User card */
+  /** User card **/
   .user-card {
     @apply flex-center flex-col gap-4 border border-dark-4 rounded-[20px] px-5 py-8;
+  }
+
+  /** User Story **/
+  .user-story {
+    @apply flex flex-col rounded-[20px] gap-4;
   }
 }
 
@@ -267,6 +334,7 @@
     @apply text-red !important;
   }
 
+  
   .shad-input {
     @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
   }

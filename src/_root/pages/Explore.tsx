@@ -1,3 +1,4 @@
+import { GridPostList, Loader, SearchResults } from '@/components/shared';
 import { Input } from '@/components/ui/input';
 import { useDebounce } from '@/Hooks/useDebounce';
 import {
@@ -5,10 +6,10 @@ import {
   useInfinitePosts,
   useSearchPosts,
 } from '@/lib/react-query/QueriesAndMutatins';
-import { GridPostList, Loader, SearchResults } from '@/components/shared';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
+// ** Explore Component
 const Explore = () => {
   const { data: posts, isLoading } = useGetAllPosts();
   const { ref } = useInView();
@@ -71,7 +72,9 @@ const Explore = () => {
   const showSearchResults = searchValue !== '';
   const showPosts =
     !showSearchResults &&
-    posts.pages?.every((item: any) => item.documents.length === 0);
+    posts?.pages?.every((item: any) => item.documents.length === 0);
+
+  console.log('posts', showPosts);
 
   return (
     <div className="explore-container">
@@ -95,7 +98,7 @@ const Explore = () => {
         </div>
       </div>
       <div className="flex-between w-full max-w-5xl mt-16 mb-7">
-        <h2 className="body-bold md:h3-bold">Trending Posts</h2>
+        <h2 className="body-bold md:h3-bold">Popular Today</h2>
         <div className="flex-center gap-3 bg-dark-3 rounded-xl px-4 py-2 cursor-pointer">
           <p className="small-medium md:base-medium text-light-2">All</p>
           <img
@@ -115,6 +118,7 @@ const Explore = () => {
         ) : showPosts ? (
           <p className="text-light-4 mt-10 text-center w-full">End Of Post</p>
         ) : (
+          // ** GridPostList Component: Note can still be worked on
           <GridPostList posts={posts} />
         )}
       </div>

@@ -1,13 +1,10 @@
 import { Loader, UserCard } from '@/components/shared';
 import { useToast } from '@/components/ui/use-toast';
-import {
-  useGetAllPosts,
-  useGetAllUsers,
-} from '@/lib/react-query/QueriesAndMutatins';
+import { useGetAllUsers } from '@/lib/react-query/QueriesAndMutatins';
 
+// ** AllUsers Component
 const AllUsers = () => {
   const { toast } = useToast();
-  const { data: post } = useGetAllPosts();
   const {
     data: creatorData,
     isLoading,
@@ -15,8 +12,6 @@ const AllUsers = () => {
   } = useGetAllUsers({
     limit: 10,
   });
-
-  console.log('post.creator_id:', post?.creator_Id);
 
   if (isErrorCreators) {
     toast({ title: 'Error! failed to fetch creators!' });
@@ -32,8 +27,6 @@ const AllUsers = () => {
   }
 
   const creators = creatorData?.user ? Object.values(creatorData.user) : [];
-
-  console.log('userData:', creators);
 
   return (
     <div className="common-container">

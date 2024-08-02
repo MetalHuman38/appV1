@@ -1,9 +1,9 @@
+import { AsyncLocalStorage } from 'async_hooks';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import type { Express } from 'express';
 import express from 'express';
 import helmet from 'helmet';
-import morgan from 'morgan';
 import path from 'path';
 import { env } from '../config/index';
 import { router } from '../routes/router';
@@ -27,6 +27,11 @@ export default async function ({ app }: { app: Express }) {
       return res.sendStatus(204);
     }
     return next();
+  });
+
+  app.use((_req, _res, next) => {
+    const store = new AsyncLocalStorage();
+    store.run(new Map(), next);
   });
 
   // ** Body Parsers
@@ -60,8 +65,6 @@ export default async function ({ app }: { app: Express }) {
       contentSecurityPolicy: false,
     })
   );
-
-  app.use(morgan(env.MORGAN));
 
   app.use(limiter);
 

@@ -23,6 +23,9 @@ interface DBConfig {
   };
   port?: number;
   ssl?: boolean;
+  rejectUnauthorized: true; // Ensure server certificate is verified
+  ciphers: string; // Use strong ciphers
+  minVersion: string; // Enforce a minimum TLS version
   connectionTimeout?: number;
   dialectOptions?: {
     ssl?: {
@@ -64,6 +67,9 @@ const dbConfig: DBConfig = {
         : '',
     },
   },
+  rejectUnauthorized: databaseENV.REJECT_UNAUTHORIZED || true,
+  ciphers: databaseENV.CIPHERS || 'ECDHE-R', // Use strong ciphers
+  minVersion: databaseENV.MIN_VERSION || 'TLSv1.2', // Enforce a minimum TLS version
 };
 
 // ** Create a new Sequelize instance
